@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smona.app.xiniu.ui.common.pullup.LoadingImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/animator_refresh_frame"
+    android:visibility="gone" />

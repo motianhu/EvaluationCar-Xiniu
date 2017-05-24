@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/public_bg">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <com.smona.app.xiniu.ui.common.base.BaseScrollView
+        android:id="@+id/baseScrollView"
+        android:layout_width="fill_parent"
+        android:layout_below="@+id/header"
+        android:layout_height="fill_parent"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/reason"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/reason_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/reason_webview"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <WebView
+                android:id="@+id/reason_webview"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/class_registration_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_registration_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_registration"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_registration"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_driving_license_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_driving_license_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_driving_license"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_driving_license"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_vehicle_nameplate_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_vehicle_nameplate_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_vehicle_nameplate"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_vehicle_nameplate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_car_body_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_car_body_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_car_body"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_car_body"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_car_frame_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_car_frame_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_car_frame"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_car_frame"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_vehicle_interior_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_vehicle_interior_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_vehicle_interior"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_vehicle_interior"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_difference_supplement_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_difference_supplement_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_difference_supplement"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_difference_supplement"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+            <LinearLayout
+                android:id="@+id/class_original_car_insurancet_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_space_vertical"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="@dimen/view_space_vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/evaluation_title_image_size"
+                    android:layout_height="@dimen/evaluation_title_image_size"
+                    android:src="@drawable/icon_circle" />
+
+                <TextView
+                    android:id="@+id/class_original_car_insurancet_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
+                    android:text="@string/class_original_car_insurancet"
+                    android:textColor="@color/black_text"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <com.smona.app.xiniu.ui.common.base.LimitGridView
+                android:id="@+id/class_original_car_insurancet"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:horizontalSpacing="@dimen/activity_horizontal_margin"
+                android:listSelector="@color/transparent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:verticalSpacing="10dip" />
+
+
+            <View
+                android:id="@+id/v_input"
+                android:layout_width="wrap_content"
+                android:layout_height="0.0dip" />
+
+            <include
+                android:id="@+id/include_input"
+                layout="@layout/evaluation_editor_item" />
+        </LinearLayout>
+    </com.smona.app.xiniu.ui.common.base.BaseScrollView>
+
+    <include
+        android:id="@+id/include_indicator"
+        layout="@layout/layou_instruction_edit" />
+
+    <View
+        android:id="@+id/line1"
+        style="@style/public_grey_line"
+        android:layout_above="@+id/lin_msg" />
+
+    <LinearLayout
+        android:id="@+id/lin_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_round_btn_white"
+            android:text="保存"
+            android:textColor="@color/red_theme"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_red"
+            android:text="立即提交"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+</RelativeLayout>

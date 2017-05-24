@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/drawerCarBrand"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/setting_bg"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ExpandableListView
+                    android:id="@+id/carBrandList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:cacheColorHint="#00000000" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:background="@color/setting_bg"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true">
+
+                    <ListView
+                        android:id="@+id/indexLetter"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:divider="@null" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/right_drawer"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/setting_bg"
+            android:orientation="vertical">
+
+            <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/drawerCarSet"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ExpandableListView
+                        android:id="@+id/carSetList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cacheColorHint="#00000000" />
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/right_cartype_drawer"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/setting_bg"
+                    android:orientation="vertical"
+                    android:layout_gravity="end">
+
+                    <ExpandableListView
+                        android:id="@+id/carTypeList"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cacheColorHint="#00000000" />
+                </LinearLayout>
+
+
+            </android.support.v4.widget.DrawerLayout>
+
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

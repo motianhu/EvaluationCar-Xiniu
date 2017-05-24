@@ -1,0 +1,163 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="LoginTheme" parent="AppTheme" >
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="loginingDlg" parent="@android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <!-- 设置窗口浮动 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 设置无边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 设置无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 设置背景颜色 透明 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 是否模糊 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+    </style>
+
+    <style name="tab_menu_item">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:background">@drawable/tab_menu_bg</item>
+        <item name="android:textColor">@drawable/tab_menu_text</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="setting_item_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/setting_item_height</item>
+        <item name="android:background">@color/setting_item_bg</item>
+        <item name="android:paddingLeft">@dimen/setting_item_gap</item>
+        <item name="android:paddingRight">@dimen/setting_item_gap</item>
+    </style>
+
+    <style name="setting_item_logo">
+        <item name="android:layout_width">@dimen/setting_item_logo_width</item>
+        <item name="android:layout_height">@dimen/setting_item_logo_height</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="setting_item_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/text_topbar</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="setting_item_arrow_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:src">@drawable/right_arrow</item>
+    </style>
+
+
+    <style name="public_grey_line">
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/divider_height</item>
+    </style>
+
+    <style name="evalutionlayer_per_count_text">
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Permission Style -->
+    <style name="permission_tips">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="permission_tips_title_text" parent="permission_tips">
+        <item name="android:layout_marginTop">@dimen/permission_tips_title_margin_top</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">@dimen/permission_tips_title_text_size</item>
+        <item name="android:textColor">@color/permission_tips_title_text_color</item>
+    </style>
+
+    <style name="permission_tips_description_text" parent="permission_tips">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/permission_tips_to_title_margin_top</item>
+        <item name="android:textSize">@dimen/permission_tips_text_size</item>
+        <item name="android:textColor">@color/permission_tips_title_text_color</item>
+    </style>
+
+    <style name="permission_tips_way_text" parent="permission_tips">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/permission_tips_way_margin_top</item>
+        <item name="android:textSize">@dimen/permission_tips_text_size</item>
+        <item name="android:textColor">@color/permission_tips_content_text_color</item>
+    </style>
+
+    <style name="permission_tips_button_text" parent="permission_tips">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/permission_tips_way_margin_top</item>
+        <item name="android:textSize">@dimen/permission_tips_text_size</item>
+        <item name="android:textColor">@color/permission_tips_content_text_color</item>
+    </style>
+
+    <style name="permission_tiops_deny" parent="permission_tips">
+        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
+        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
+        <item name="android:layout_marginTop">@dimen/permission_tips_margin_top</item>
+        <item name="android:textSize">@dimen/permission_tips_text_size</item>
+        <item name="android:textColor">@color/permission_tips_content_text_color</item>
+    </style>
+
+    <style name="permission_deny_image_logo">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">@dimen/permission_tips_image_logo_width</item>
+        <item name="android:layout_height">@dimen/permission_tips_image_logo_height</item>
+        <item name="android:layout_marginTop">@dimen/permission_tips_deny_image_margin_top</item>
+    </style>
+
+    <style name="Theme.DrawerLayout" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

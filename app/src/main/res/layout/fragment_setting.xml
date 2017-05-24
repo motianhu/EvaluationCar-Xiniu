@@ -1,0 +1,157 @@
+<com.smona.app.xiniu.ui.setting.MineLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/mine_top_layer"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@color/setting_image">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/version"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/mine_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerInside"
+            android:background="@drawable/circle_shape"
+            android:src="@drawable/mine_logo" />
+
+        <TextView
+            android:id="@+id/mine_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/mine_image"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="@color/text_topbar"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_info"
+        style="@style/setting_item_style"
+        android:layout_marginTop="@dimen/setting_item_gap">
+
+        <View
+            android:id="@+id/info_img"
+            style="@style/setting_item_logo"
+            android:background="@drawable/mine_info" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_toRightOf="@+id/info_img"
+
+            android:text="@string/setting_mine_info" />
+
+        <ImageView style="@style/setting_item_arrow_style" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_update"
+        style="@style/setting_item_style"
+        android:layout_marginTop="@dimen/setting_item_gap">
+
+        <View
+            android:id="@+id/update_img"
+            style="@style/setting_item_logo"
+            android:background="@drawable/mine_upgrade" />
+
+        <TextView
+
+            style="@style/setting_item_text"
+
+            android:layout_toEndOf="@+id/update_img"
+            android:text="@string/setting_mine_update" />
+
+        <ImageView style="@style/setting_item_arrow_style" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/setting_bg" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_phone"
+        style="@style/setting_item_style">
+
+        <View
+            android:id="@+id/phone_img"
+            style="@style/setting_item_logo"
+            android:background="@drawable/mine_call" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_toRightOf="@+id/phone_img"
+
+            android:text="@string/setting_mine_phone" />
+
+        <ImageView style="@style/setting_item_arrow_style" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/setting_bg" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_about"
+        style="@style/setting_item_style">
+
+
+        <View
+            android:id="@+id/about_img"
+            style="@style/setting_item_logo"
+            android:background="@drawable/mine_setting" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_toRightOf="@+id/about_img"
+            android:text="@string/setting_mine_about" />
+
+        <ImageView style="@style/setting_item_arrow_style" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/setting_logout"
+        style="@style/setting_item_style"
+        android:layout_marginTop="@dimen/setting_item_gap">
+
+        <View
+            android:id="@+id/logout_img"
+            style="@style/setting_item_logo"
+            android:background="@drawable/mine_logout" />
+
+        <TextView
+            style="@style/setting_item_text"
+            android:layout_toRightOf="@+id/logout_img"
+            android:text="@string/setting_mine_logout" />
+
+        <ImageView style="@style/setting_item_arrow_style" />
+
+    </RelativeLayout>
+
+
+</com.smona.app.xiniu.ui.setting.MineLayer>

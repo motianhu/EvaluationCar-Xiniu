@@ -1,0 +1,52 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioGroup
+            android:id="@+id/rg_home"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/bg_white"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_list"
+                style="@style/tab_menu_item"
+                android:drawableTop="@drawable/tab_menu_list"
+                android:text="@string/home_fragment_list" />
+
+            <RadioButton
+                android:id="@+id/rb_evaluation"
+                style="@style/tab_menu_item"
+                android:drawableTop="@drawable/tab_menu_evaluation"
+                android:text="@string/home_fragment_evaluation" />
+
+            <RadioButton
+                android:id="@+id/rb_setting"
+                style="@style/tab_menu_item"
+                android:drawableTop="@drawable/tab_menu_mine"
+                android:text="@string/home_fragment_setting" />
+
+        </RadioGroup>
+
+        <View
+            android:id="@+id/div_tab_bar"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@id/rg_home"
+            android:background="@color/div_white" />
+
+        <com.smona.app.xiniu.ui.common.NoScrollViewPager
+            android:id="@+id/vp_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/div_tab_bar" />
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

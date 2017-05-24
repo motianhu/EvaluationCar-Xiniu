@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/welcome_bg">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="132dp"
+        android:layout_height="132dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/icon_avatar_login" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/permission_tips_title_text"
+        android:layout_below="@+id/logo"
+        android:text="@string/permission_settings" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/permission_tips_description_text"
+        android:layout_below="@+id/title"
+        android:text="@string/permission_tips_description" />
+
+    <!-- One way -->
+
+    <Button
+        android:id="@+id/permission_reset"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/description"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/login_button_style"
+        android:text="@string/permission_reset"
+        android:textColor="@color/bg_white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/zhixing_desc" />
+</RelativeLayout>
