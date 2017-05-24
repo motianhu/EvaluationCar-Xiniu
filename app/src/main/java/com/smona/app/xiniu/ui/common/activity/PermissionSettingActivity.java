@@ -17,36 +17,25 @@ public class PermissionSettingActivity extends BaseActivity implements
     private static final String TAG = PermissionSettingActivity.class.getSimpleName();
     private Step mStep = Step.CREATE;
 
-    private PermissionTask mPhoneTask;
     private PermissionTask mMediaTask;
     private PermissionTask mCameraTask;
-    private PermissionTask mLocationTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_permission);
         initViews();
-
         initTask();
     }
 
     private void initTask() {
-        mPhoneTask = new PermissionTask();
-        mPhoneTask.setPerMission(Manifest.permission.READ_PHONE_STATE, PermissionConstants.CHECK_PHONE_PERMISSION_CODE);
-
         mMediaTask = new PermissionTask();
         mMediaTask.setPerMission(Manifest.permission.WRITE_EXTERNAL_STORAGE, PermissionConstants.CHECK_MEDIA_PERMISSION_CODE);
 
         mCameraTask = new PermissionTask();
         mCameraTask.setPerMission(Manifest.permission.CAMERA, PermissionConstants.CHECK_CAMERA_PERMISSION_CODE);
 
-        mLocationTask = new PermissionTask();
-        mLocationTask.setPerMission(Manifest.permission.ACCESS_COARSE_LOCATION, PermissionConstants.CHECK_LOCATION_PERMISSION_CODE);
-
-        mPhoneTask.setNextTask(mMediaTask);
         mMediaTask.setNextTask(mCameraTask);
-        mCameraTask.setNextTask(mLocationTask);
     }
 
     private void initViews() {
@@ -61,17 +50,15 @@ public class PermissionSettingActivity extends BaseActivity implements
 
     private void requestPermission() {
         if (mStep == Step.CREATE) {
-            mPhoneTask.requestPermission(this);
+            mMediaTask.requestPermission(this);
         } else if (mStep == Step.SETTINGS) {
             executeFinish(true);
         }
     }
 
     private void executeFinish(boolean isExit) {
-        boolean result = mPhoneTask.checkSelfPermission(this);
-        result = result || mMediaTask.checkSelfPermission(this);
+        boolean result = mMediaTask.checkSelfPermission(this);
         result = result || mCameraTask.checkSelfPermission(this);
-        result = result || mLocationTask.checkSelfPermission(this);
         if (!result) {
             finish(RESULT_OK);
         } else if (isExit) {
@@ -89,7 +76,7 @@ public class PermissionSettingActivity extends BaseActivity implements
     public void onRequestPermissionsResult(int requestCode, String[] var2, int[] var3) {
         CarLog.d(TAG, "onRequestPermissionsResult requestCode: " + requestCode);
 
-        if (PermissionConstants.CHECK_LOCATION_PERMISSION_CODE == requestCode) {
+        if (PermissionConstants.CHECK_CAMERA_PERMISSION_CODE == requestCode) {
             gotoStep(Step.CUSTOM);
             executeFinish(false);
         }

@@ -10,18 +10,13 @@ import android.view.ViewGroup;
  */
 public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    private final int PAGER_COUNT = 3;
+    private final int PAGER_COUNT = 2;
     private ContentFragment[] mFragmentHome = new ContentFragment[PAGER_COUNT];
 
     public HomeFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
-        mFragmentHome[0] = new EvaluationFragment();
-        mFragmentHome[1] = new StatusFragment();
-        mFragmentHome[2] = new SettingFragment();
-    }
-
-    public void changeFragment(int position) {
-        ((StatusFragment) mFragmentHome[2]).changeFragment(position);
+        mFragmentHome[0] = new StatusFragment();
+        mFragmentHome[1] = new SettingFragment();
     }
 
     @Override

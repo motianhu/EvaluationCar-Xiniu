@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">至信评</string>
+    <string name="app_name">犀牛评</string>
     <string name="id_txt_hint">用户名</string>
     <string name="pwd_txt_hint">密码</string>
     <string name="login_btn_text">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
@@ -15,9 +15,9 @@
     <string name="pass">通过</string>
     <string name="notice_detail">详情</string>
 
-    <string name="system_app_name">至信评</string>
+    <string name="system_app_name">犀牛评</string>
     <string name="system_app_name_english">RHINO</string>
-    <string name="system_name">至信评估系统</string>
+    <string name="system_name">犀牛评估系统</string>
 
     <string name="notice_content">"暂无公告"</string>
 
@@ -82,7 +82,7 @@
 
     <!--权限-->
     <string name="permission_settings">权限设置</string>
-    <string name="permission_tips_description">欢迎来到至信评,为确保所有功能正常使用,请开启以下权限,你可点击重置按钮来开启权限：</string>
+    <string name="permission_tips_description">欢迎来到犀牛评,为确保所有功能正常使用,请开启以下权限,你可点击重置按钮来开启权限：</string>
     <string name="permission_reset">重            置</string>
 
 

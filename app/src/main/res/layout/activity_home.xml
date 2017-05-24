@@ -22,12 +22,6 @@
                 android:text="@string/home_fragment_list" />
 
             <RadioButton
-                android:id="@+id/rb_evaluation"
-                style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_evaluation"
-                android:text="@string/home_fragment_evaluation" />
-
-            <RadioButton
                 android:id="@+id/rb_setting"
                 style="@style/tab_menu_item"
                 android:drawableTop="@drawable/tab_menu_mine"

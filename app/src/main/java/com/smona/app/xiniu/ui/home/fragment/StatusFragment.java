@@ -5,11 +5,14 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.smona.app.xiniu.R;
+import com.smona.app.xiniu.ui.evaluation.EvaluationActivity;
 import com.smona.app.xiniu.ui.status.StatusPagerAdapter;
 import com.smona.app.xiniu.ui.status.auditing.AuditingLayer;
 import com.smona.app.xiniu.ui.status.local.LocalLayer;
 import com.smona.app.xiniu.ui.status.notpass.NotPassLayer;
 import com.smona.app.xiniu.ui.status.pass.PassLayer;
+import com.smona.app.xiniu.util.ActivityUtils;
+import com.smona.app.xiniu.util.StatusUtils;
 import com.smona.app.xiniu.util.ViewUtil;
 
 import java.util.ArrayList;
@@ -66,6 +69,14 @@ public class StatusFragment extends ContentFragment {
         tabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
 
         mViewPager.setAdapter(pagerAdapter);
+
+
+        root.findViewById(R.id.evalution).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActivityUtils.jumpEvaluation(getContext(), StatusUtils.BILL_STATUS_NONE, "", 0, EvaluationActivity.class);
+            }
+        });
     }
 
     public void changeFragment(int position) {

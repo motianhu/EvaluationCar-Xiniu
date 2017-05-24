@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
+import com.smona.app.xiniu.util.CarLog;
+
 public class PermissionManager {
+    private static final String TAG = PermissionManager.class.getSimpleName();
 
     private static PermissionManager sInstance = null;
 
@@ -42,9 +45,6 @@ public class PermissionManager {
             callback.onPermissionOk();
             return;
         }
-        boolean checkPhonePermission = PermissionManager.getsInstance()
-                .checkSelfPermission(activity,
-                        Manifest.permission.READ_PHONE_STATE);
 
         boolean checkMediaPermission = PermissionManager.getsInstance()
                 .checkSelfPermission(activity,
@@ -54,11 +54,9 @@ public class PermissionManager {
                 .checkSelfPermission(activity,
                         Manifest.permission.CAMERA);
 
-        boolean checkLocationPermission = PermissionManager.getsInstance()
-                .checkSelfPermission(activity,
-                        Manifest.permission.ACCESS_COARSE_LOCATION);
+        CarLog.d(TAG, "checkMediaPermission: " + checkMediaPermission + ", checkCameraPermission: " + checkCameraPermission);
 
-        if (checkPhonePermission || checkMediaPermission || checkCameraPermission || checkLocationPermission) {
+        if (checkMediaPermission || checkCameraPermission) {
             Intent intent = new Intent();
             intent.setClass(activity, PermissionSettingActivity.class);
             activity.startActivityForResult(intent, requestCode);

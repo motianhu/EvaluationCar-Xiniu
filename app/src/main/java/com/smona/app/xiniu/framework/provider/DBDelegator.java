@@ -8,7 +8,6 @@ import com.smona.app.xiniu.framework.provider.dao.BaseDao;
 import com.smona.app.xiniu.framework.provider.dao.DaoFactory;
 import com.smona.app.xiniu.framework.provider.table.CarBillTable;
 import com.smona.app.xiniu.framework.provider.table.CarImageTable;
-import com.smona.app.xiniu.util.CarLog;
 import com.smona.app.xiniu.util.StatusUtils;
 
 import java.util.List;

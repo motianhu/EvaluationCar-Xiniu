@@ -20,9 +20,7 @@ import java.util.List;
 
 public class DataDelegator {
 
-
     private volatile static DataDelegator sInstance;
-
 
     private DataDelegator() {
     }
