@@ -39,11 +39,12 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/zhixing_desc" />
+        android:textColor="@color/black_transparent"
+        android:layout_marginBottom="75dp"
+        android:text="@string/system_description" />
 </RelativeLayout>

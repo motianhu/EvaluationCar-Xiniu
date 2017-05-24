@@ -82,11 +82,6 @@
             android:keepScreenOn="true" />
 
         <ImageView
-            android:id="@+id/structure"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <ImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -126,53 +121,6 @@
             android:layout_marginTop="5dp"
             android:textColor="@color/white" />
 
-        <LinearLayout
-            android:id="@+id/lin_explain_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="9dip"
-            android:layout_marginEnd="10dip"
-            android:background="@drawable/oval_sahpe_bg"
-            android:clickable="true">
-
-            <ImageView
-                android:id="@+id/iv_tips"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/simple" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/rel_explain"
-            android:layout_width="wrap_content"
-            android:layout_height="220dip"
-            android:layout_above="@+id/lin_explain_btn"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="18dip"
-            android:layout_marginRight="18dip"
-            android:background="@drawable/icon_photo_box"
-            android:clickable="false"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingBottom="20dip">
-
-            <ImageView
-                android:id="@+id/iv_take_photo_model"
-                android:layout_width="match_parent"
-                android:layout_height="180dip"
-                android:layout_centerInParent="true"
-                android:src="@drawable/icon_no_car" />
-
-            <ImageView
-                android:layout_width="10dip"
-                android:layout_height="10dip"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="7dip"
-                android:layout_marginTop="7dip"
-                android:src="@drawable/icon_close" />
-        </RelativeLayout>
     </RelativeLayout>
 
 

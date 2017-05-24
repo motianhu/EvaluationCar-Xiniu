@@ -294,7 +294,6 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
         //设置定位按钮事件及初始化定位
         findViewById(R.id.rb_car_license).setOnClickListener(this);
         findViewById(R.id.rb_car_body).setOnClickListener(this);
-        findViewById(R.id.rb_car_frame).setOnClickListener(this);
         findViewById(R.id.rb_vehicle_interior).setOnClickListener(this);
         findViewById(R.id.rb_supplement).setOnClickListener(this);
 
@@ -606,9 +605,6 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
                 return;
             case R.id.rb_car_body:
                 mScrollView.smoothScrollTo(0, mClassCarBodyTitle.getTop());
-                return;
-            case R.id.rb_car_frame:
-                mScrollView.smoothScrollTo(0, mClassCarFrameTitle.getTop());
                 return;
             case R.id.rb_vehicle_interior:
                 mScrollView.smoothScrollTo(0, mClassVehicleInteriorTitle.getTop());

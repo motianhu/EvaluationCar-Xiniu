@@ -3,7 +3,7 @@
 
     <color name="transparent">#00000000</color>
     <!-- 透明的 -->
-    <color name="welcome_bg">#FFFFFF</color>
+    <color name="welcome_bg">#1d67b0</color>
     <color name="white">#ffffffff</color>
     <color name="white_press">#fff9f7f7</color>
     <color name="white_trans">#65ffffff</color>
@@ -33,14 +33,14 @@
     <color name="black_text">#ff2c2c2c</color>
     <color name="divider">#ffe3e3e3</color>
 
-    <color name="red">#84c1f4</color>
-    <color name="red_press">#84c1f4</color>
-    <color name="red_theme">#84c1ff</color>
+    <color name="red">#ffed5565</color>
+    <color name="red_press">#ffea4454</color>
+    <color name="red_theme">#ffed5565</color>
 
     <color name="White">#ffffff</color>
     <color name="title_bg">#fafafa</color>
     <color name="Transparent">#00000000</color>
-    <color name="short_video_red">#84c1f4</color>
+    <color name="short_video_red">#ff4747</color>
     <color name="Gray">#eeeeee</color>
 
 

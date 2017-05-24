@@ -58,14 +58,6 @@ public class ImageLoaderManager {
         ImageLoader.getInstance().displayImage(uri, imageView, ImageLoaderConfig.getDefaultOption(), mImageListenser);
     }
 
-    public void loadImageDesc(String uri, ImageView imageView) {
-        ImageLoader.getInstance().displayImage(uri, imageView, ImageLoaderConfig.getImageDesc(), mImageListenser);
-    }
-
-    public void loadImageWaterMark(String uri, ImageView imageView) {
-        ImageLoader.getInstance().displayImage(uri, imageView, ImageLoaderConfig.getImageWaterMark(), mImageListenser);
-    }
-
     public void loadCornerImage(String uri, ImageView imageView) {
         ImageLoader.getInstance().displayImage(uri, imageView, ImageLoaderConfig.getCornerImage(), mImageListenser);
     }

@@ -13,8 +13,6 @@ import android.util.DisplayMetrics;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -77,12 +75,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
     private TextView mGallery;
     private TextView mCancel;
 
-    //Animation
-    private View mBtnView;
-    private View mExplainView;
-    private Animation mCollapseAnimation;
-    private Animation mExpandAnimation;
-
     private String mBitmapPath;
     private Bitmap mBitmap;
 
@@ -102,7 +94,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         setContentView(R.layout.activity_camera);
         initDatas();
         initView();
-        initAnimate();
         initCamera();
     }
 
@@ -226,21 +217,12 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         mCancel.setOnClickListener(this);
 
         //水印和说明
-        mImageDesc = (ImageView) findViewById(R.id.iv_take_photo_model);
-        mWaterImage = (ImageView) findViewById(R.id.structure);
-
         mDesLayer = findViewById(R.id.desLayer);
         mDescription = (TextView) findViewById(R.id.description);
         mDescription.setText(mCurCarImage.displayName);
         mNote = (TextView) findViewById(R.id.note);
         mNumPhoto = (TextView) findViewById(R.id.numPhoto);
         refreshNext();
-
-        mBtnView = findViewById(R.id.lin_explain_btn);
-        mBtnView.setOnClickListener(this);
-        mExplainView = findViewById(R.id.rel_explain);
-        mExplainView.setOnClickListener(this);
-        ViewUtil.setViewVisible(mExplainView, false);
 
         showTakePhotoPicture(false);
     }
@@ -249,21 +231,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         boolean isAddPic = mCurCarImage.imageSeqNum >= mCarImageList.size();
         mNumPhoto.setText((mCurCarImage.imageSeqNum + 1) + "/" + (isAddPic ? mCarImageList.size() + 1 : mCarImageList.size()));
         CarLog.d(TAG, "refreshNext mCurCarImage: " + mCurCarImage);
-    }
-
-    private void initAnimate() {
-        mExpandAnimation = AnimationUtils.loadAnimation(this, R.anim.expend_up);
-        mCollapseAnimation = AnimationUtils.loadAnimation(this, R.anim.collapse_down);
-        mCollapseAnimation.setAnimationListener(new Animation.AnimationListener() {
-            public void onAnimationEnd(Animation paramAnimation) {
-            }
-
-            public void onAnimationRepeat(Animation paramAnimation) {
-            }
-
-            public void onAnimationStart(Animation paramAnimation) {
-            }
-        });
     }
 
     private void showTakePhotoPicture(boolean isShow) {
@@ -284,7 +251,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         ViewUtil.setViewVisible(mThumbnail, isShow);
         ViewUtil.setViewVisible(mFlashLight, !isShow);
         ViewUtil.setViewVisible(mTakePhoto, !isShow);
-        ViewUtil.setViewVisible(mBtnView, !isShow);
         ViewUtil.setViewVisible(mNumPhoto, !isShow);
         ViewUtil.setViewVisible(mDesLayer, !isShow);
     }
@@ -292,59 +258,27 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        if (id == R.id.lin_explain_btn) {
-            onAnimationExplain();
-        } else {
-            if (closeAnimal()) {
-                return;
-            }
-            switch (id) {
-                case R.id.img_camera:
-                    onCamera();
-                    break;
-                //退出相机界面 释放资源
-                case R.id.camera_close:
-                    finish();
-                    break;
-                //闪光灯
-                case R.id.flash_light:
-                    onFlashLight();
-                    break;
-                case R.id.gallery:
-                    onGallery();
-                    break;
-                case R.id.cancel:
-                    onCancel();
-                    break;
-                case R.id.lin_explain_btn:
-                    onAnimationExplain();
-                    break;
-                case R.id.rel_explain:
-                    closeAnimal();
-                    break;
-            }
+        switch (id) {
+            case R.id.img_camera:
+                onCamera();
+                break;
+            //退出相机界面 释放资源
+            case R.id.camera_close:
+                finish();
+                break;
+            //闪光灯
+            case R.id.flash_light:
+                onFlashLight();
+                break;
+            case R.id.gallery:
+                onGallery();
+                break;
+            case R.id.cancel:
+                onCancel();
+                break;
         }
 
     }
-
-    private void onAnimationExplain() {
-        if (mExplainView.getVisibility() == View.VISIBLE) {
-            closeAnimal();
-            return;
-        }
-        mExplainView.setVisibility(View.VISIBLE);
-        mExplainView.startAnimation(this.mExpandAnimation);
-    }
-
-    private boolean closeAnimal() {
-        if (mExplainView.getVisibility() != View.VISIBLE)
-            return false;
-        this.mExplainView.setVisibility(View.GONE);
-        this.mExplainView.startAnimation(this.mCollapseAnimation);
-        return true;
-    }
-
-
 
     private void takeNextPicture() {
         setPreviewRunning(false);
@@ -430,8 +364,8 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         mCurCarImage.imageUpdate = StatusUtils.IMAGE_UPDATE;
         mCurCarImage.createTime = DateUtils.getCurrDate();
         mCurCarImage.updateTime = DateUtils.getCurrDate();
-        boolean update =  DBDelegator.getInstance().updateCarImage(mCurCarImage);
-        if(!update) {
+        boolean update = DBDelegator.getInstance().updateCarImage(mCurCarImage);
+        if (!update) {
             DBDelegator.getInstance().insertCarImage(mCurCarImage);
         }
         CarLog.d(TAG, "processImageDataInReturn mCurCarImage=" + mCurCarImage + ", update=" + update);
