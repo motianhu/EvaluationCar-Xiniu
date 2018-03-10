@@ -11,14 +11,14 @@
         android:layout_marginStart="10dp"
         android:gravity="start|center_vertical"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/value"
         android:layout_width="match_parent"
-        android:gravity="start|center_vertical"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:gravity="start|center_vertical"
         android:textSize="14sp" />
 </LinearLayout>

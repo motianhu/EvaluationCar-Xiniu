@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smona.app.evaluationcar.ui.evaluation.preevaluation.simple.NormalPreEvaluationLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/public_bg"
+    android:scrollbarStyle="outsideOverlay">
+
+    <com.smona.app.evaluationcar.ui.common.base.BaseScrollView
+        android:id="@+id/baseScrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/setting_item_bg"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp">
+
+            <RelativeLayout
+                android:id="@+id/container_cartype"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:id="@+id/iv_cartype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/icon_pinpai" />
+
+                <TextView
+                    android:id="@+id/tv_cartype"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/title_car_type"
+                    android:textColor="@color/black_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_type_content"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="30dp"
+                    android:ellipsize="marquee"
+                    android:gravity="end"
+                    android:hint="@string/select_car_model"
+                    android:lines="1"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+                <ImageView style="@style/setting_item_arrow_style" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray" />
+
+            <RelativeLayout
+                android:id="@+id/container_color"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <ImageView
+                    android:id="@+id/iv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/icon_licheng" />
+
+                <TextView
+                    android:id="@+id/tv_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/title_car_color"
+                    android:textColor="@color/black_text" />
+
+
+                <EditText
+                    android:id="@+id/tv_car_color"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="25dp"
+                    android:background="@color/white"
+                    android:gravity="center|end|top"
+                    android:hint="@string/select_car_color"
+                    android:maxLength="8"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray" />
+
+            <RelativeLayout
+                android:id="@+id/container_cartime"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:id="@+id/iv_cartime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/icon_shijian" />
+
+                <TextView
+                    android:id="@+id/tv_cartime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/title_car_time"
+                    android:textColor="@color/black_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_timecontent"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="end"
+                    android:hint="@string/select_car_time"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+                <ImageView style="@style/setting_item_arrow_style" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray" />
+
+            <RelativeLayout
+                android:id="@+id/container_licheng"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <ImageView
+                    android:id="@+id/iv_licheng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/icon_licheng" />
+
+                <TextView
+                    android:id="@+id/tv_licheng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/title_car_licheng"
+                    android:textColor="@color/black_text" />
+
+
+                <EditText
+                    android:id="@+id/tv_car_licheng"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="40dp"
+                    android:background="@color/white"
+                    android:digits="1234567890"
+                    android:gravity="end"
+                    android:hint="@string/select_car_licheng"
+                    android:inputType="phone|number"
+                    android:maxLength="8"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="5dp"
+                    android:hint="@string/select_car_licheng_unit"
+                    android:textColor="@color/black_text"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray" />
+
+            <RelativeLayout
+                android:id="@+id/container_city"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:id="@+id/iv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/icon_weizhi" />
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="50dp"
+                    android:text="@string/title_car_city"
+                    android:textColor="@color/black_text" />
+
+
+                <TextView
+                    android:id="@+id/tv_car_city"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="25dp"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/select_car_city"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+                <ImageView style="@style/setting_item_arrow_style" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_gray" />
+
+            <LinearLayout
+                android:id="@+id/container_mark"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/tv_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/title_mark"
+                    android:textColor="@color/black_text" />
+
+                <EditText
+                    android:id="@+id/tv_car_mark"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="18dip"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:gravity="center|start|top"
+                    android:maxLength="8"
+                    android:textColor="@color/black_text"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </com.smona.app.evaluationcar.ui.common.base.BaseScrollView>
+
+    <View
+        android:id="@+id/line1"
+        style="@style/public_grey_line"
+        android:layout_above="@+id/lin_msg" />
+
+    <LinearLayout
+        android:id="@+id/lin_msg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_round_btn_white"
+            android:text="清空"
+            android:textColor="@color/red_theme"
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/pre_submit"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_red"
+            android:text="提交预评估"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </LinearLayout>
+</com.smona.app.evaluationcar.ui.evaluation.preevaluation.simple.NormalPreEvaluationLayer>

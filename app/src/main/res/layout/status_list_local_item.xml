@@ -36,6 +36,12 @@
         android:layout_toStartOf="@+id/status_list_item_arrow"
         android:orientation="vertical"
         android:paddingBottom="5dp">
+        <TextView
+            android:id="@+id/uploadstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_gray"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/carTime"

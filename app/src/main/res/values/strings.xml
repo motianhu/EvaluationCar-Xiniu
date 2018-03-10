@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">犀牛评</string>
+    <string name="app_name">至信评</string>
     <string name="id_txt_hint">用户名</string>
     <string name="pwd_txt_hint">密码</string>
     <string name="login_btn_text">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
-    <string name="system_description">品质过硬的专业二手车评估平台</string>
     <string name="register">注册</string>
     <string name="logining">正在登录</string>
 
@@ -15,16 +14,13 @@
     <string name="pass">通过</string>
     <string name="notice_detail">详情</string>
 
-    <string name="system_app_name">犀牛评</string>
-    <string name="system_app_name_english">RHINO</string>
-    <string name="system_name">犀牛评估系统</string>
+    <string name="system_name">至信评估系统</string>
 
     <string name="notice_content">"暂无公告"</string>
 
     <!--首页-->
     <string name="home_fragment_home">首页</string>
     <string name="home_fragment_evaluation">评估</string>
-    <string name="home_fragment_message">消息</string>
     <string name="home_fragment_list">列表</string>
     <string name="home_fragment_setting">我</string>
     <string name="home_bill_total">总单量:  %1$d</string>
@@ -39,19 +35,24 @@
 
     <!--列表-->
     <string name="list_item_number">单号: </string>
+    <string name="list_item_normal_number">正式评估单号:</string>
     <string name="list_item_time">创建时间: </string>
-    <string name="list_item_note">未通过原因: </string>
     <string name="no_carbillid">暂无单号</string>
     <string name="list_item_price">评估价格: </string>
+    <string name="list_item_leaseTerm">租赁期限: </string>
+    <string name="list_item_residualPrice">残值价格: </string>
     <string name="list_item_notpass_time">退回时间: </string>
     <string name="status_bill_progress">审核进度:</string>
 
     <!--评估 -->
     <string name="evalution_query_vin">查询车况号</string>
     <string name="evalution_pre">预评估</string>
+    <string name="evalution_residual">残值评估</string>
     <string name="evalution_start">评估</string>
-    <string name="evalution_gonggao">公告</string>
     <string name="evalution_submit_tips">%1$s的%2$s没有拍照，请拍照</string>
+
+    <string name="evalution_rules">拒评规则</string>
+    <string name="evalution_takephone">拍照手册</string>
 
 
     <string name="reason_webview">退回原因</string>
@@ -82,21 +83,15 @@
 
     <!--权限-->
     <string name="permission_settings">权限设置</string>
-    <string name="permission_tips_description">欢迎来到犀牛评,为确保所有功能正常使用,请开启以下权限,你可点击重置按钮来开启权限：</string>
+    <string name="permission_tips_description">欢迎来到至信评,为确保所有功能正常使用,请开启以下权限,你可点击重置按钮来开启权限：</string>
     <string name="permission_reset">重            置</string>
 
 
     <string name="already_bottom">已经到底了</string>
-    <string name="already_top">已经到顶了</string>
     <string name="load_fail">网络异常</string>
-    <string name="pull_to_refresh">下拉刷新</string>
-    <string name="release_to_refresh">释放立即加载</string>
-    <string name="refreshing">正在加载</string>
-    <string name="refresh_succeed">加载成功</string>
-    <string name="refresh_fail">加载失败</string>
     <string name="pullup_to_load">上拉加载更多</string>
     <string name="release_to_load">释放立即加载</string>
-    <string name="network_irregular">网络迷路了,点击重新加载</string>
+    <string name="no_data_online">没有数据</string>
     <string name="no_data_tips">亲,你没有本地评估单,点击去评估</string>
     <string name="no_network">没有网络,请检查网络</string>
     <string name="loading">加载中</string>
@@ -110,7 +105,7 @@
     <string name="status_apply_all_opinion">全部意见:</string>
 
     <string name="evaluation_submit_tips">正在后台上传,稍后请到审核中查看！</string>
-
+    <string name="preevaluation_submit_tips">正在后台上传,稍后请到进度列表中查看！</string>
 
 
     <string name="search_title">搜&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;索</string>
@@ -121,6 +116,7 @@
     <string name="login_input_password_error">请输入密码</string>
     <string name="login_error">登录失败</string>
     <string name="evaluation_input_pre_price">请输入预售价格</string>
+    <string name="please_select_evaluation_select_date">请选择一个租赁期限!</string>
     <string name="camera_busy_now">其他应用正在使用相机,请先关闭!</string>
 
     <string name="upgrade_desc">检查到新版本%1$s,请升级!</string>
@@ -138,15 +134,13 @@
     <string name="mine_about">"关于我们"</string>
     <string name="mine_telephone">"0755-86962135"</string>
 
-    <string name="evalution_pre_status">预评估状态</string>
     <string name="evalution_pre_normal">常规预评估</string>
     <string name="evalution_pre_quick">快速预评估</string>
     <string name="evalution_pre_status_notpass">驳回</string>
     <string name="evalution_pre_status_pass">进度列表</string>
+    <string name="evalution_pre_status_local">未提交</string>
 
     <string name="evalution_car_type">车型</string>
-    <string name="evaluation_car_set">车系</string>
-    <string name="evaluation_car_brand">品牌</string>
 
     <string name="select_car_model">请选择品牌车型</string>
     <string name="select_car_time">请选择上牌时间</string>
@@ -164,7 +158,6 @@
     <string name="title_mark_1">备注</string>
 
 
-    <string name="pre_evaluation_submit">提交预评估</string>
     <string name="select_city">选择城市</string>
 
     <string name="select_car_date">选择上牌时间</string>
@@ -177,18 +170,25 @@
     <string name="no_select_city">请选择城市</string>
     <string name="submit_precallbill_success">请去预评估状态里面查看进度</string>
     <string name="html_title">网页浏览</string>
-    
-    
+
+
     <string name="preevaluation_base_title">基础照片</string>
     <string name="preevaluation_supplement_title">补充照片</string>
-    
+
 
     <string name="coming_soon">敬请期待...</string>
 
 
     <string name="html_title_banner">活动详情</string>
     <string name="html_title_news">新闻详情</string>
+    <string name="html_title_report">报告详情</string>
 
+    <string name="submit_evaluation">提交正式评估</string>
+    <string name="show_evaluation">查看正式评估</string>
+    <string name="submit_evaluation_title">请稍候</string>
+    <string name="show_evaluation_waiting">正在跳转正式评估单</string>
+    <string name="submit_evaluation_waiting">正在提交正式评估中，请稍后</string>
+    <string name="submit_evaluation_failed">提交正式评估失败！</string>
 
     <!--more news-->
     <string name="more_news">所有新闻</string>
@@ -201,4 +201,17 @@
     <string name="register_user_fail">注册用户失败</string>
 
     <string name="uploading_no_action">正在上传中,不能修改</string>
+    <string name="jump_to_evaluation">正在加载，请稍候</string>
+
+    <string name="status_process">状态:</string>
+    <string name="uploading_status">正在上传</string>
+    <string name="waiting_status">排队中</string>
+    <string name="saving_status">已保存</string>
+
+
+    <string name="waring_title">警告</string>
+    <string name="waring_content">切换账号将清除原账号的所有本地数据(包括正在上传，但还没上传完的图片)，线上的不受影响</string>
+
+    <string name="reason_attach_list">附件列表</string>
+    <string name="reason_attach">查看附件</string>
 </resources>

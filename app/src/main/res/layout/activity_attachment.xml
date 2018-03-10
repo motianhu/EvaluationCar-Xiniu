@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <LinearLayout
+        android:id="@+id/attachments_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <GridView
+            android:id="@+id/attachments"
+            android:numColumns="3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <include layout="@layout/refresh_network_tip" />
+
+</LinearLayout>

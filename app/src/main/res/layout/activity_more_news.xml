@@ -1,0 +1,33 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/setting_bg"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/common_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+    <com.smona.app.evaluationcar.ui.home.more.MoreNewsLayer
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/refresh_head" />
+
+        <com.smona.app.evaluationcar.ui.home.more.MoreNewsListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never" />
+
+        <include layout="@layout/refresh_load_more" />
+
+        <include layout="@layout/refresh_network_tip" />
+
+        <include layout="@layout/refresh_center_loading" />
+    </com.smona.app.evaluationcar.ui.home.more.MoreNewsLayer>
+</LinearLayout>

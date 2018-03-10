@@ -118,9 +118,9 @@
                 android:layout_weight="3"
                 android:background="@drawable/login_button_style"
                 android:text="@string/register"
-                android:visibility="gone"
                 android:textColor="@color/bg_white"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/login_btnLogin"
@@ -138,14 +138,13 @@
 
     </LinearLayout>
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
-        android:text="@string/system_description"
-        android:textColor="@color/white" />
+        android:src="@drawable/zhixing_desc" />
 
 
 </RelativeLayout>

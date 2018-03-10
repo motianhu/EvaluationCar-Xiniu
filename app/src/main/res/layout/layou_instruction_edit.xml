@@ -30,6 +30,14 @@
             android:button="@drawable/car_body" />
 
         <RadioButton
+            android:id="@+id/rb_car_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/transparent"
+            android:button="@drawable/car_frame" />
+
+        <RadioButton
             android:id="@+id/rb_vehicle_interior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

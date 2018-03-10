@@ -100,6 +100,82 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/group_lease_term"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/lease_term"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/public_bg"
+            android:gravity="center_vertical"
+            android:paddingBottom="@dimen/view_space_vertical"
+            android:paddingTop="@dimen/view_space_vertical">
+
+            <ImageView
+                android:id="@+id/iv_lease_term"
+                android:layout_width="15dip"
+                android:layout_height="15dip"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:src="@drawable/icon_circle" />
+
+            <TextView
+                android:id="@+id/tv_lease_term"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dip"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_lease_term"
+                android:text="租赁期限"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_lease_term"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lease_term"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/view_space_vertical"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <RadioButton
+                android:id="@+id/leaseTerm12"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="12月" />
+
+            <RadioButton
+                android:id="@+id/leaseTerm24"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="24月" />
+
+            <RadioButton
+                android:id="@+id/leaseTerm36"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="36月" />
+        </RadioGroup>
+
+        <View
+            android:id="@+id/line_bottom_lease_term"
+            style="@style/public_grey_line"
+            android:layout_below="@+id/rg_lease_term"
+            android:layout_marginTop="@dimen/view_space_vertical" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/group_remark"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

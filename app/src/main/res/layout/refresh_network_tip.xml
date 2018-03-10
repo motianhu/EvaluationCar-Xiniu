@@ -23,7 +23,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="7dip"
         android:gravity="center"
-        android:text="@string/network_irregular"
+        android:text="@string/no_data_online"
         android:textColor="@color/no_network_color"
         android:textSize="16sp" />
 

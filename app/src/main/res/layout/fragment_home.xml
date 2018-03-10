@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smona.app.evaluationcar.ui.home.HomeLayer xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="80dp" />
+
+    <com.smona.app.evaluationcar.ui.home.HomeListView
+        android:id="@+id/content_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
+
+    <include
+        android:id="@+id/no_content"
+        layout="@layout/refresh_network_tip" />
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/refresh_center_loading" />
+
+</com.smona.app.evaluationcar.ui.home.HomeLayer>
