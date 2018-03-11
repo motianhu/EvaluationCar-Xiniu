@@ -1,11 +1,11 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:clipChildren="false"
         android:layout_height="match_parent">
 
         <RadioGroup
@@ -29,11 +29,21 @@
                 android:text="@string/home_fragment_submited" />
 
 
-            <RadioButton
+            <RelativeLayout
                 android:id="@+id/rb_evaluation"
-                style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_evaluation"
-                android:text="@string/home_fragment_evaluation" />
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@drawable/tab_menu_evaluation"
+                android:layout_gravity="bottom|center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/home_fragment_evaluation" />
+            </RelativeLayout>
 
             <RadioButton
                 android:id="@+id/rb_kefu"

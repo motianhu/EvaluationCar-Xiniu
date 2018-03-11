@@ -22,7 +22,6 @@ import com.smona.app.evaluationcar.framework.event.EventProxy;
 import com.smona.app.evaluationcar.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.evaluationcar.framework.json.JsonParse;
 import com.smona.app.evaluationcar.framework.provider.DBDelegator;
-import com.smona.app.evaluationcar.ui.chat.CheckChatActivity;
 import com.smona.app.evaluationcar.ui.common.NoScrollViewPager;
 import com.smona.app.evaluationcar.ui.common.activity.UserActivity;
 import com.smona.app.evaluationcar.ui.evaluation.EvaluationActivity;
@@ -47,12 +46,11 @@ public class HomeActivity extends UserActivity implements RadioGroup.OnCheckedCh
     //几个代表页面的常量
     public static final int PAGE_NOSUBMIT = 0;
     public static final int PAGE_SUBMITED = 1;
-    public static final int PAGE_EVALUATION = 2;
-    public static final int PAGE_KEFU = 3;
-    public static final int PAGE_SETTING = 4;
+    public static final int PAGE_KEFU = 2;
+    public static final int PAGE_SETTING = 3;
     private static final String TAG = HomeActivity.class.getSimpleName();
     //UI Objects
-    private RadioButton[] mRadioFunc = new RadioButton[5];
+    private RadioButton[] mRadioFunc = new RadioButton[4];
     private NoScrollViewPager mViewPager;
 
     //upgrade
@@ -143,9 +141,15 @@ public class HomeActivity extends UserActivity implements RadioGroup.OnCheckedCh
 
         mRadioFunc[0] = (RadioButton) findViewById(R.id.rb_nosubmit);
         mRadioFunc[1] = (RadioButton) findViewById(R.id.rb_submited);
-        mRadioFunc[2] = (RadioButton) findViewById(R.id.rb_evaluation);
-        mRadioFunc[3] = (RadioButton) findViewById(R.id.rb_kefu);
-        mRadioFunc[4] = (RadioButton) findViewById(R.id.rb_setting);
+        mRadioFunc[2] = (RadioButton) findViewById(R.id.rb_kefu);
+        mRadioFunc[3] = (RadioButton) findViewById(R.id.rb_setting);
+
+        findViewById(R.id.rb_evaluation).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityUtils.jumpEvaluation(HomeActivity.this, StatusUtils.BILL_STATUS_NONE, "", 0, false, EvaluationActivity.class);
+            }
+        });
 
         changeFragment(PAGE_NOSUBMIT, R.string.home_fragment_nosubmit);
     }
@@ -167,9 +171,6 @@ public class HomeActivity extends UserActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.rb_submited:
                 changeFragment(PAGE_SUBMITED, R.string.home_fragment_submited);
-                break;
-            case R.id.rb_evaluation:
-                ActivityUtils.jumpEvaluation(this, StatusUtils.BILL_STATUS_NONE, "", 0, false, EvaluationActivity.class);
                 break;
             case R.id.rb_kefu:
                 changeFragment(PAGE_KEFU, R.string.home_fragment_evaluation);
