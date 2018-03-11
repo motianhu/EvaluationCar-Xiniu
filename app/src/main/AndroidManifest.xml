@@ -65,51 +65,8 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.evaluation.preevaluation.ReportWebActivity"
+            android:name=".ui.common.activity.ReportWebActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-
-
-        <activity
-            android:name=".ui.home.more.MoreNewsActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.PreEvaluationActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.simple.NormalPreevaluationActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait" />
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.simple.CarTypeActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.DrawerLayout" />
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.simple.CityActivity"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.DrawerLayout" />
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.quick.QuickCameraActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:hardwareAccelerated="true"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-        <activity
-            android:name=".ui.evaluation.preevaluation.quick.QuickPreevaluationActivity"
-            android:label="@string/app_name"
-            android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait" />
 
         <activity
@@ -164,7 +121,6 @@
             android:screenOrientation="portrait" />
 
         <service android:name=".service.UploadService" />
-        <service android:name=".service.QuickUploadService" />
 
         <provider
             android:name="com.smona.app.evaluationcar.framework.provider.EvaluationProvider"

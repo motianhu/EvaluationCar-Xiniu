@@ -48,6 +48,7 @@
     <color name="exend_list_group_bg">#ebeaea</color>
 
     <color name="blue">#1E90FF</color>
+    <color name="bg_blue">#401E90FF</color>
 
     <color name="chengse">#FF6100</color>
 </resources>

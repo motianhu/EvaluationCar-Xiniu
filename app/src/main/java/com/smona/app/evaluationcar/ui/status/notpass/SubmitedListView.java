@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.pass;
+package com.smona.app.evaluationcar.ui.status.notpass;
 
 
 import android.content.Context;
@@ -17,12 +17,11 @@ import com.smona.app.evaluationcar.util.ViewUtil;
 
 import java.util.List;
 
-public class PassListView extends PullableListView implements
+public class SubmitedListView extends PullableListView implements
         OnScrollListener {
 
-    private static final String TAG = PassListView.class.getSimpleName();
-    private PassAdapter mListAdapter = null;
-
+    private static final String TAG = SubmitedListView.class.getSimpleName();
+    private SubmitedAdapter mListAdapter = null;
     private int mLastItem;
     private int mCurrentFirstVisibleIndex = 0;
     private int mCurrentVisibleCount = 0;
@@ -37,24 +36,24 @@ public class PassListView extends PullableListView implements
 
     private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
 
-    public PassListView(Context context) {
+    public SubmitedListView(Context context) {
         super(context);
         init(context);
     }
 
-    public PassListView(Context context, AttributeSet attrs) {
+    public SubmitedListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public PassListView(Context context, AttributeSet attrs,
-                        int defStyle) {
+    public SubmitedListView(Context context, AttributeSet attrs,
+                            int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
 
     private void init(Context context) {
-        mListAdapter = new PassAdapter(context);
+        mListAdapter = new SubmitedAdapter(context);
         setOnScrollListener(this);
         setAdapter(mListAdapter);
         mFootView = ViewUtil.inflater(context, R.layout.refresh_foot_load);

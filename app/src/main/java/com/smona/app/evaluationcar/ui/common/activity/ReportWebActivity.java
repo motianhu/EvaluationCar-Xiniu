@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.evaluation.preevaluation;
+package com.smona.app.evaluationcar.ui.common.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,7 +7,6 @@ import android.webkit.WebView;
 
 import com.smona.app.evaluationcar.R;
 import com.smona.app.evaluationcar.business.HttpDelegator;
-import com.smona.app.evaluationcar.ui.common.activity.HeaderActivity;
 import com.smona.app.evaluationcar.util.CacheContants;
 import com.smona.app.evaluationcar.util.CarLog;
 import com.smona.app.evaluationcar.util.UrlConstants;

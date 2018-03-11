@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.pass;
+package com.smona.app.evaluationcar.ui.status.submited;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -27,11 +27,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-public class PassLayer extends PullToRefreshLayout implements RequestFace , Request1Page {
-    private static final String TAG = PassLayer.class.getSimpleName();
+public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , Request1Page {
+    private static final String TAG = SubmitedLayer.class.getSimpleName();
     private static final int PAGE_SIZE = 10;
 
-    private PassListView mPassListView = null;
+    private SubmitedListView mPassListView = null;
     private View mNoDataLayout = null;
     private View mLoadingView = null;
     private View mHeadView;
@@ -82,15 +82,15 @@ public class PassLayer extends PullToRefreshLayout implements RequestFace , Requ
         }
     };
 
-    public PassLayer(Context context) {
+    public SubmitedLayer(Context context) {
         super(context);
     }
 
-    public PassLayer(Context context, AttributeSet attrs) {
+    public SubmitedLayer(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public PassLayer(Context context, AttributeSet attrs, int defStyle) {
+    public SubmitedLayer(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -181,7 +181,7 @@ public class PassLayer extends PullToRefreshLayout implements RequestFace , Requ
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mPassListView = (PassListView) findViewById(R.id.local_listview);
+        mPassListView = (SubmitedListView) findViewById(R.id.local_listview);
         mPassListView.setOnRequestFace(this);
         mNoDataLayout = findViewById(R.id.no_content_layout);
         mLoadingView = findViewById(R.id.loading);

@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.smona.app.evaluationcar.ui.status.local.LocalLayer xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
-    android:gravity="center_horizontal">
+    android:orientation="vertical">
 
-    <include layout="@layout/refresh_head" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_gray">
 
-    <com.smona.app.evaluationcar.ui.status.local.LocalListView
-        android:id="@+id/local_listview"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/home_fragment_nosubmit"
+            android:textColor="@color/blue"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_white" />
+
+    <com.smona.app.evaluationcar.ui.status.notsubmit.LocalLayer
+        android:id="@+id/local_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:divider="@null"
-        android:listSelector="@android:color/transparent"
-        android:overScrollMode="never" />
+        android:descendantFocusability="beforeDescendants"
+        android:gravity="center_horizontal">
 
-    <include layout="@layout/refresh_load_more" />
+        <include layout="@layout/refresh_head" />
 
-    <include layout="@layout/refresh_network_tip" />
+        <com.smona.app.evaluationcar.ui.status.notsubmit.LocalListView
+            android:id="@+id/local_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:dividerHeight="1dp"
+            android:divider="@color/bg_blue"
+            android:overScrollMode="never" />
 
-    <include layout="@layout/refresh_center_loading" />
-</com.smona.app.evaluationcar.ui.status.local.LocalLayer>
+        <include layout="@layout/refresh_load_more" />
+
+        <include layout="@layout/refresh_network_tip" />
+
+        <include layout="@layout/refresh_center_loading" />
+    </com.smona.app.evaluationcar.ui.status.notsubmit.LocalLayer>
+</LinearLayout>

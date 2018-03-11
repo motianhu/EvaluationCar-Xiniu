@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.local;
+package com.smona.app.evaluationcar.ui.status.notsubmit;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -25,13 +25,16 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 public class LocalLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
+    //23,33,43,53+本地
     private static final String TAG = LocalLayer.class.getSimpleName();
     private static final int PAGE_SIZE = 10;
     private LocalListView mLocalListView = null;
+
     private View mNoDataLayout = null;
     private View mLoadingView = null;
     private View mHeadView;
     private View mFootView;
+
     private boolean mPullRequest = false;
     private int mCurPage = 1;
     private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;

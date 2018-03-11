@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.notpass;
+package com.smona.app.evaluationcar.ui.status.submited;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.smona.app.evaluationcar.R;
 import com.smona.app.evaluationcar.data.bean.CarBillBean;
+import com.smona.app.evaluationcar.data.item.UserItem;
 import com.smona.app.evaluationcar.framework.imageloader.ImageLoaderProxy;
-import com.smona.app.evaluationcar.ui.evaluation.EvaluationActivity;
+import com.smona.app.evaluationcar.ui.status.StatusActivity;
 import com.smona.app.evaluationcar.util.ActivityUtils;
-import com.smona.app.evaluationcar.util.StatusUtils;
 import com.smona.app.evaluationcar.util.UrlConstants;
 import com.smona.app.evaluationcar.util.ViewUtil;
 
@@ -25,15 +25,18 @@ import java.util.List;
  * Created by motianhu on 4/7/17.
  */
 
-public class NotPassAdapter extends BaseAdapter implements View.OnClickListener {
-    private static final String TAG = NotPassAdapter.class.getSimpleName();
+public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener {
+    private static final String TAG = SubmitedAdapter.class.getSimpleName();
 
     private int mScrollState = AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
     private Context mContext;
     private List<CarBillBean> mDataList = new ArrayList<CarBillBean>();
+    private UserItem mUserItem;
 
-    public NotPassAdapter(Context context) {
+    public SubmitedAdapter(Context context) {
         mContext = context;
+        mUserItem = new UserItem();
+        mUserItem.readUserProp(context);
     }
 
     public void update(List deltaList) {
@@ -64,7 +67,7 @@ public class NotPassAdapter extends BaseAdapter implements View.OnClickListener 
         CarBillBean carbill = mDataList.get(position);
         if (convertView == null) {
             convertView = ViewUtil.inflater(mContext,
-                    R.layout.status_list_notpass_item);
+                    R.layout.status_list_pass_item);
         }
 
         convertView.setOnClickListener(this);
@@ -77,11 +80,13 @@ public class NotPassAdapter extends BaseAdapter implements View.OnClickListener 
         String carTitle = TextUtils.isEmpty(carbill.carBillId) ? mContext.getString(R.string.no_carbillid) : carbill.carBillId;
         textNum.setText(mContext.getString(R.string.list_item_number) + " " + carTitle);
 
+        TextView textPrice = (TextView) convertView.findViewById(R.id.carPrice);
+        boolean notVisible = mUserItem.userBean.isRichanJinrong();
+        textPrice.setText(mContext.getString(R.string.list_item_price) + " " + carbill.evaluatePrice);
+        ViewUtil.setViewVisible(textPrice, !notVisible);
+
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
-
-        TextView notPassTime = (TextView) convertView.findViewById(R.id.carNotPassTime);
-        notPassTime.setText(mContext.getString(R.string.list_item_notpass_time) + " " + carbill.modifyTime);
 
         return convertView;
     }
@@ -91,7 +96,7 @@ public class NotPassAdapter extends BaseAdapter implements View.OnClickListener 
         Object tag = v.getTag();
         if (tag instanceof CarBillBean) {
             CarBillBean info = (CarBillBean) tag;
-            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+            ActivityUtils.jumpStatus(mContext, info, StatusActivity.class);
         }
     }
 

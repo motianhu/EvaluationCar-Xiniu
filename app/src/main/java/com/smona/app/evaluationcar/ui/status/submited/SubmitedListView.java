@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.auditing;
+package com.smona.app.evaluationcar.ui.status.submited;
 
 
 import android.content.Context;
@@ -17,11 +17,12 @@ import com.smona.app.evaluationcar.util.ViewUtil;
 
 import java.util.List;
 
-public class AuditingListView extends PullableListView implements
+public class SubmitedListView extends PullableListView implements
         OnScrollListener {
 
-    private static final String TAG = AuditingListView.class.getSimpleName();
-    private AuditingAdapter mListAdapter = null;
+    private static final String TAG = SubmitedListView.class.getSimpleName();
+    private SubmitedAdapter mListAdapter = null;
+
     private int mLastItem;
     private int mCurrentFirstVisibleIndex = 0;
     private int mCurrentVisibleCount = 0;
@@ -36,24 +37,24 @@ public class AuditingListView extends PullableListView implements
 
     private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
 
-    public AuditingListView(Context context) {
+    public SubmitedListView(Context context) {
         super(context);
         init(context);
     }
 
-    public AuditingListView(Context context, AttributeSet attrs) {
+    public SubmitedListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public AuditingListView(Context context, AttributeSet attrs,
+    public SubmitedListView(Context context, AttributeSet attrs,
                             int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
 
     private void init(Context context) {
-        mListAdapter = new AuditingAdapter(context);
+        mListAdapter = new SubmitedAdapter(context);
         setOnScrollListener(this);
         setAdapter(mListAdapter);
         mFootView = ViewUtil.inflater(context, R.layout.refresh_foot_load);

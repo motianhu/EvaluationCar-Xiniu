@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.notpass;
+package com.smona.app.evaluationcar.ui.status.notsubmit;
 
 
 import android.content.Context;
@@ -17,11 +17,11 @@ import com.smona.app.evaluationcar.util.ViewUtil;
 
 import java.util.List;
 
-public class NotPassListView extends PullableListView implements
+public class LocalListView extends PullableListView implements
         OnScrollListener {
 
-    private static final String TAG = NotPassListView.class.getSimpleName();
-    private NotPassAdapter mListAdapter = null;
+    private static final String TAG = LocalListView.class.getSimpleName();
+    private LocalAdapter mListAdapter = null;
     private int mLastItem;
     private int mCurrentFirstVisibleIndex = 0;
     private int mCurrentVisibleCount = 0;
@@ -32,35 +32,34 @@ public class NotPassListView extends PullableListView implements
     private boolean mListPullLoading = false;
     private int mScrollState = OnScrollListener.SCROLL_STATE_IDLE;
 
+    private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
     private RequestFace mRequestFace;
 
-    private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
-
-    public NotPassListView(Context context) {
+    public LocalListView(Context context) {
         super(context);
         init(context);
     }
 
-    public NotPassListView(Context context, AttributeSet attrs) {
+    public LocalListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public NotPassListView(Context context, AttributeSet attrs,
-                           int defStyle) {
+    public LocalListView(Context context, AttributeSet attrs,
+                         int defStyle) {
         super(context, attrs, defStyle);
         init(context);
     }
 
+    public void setOnRequestFace(RequestFace face) {
+        mRequestFace = face;
+    }
+
     private void init(Context context) {
-        mListAdapter = new NotPassAdapter(context);
+        mListAdapter = new LocalAdapter(context);
         setOnScrollListener(this);
         setAdapter(mListAdapter);
         mFootView = ViewUtil.inflater(context, R.layout.refresh_foot_load);
-    }
-
-    public void setOnRequestFace(RequestFace face) {
-        mRequestFace = face;
     }
 
     public void update(List<CarBillBean> deltaList, int tag) {
@@ -98,11 +97,11 @@ public class NotPassListView extends PullableListView implements
         super.onDetachedFromWindow();
     }
 
-
     @Override
     public void onScroll(AbsListView view, int firstVisibleItem,
                          int visibleItemCount, int totalItemCount) {
         mLastItem = firstVisibleItem + visibleItemCount - 1;
+
         mCurrentFirstVisibleIndex = firstVisibleItem;
         mCurrentVisibleCount = visibleItemCount;
         if (!isPageLast() && !mListPullLoading && mLastItem == mListAdapter.getCount()
@@ -111,6 +110,7 @@ public class NotPassListView extends PullableListView implements
             View progress = mFootView.findViewById(R.id.loading_icon);
             TextView tip = (TextView) mFootView.findViewById(R.id.loadstate_tv);
             progress.setVisibility(View.GONE);
+
             if ((mFootView.getBottom() - +view.getHeight()) < mFootView.getHeight() / 4) {
                 tip.setText(R.string.release_to_load);
             } else {
@@ -121,6 +121,7 @@ public class NotPassListView extends PullableListView implements
 
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
+
         mScrollState = scrollState;
         mListAdapter.setScrollState(scrollState);
         if (scrollState == OnScrollListener.SCROLL_STATE_IDLE) {

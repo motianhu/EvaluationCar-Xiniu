@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.smona.app.evaluationcar.ui.status.pass.PassLayer xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
-    android:gravity="center_horizontal">
+    android:orientation="vertical">
 
-    <include layout="@layout/refresh_head" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_gray">
 
-    <com.smona.app.evaluationcar.ui.status.pass.PassListView
-        android:id="@+id/local_listview"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/home_fragment_submited"
+            android:textColor="@color/blue"
+            android:textSize="25sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/div_white" />
+
+    <com.smona.app.evaluationcar.ui.status.submited.SubmitedLayer
+        android:id="@+id/submitted_layer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:divider="@null"
-        android:listSelector="@android:color/transparent"
-        android:overScrollMode="never" />
+        android:descendantFocusability="beforeDescendants"
+        android:gravity="center_horizontal">
 
-    <include layout="@layout/refresh_load_more" />
+        <include layout="@layout/refresh_head" />
 
-    <include layout="@layout/refresh_network_tip" />
+        <com.smona.app.evaluationcar.ui.status.submited.SubmitedListView
+            android:id="@+id/local_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:divider="@null"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never" />
 
-    <include layout="@layout/refresh_center_loading" />
-</com.smona.app.evaluationcar.ui.status.pass.PassLayer>
+        <include layout="@layout/refresh_load_more" />
+
+        <include layout="@layout/refresh_network_tip" />
+
+        <include layout="@layout/refresh_center_loading" />
+    </com.smona.app.evaluationcar.ui.status.submited.SubmitedLayer>
+</LinearLayout>

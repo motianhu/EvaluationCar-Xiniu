@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.auditing;
+package com.smona.app.evaluationcar.ui.status.notpass;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,7 +8,7 @@ import com.smona.app.evaluationcar.R;
 import com.smona.app.evaluationcar.business.ResponseCallback;
 import com.smona.app.evaluationcar.business.param.CarbillParam;
 import com.smona.app.evaluationcar.data.bean.CarBillBean;
-import com.smona.app.evaluationcar.data.event.AuditingStatusEvent;
+import com.smona.app.evaluationcar.data.event.NotPassStatusEvent;
 import com.smona.app.evaluationcar.data.item.UserItem;
 import com.smona.app.evaluationcar.data.model.ResCarBillPage;
 import com.smona.app.evaluationcar.framework.cache.DataDelegator;
@@ -27,11 +27,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-public class AuditingLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
-    private static final String TAG = AuditingLayer.class.getSimpleName();
+public class SubmitedLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
+    private static final String TAG = SubmitedLayer.class.getSimpleName();
     private static final int PAGE_SIZE = 10;
 
-    private AuditingListView mAuditingListView = null;
+    private SubmitedListView mNotPassListView = null;
     private View mNoDataLayout = null;
     private View mLoadingView = null;
     private View mHeadView;
@@ -46,7 +46,7 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
         public void onFailed(String error) {
             mTag = StatusUtils.MESSAGE_REQUEST_ERROR;
             CarLog.d(TAG, "error: " + error);
-            AuditingStatusEvent event = new AuditingStatusEvent();
+            NotPassStatusEvent event = new NotPassStatusEvent();
             event.setContent(null);
             EventProxy.post(event);
         }
@@ -82,15 +82,15 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
         }
     };
 
-    public AuditingLayer(Context context) {
+    public SubmitedLayer(Context context) {
         super(context);
     }
 
-    public AuditingLayer(Context context, AttributeSet attrs) {
+    public SubmitedLayer(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AuditingLayer(Context context, AttributeSet attrs, int defStyle) {
+    public SubmitedLayer(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -101,7 +101,7 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
             mRequestParams.userName = user.mId;
             mRequestParams.curPage = 1;
             mRequestParams.pageSize = PAGE_SIZE;
-            mRequestParams.status = "21,22,24,31,32,34,41,42,44,51,52";
+            mRequestParams.status = "21,22,24,31,32,34,41,42,44,51,52,54,80";
         }
     }
 
@@ -117,15 +117,15 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
     @Override
     public void deleteObserver() {
         EventProxy.unregister(this);
-        mAuditingListView.clear();
+        mNotPassListView.clear();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void update(AuditingStatusEvent event) {
+    public void update(NotPassStatusEvent event) {
         List<CarBillBean> deltaList = (List<CarBillBean>) event.getContent();
         CarLog.d(TAG, "update deltaList is null? " + (deltaList == null) + ", mPullRequest: " + mPullRequest + ", mTag: " + mTag);
         if (deltaList != null) {
-            mAuditingListView.update(deltaList, mTag);
+            mNotPassListView.update(deltaList, mTag);
             if (mPullRequest) {
                 if (mTag == StatusUtils.MESSAGE_REQUEST_ERROR) {
                     postLoadmoreFail();
@@ -134,7 +134,7 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
                 }
             }
         } else if (mTag == StatusUtils.MESSAGE_REQUEST_PAGE_LAST) {
-            mAuditingListView.update(null, mTag);
+            mNotPassListView.update(null, mTag);
             loadmoreFinish(PullToRefreshLayout.SUCCEED);
         } else {
             if (mPullRequest) {
@@ -143,8 +143,8 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
         }
 
         mLoadingView.setVisibility(GONE);
-        CarLog.d(TAG, "update " + mAuditingListView.getItemCount());
-        if (mAuditingListView.getItemCount() == 0) {
+        CarLog.d(TAG, "update " + mNotPassListView.getItemCount());
+        if (mNotPassListView.getItemCount() == 0) {
             mNoDataLayout.setVisibility(VISIBLE);
             mFootView.setVisibility(INVISIBLE);
             mHeadView.setVisibility(INVISIBLE);
@@ -173,7 +173,7 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
     }
 
     private void notifyUpdateUI(List<CarBillBean> deltaList) {
-        AuditingStatusEvent event = new AuditingStatusEvent();
+        NotPassStatusEvent event = new NotPassStatusEvent();
         event.setContent(deltaList);
         EventProxy.post(event);
     }
@@ -181,8 +181,8 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mAuditingListView = (AuditingListView) findViewById(R.id.local_listview);
-        mAuditingListView.setOnRequestFace(this);
+        mNotPassListView = (SubmitedListView) findViewById(R.id.local_listview);
+        mNotPassListView.setOnRequestFace(this);
         mNoDataLayout = findViewById(R.id.no_content_layout);
         mLoadingView = findViewById(R.id.loading);
         mHeadView = findViewById(R.id.head_view);
@@ -213,9 +213,9 @@ public class AuditingLayer extends PullToRefreshLayout implements RequestFace, R
 
     @Override
     public void request1Page() {
+        mNotPassListView.clear();
         initRequestParams();
         mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
-        mAuditingListView.clear();
         changeState(INIT);
         mPullRequest = false;
         post();
