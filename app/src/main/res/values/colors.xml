@@ -22,7 +22,6 @@
 
     <color name="setting_image">#84c1ff</color>
     <color name="setting_bg">#F6F6F6</color>
-    <color name="home_news_more_bg">#ecebeb</color>
     <color name="setting_item_bg">#FFFFFF</color>
 
 
@@ -39,16 +38,13 @@
 
 
     <color name="permission_tips_title_text_color">#B8B8B8</color>
-    <color name="permission_tips_content_text_color">#6974A0</color>
 
 
     <color name="no_network_color">#33000000</color>
 
     <color name="green">#04b201</color>
-    <color name="exend_list_group_bg">#ebeaea</color>
 
     <color name="blue">#1E90FF</color>
     <color name="bg_blue">#401E90FF</color>
 
-    <color name="chengse">#FF6100</color>
 </resources>

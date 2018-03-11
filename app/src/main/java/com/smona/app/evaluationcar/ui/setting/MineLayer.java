@@ -16,6 +16,7 @@ import com.smona.app.evaluationcar.ui.HomeActivity;
 import com.smona.app.evaluationcar.ui.LoginActivity;
 import com.smona.app.evaluationcar.ui.common.activity.BaseActivity;
 import com.smona.app.evaluationcar.util.ActivityUtils;
+import com.smona.app.evaluationcar.util.CacheContants;
 import com.smona.app.evaluationcar.util.CarLog;
 import com.smona.app.evaluationcar.util.ToastUtils;
 import com.smona.app.evaluationcar.util.UrlConstants;
@@ -58,7 +59,7 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
         findViewById(R.id.setting_info).setOnClickListener(this);
         findViewById(R.id.setting_update).setOnClickListener(this);
         findViewById(R.id.setting_about).setOnClickListener(this);
-        findViewById(R.id.setting_phone).setOnClickListener(this);
+        findViewById(R.id.setting_evalution_rules).setOnClickListener(this);
         findViewById(R.id.setting_logout).setOnClickListener(this);
 
         String version = Utils.getVersion(getContext());
@@ -83,8 +84,8 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
             case R.id.setting_about:
                 ActivityUtils.jumpOnlyActivity(getContext(), SettingActivity.class);
                 break;
-            case R.id.setting_phone:
-                ActivityUtils.callPhone(getContext(), getContext().getString(R.string.mine_telephone));
+            case R.id.setting_evalution_rules:
+                ActivityUtils.jumpWebActivity(getContext(), CacheContants.TYPE_RULES,4);
                 break;
             case R.id.setting_logout:
                 //弹出对话框，退出

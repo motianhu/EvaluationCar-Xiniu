@@ -11,13 +11,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 
+import com.smona.app.evaluationcar.framework.EvaluationApp;
 import com.smona.app.evaluationcar.framework.provider.table.CarBillTable;
 import com.smona.app.evaluationcar.framework.provider.table.CarImageTable;
 import com.smona.app.evaluationcar.framework.provider.table.ImageMetaTable;
-import com.smona.app.evaluationcar.framework.provider.table.QuickPreCarBillTable;
-import com.smona.app.evaluationcar.framework.provider.table.QuickPreCarImageTable;
 import com.smona.app.evaluationcar.util.CarLog;
-import com.smona.app.evaluationcar.framework.EvaluationApp;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,8 +31,6 @@ public class EvaluationProvider extends ContentProvider {
     private static final int CODE_CARBILL = CODE_BASE + 1;
     private static final int CODE_CARIMAGE = CODE_BASE + 2;
     private static final int CODE_IMAGEMETA = CODE_BASE + 3;
-    private static final int CODE_QUICKPRECARBILL = CODE_BASE + 4;
-    private static final int CODE_QUICKPREIMAGE = CODE_BASE + 5;
     private static final UriMatcher URI_MATCH = new UriMatcher(
             UriMatcher.NO_MATCH);
     private static HashMap<Integer, String> TABLE_MATCH = new HashMap<Integer, String>();
@@ -46,16 +42,10 @@ public class EvaluationProvider extends ContentProvider {
                 CarImageTable.TABLE_NAME, CODE_CARIMAGE);
         URI_MATCH.addURI(DBConstants.AUTHORITY,
                 ImageMetaTable.TABLE_NAME, CODE_IMAGEMETA);
-        URI_MATCH.addURI(DBConstants.AUTHORITY,
-                QuickPreCarBillTable.TABLE_NAME, CODE_QUICKPRECARBILL);
-        URI_MATCH.addURI(DBConstants.AUTHORITY,
-                QuickPreCarImageTable.TABLE_NAME, CODE_QUICKPREIMAGE);
 
         TABLE_MATCH.put(CODE_CARBILL, CarBillTable.TABLE_NAME);
         TABLE_MATCH.put(CODE_CARIMAGE, CarImageTable.TABLE_NAME);
         TABLE_MATCH.put(CODE_IMAGEMETA, ImageMetaTable.TABLE_NAME);
-        TABLE_MATCH.put(CODE_QUICKPRECARBILL, QuickPreCarBillTable.TABLE_NAME);
-        TABLE_MATCH.put(CODE_QUICKPREIMAGE, QuickPreCarImageTable.TABLE_NAME);
     }
 
     private DatabaseHelper mDataHelper;
@@ -176,18 +166,6 @@ public class EvaluationProvider extends ContentProvider {
                 db.execSQL(carbills);
                 carbills = CarBillTable.getInstance().createTableSql();
                 db.execSQL(carbills);
-            } else if(oldVersion == 2) {
-                String quickprecarbills = QuickPreCarBillTable.getInstance().createTableSql();
-                db.execSQL(quickprecarbills);
-                String quickprecarimage = QuickPreCarImageTable.getInstance().createTableSql();
-                db.execSQL(quickprecarimage);
-            }
-
-            if(newVersion == 4) {
-                String dropPreImage = QuickPreCarImageTable.getInstance().dropTableSql();
-                db.execSQL(dropPreImage);
-                String createPreImage = QuickPreCarImageTable.getInstance().createTableSql();
-                db.execSQL(createPreImage);
             }
         }
 
@@ -197,14 +175,10 @@ public class EvaluationProvider extends ContentProvider {
             String carbills = CarBillTable.getInstance().createTableSql();
             String carimage = CarImageTable.getInstance().createTableSql();
             String imagemeta = ImageMetaTable.getInstance().createTableSql();
-            String quickprecarbills = QuickPreCarBillTable.getInstance().createTableSql();
-            String quickprecarimage = QuickPreCarImageTable.getInstance().createTableSql();
 
             sqlList.add(carbills);
             sqlList.add(carimage);
             sqlList.add(imagemeta);
-            sqlList.add(quickprecarbills);
-            sqlList.add(quickprecarimage);
             return sqlList;
         }
 
@@ -213,14 +187,10 @@ public class EvaluationProvider extends ContentProvider {
             String carbills = CarBillTable.getInstance().deleteTableSql();
             String carimage = CarImageTable.getInstance().deleteTableSql();
             String imagemeta = ImageMetaTable.getInstance().deleteTableSql();
-            String quickprecarbills = QuickPreCarBillTable.getInstance().deleteTableSql();
-            String quickprecarimage = QuickPreCarImageTable.getInstance().deleteTableSql();
 
             sqlList.add(carbills);
             sqlList.add(carimage);
             sqlList.add(imagemeta);
-            sqlList.add(quickprecarbills);
-            sqlList.add(quickprecarimage);
             return sqlList;
         }
     }

@@ -4,11 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.smona.app.evaluationcar.business.ResponseCallback;
-import com.smona.app.evaluationcar.business.param.BannerParam;
-import com.smona.app.evaluationcar.data.model.ResNewsPage;
-import com.smona.app.evaluationcar.data.model.ResPageElementPage;
 import com.smona.app.evaluationcar.framework.IProxy;
-import com.smona.app.evaluationcar.framework.json.JsonParse;
 import com.smona.app.evaluationcar.framework.storage.DeviceStorageManager;
 import com.smona.app.evaluationcar.util.FileUtils;
 import com.smona.app.evaluationcar.util.MD5;
@@ -42,11 +38,6 @@ public class CacheDelegator implements IProxy {
         mAppContext = appContext;
     }
 
-    //是否需要重新加载
-    boolean needReload(String key) {
-        return needReload(key, INTERVAL);
-    }
-
     private boolean needReload(String key, long limitTime) {
         long lastTime = getLastSuccessRequestTime(key);
         long now = System.currentTimeMillis();
@@ -57,10 +48,6 @@ public class CacheDelegator implements IProxy {
     //获取和保存上一次成功加载的时间
     private long getLastSuccessRequestTime(String key) {
         return (long) SPUtil.get(mAppContext, key, LAST_SERVER_DEFAULT_VALUE);
-    }
-
-    public void saveLastSuccessRequestTime(String key) {
-        SPUtil.put(mAppContext, key, LAST_SERVER_DEFAULT_VALUE);
     }
 
     //缓存文件管理
@@ -76,11 +63,6 @@ public class CacheDelegator implements IProxy {
     public boolean deleteCache(String url) {
         return FileUtils.deleteFile(getFilePathByUrl(url));
     }
-
-    public void saveNewCacheByUrl(String url, String content) {
-        FileUtils.writeFile(getFilePathByUrl(url), content, false);
-    }
-
 
     public String loadCacheByUrl(String url) {
         if (checkCacheExit(url)) {
@@ -101,39 +83,5 @@ public class CacheDelegator implements IProxy {
 
     public void queryCarbillCount(ResponseCallback<String> callback) {
 
-    }
-
-    public void requestLatestNews(BannerParam params, String url) {
-        String cacheData = loadCacheByUrl(url);
-        ResNewsPage pages = JsonParse.parseJson(cacheData, ResNewsPage.class);
-        if (pages != null && pages.total > 0) {
-            PostEventDelegator.getInstance().postNewsEvent(pages.data);
-        } else {
-            PostEventDelegator.getInstance().postNewsEvent(null);
-        }
-    }
-
-    public void requestNotice(String url) {
-        String cacheData = loadCacheByUrl(url);
-        ResNewsPage pages = JsonParse.parseJson(cacheData, ResNewsPage.class);
-        if (pages != null && pages.total > 0) {
-            PostEventDelegator.getInstance().postNoticeEvent(pages.data);
-        } else {
-            PostEventDelegator.getInstance().postNoticeEvent(null);
-        }
-    }
-
-    public void requestUpgradeInfo(ResponseCallback<String> callback) {
-
-    }
-
-    public void queryPageElementLatest(String url) {
-        String cacheData = loadCacheByUrl(url);
-        ResPageElementPage pages = JsonParse.parseJson(cacheData, ResPageElementPage.class);
-        if (pages != null && pages.total > 0) {
-            PostEventDelegator.getInstance().postBannerEvent(pages.data);
-        } else {
-            PostEventDelegator.getInstance().postBannerEvent(null);
-        }
     }
 }

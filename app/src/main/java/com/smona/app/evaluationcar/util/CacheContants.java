@@ -29,19 +29,7 @@ public class CacheContants {
 
     public static final String CARBILLBEAN = "bean_carBill";
 
-
-    //quick bill
-    public static final String QUICK_BILL_STATUS = "quick_billStatus";
-    public static final String QUICK_CARBILLID = "quick_carBillId";
-    public static final String QUICK_IMAGEID = "quick_imageId";
-    public static final String QUICK_IMAGECLASS = "quick_imageClass";
-    public static final String QUICK_IMAGESEQNUM = "quick_imageSeqNum";
-    public static final String QUICK_IMAGE_TYPE = "quick_image_type";
-    public static final String QUICK_IMAGE_TYPE_INDEX = "quick_image_type_index";
-
     //web activity
-    public static final int TYPE_BANNER = 1;
-    public static final int TYPE_NEWS = 2;
     public static final int TYPE_RULES = 3;
     public static final String WEB_ACTIVITY_TYPE = "web_activity_content_type";
     public static final String PAGE_ELEMENT_ID = "page_element_id";

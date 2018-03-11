@@ -8,7 +8,7 @@ import com.smona.app.evaluationcar.R;
 public class EvaluationFragment extends ContentFragment {
 
     protected int getLayoutId() {
-        return R.layout.fragment_evaluation;
+        return R.layout.fragment_kefu;
     }
 
 }

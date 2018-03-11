@@ -47,6 +47,7 @@ public class UrlConstants {
     public static final int QUERY_EVALUATION_NOTPASS_ATTACH = 30;
 
     public static final int REGISTRE = 100;
+    public static final int KEFU = 101;
 
     public static final int GET_AUTO_LOGOS = 200;
     public static final int GET_TAKE_PHOTOS = 201;
@@ -100,6 +101,8 @@ public class UrlConstants {
         INTEFACES.put(GET_AUTO_LOGOS, "/external/source/autologos/");
         INTEFACES.put(GET_TAKE_PHOTOS, "/external/app/getAppPageElement.html");
         INTEFACES.put(REGISTRE, "/view/common/register.jsp");
+
+        INTEFACES.put(KEFU, "/view/external/chat/chatlist.php");
     }
 
 

@@ -94,13 +94,6 @@
         <item name="android:layout_height">@dimen/divider_height</item>
     </style>
 
-    <style name="evalutionlayer_per_count_text">
-        <item name="android:layout_marginTop">40dp</item>
-        <item name="android:layout_marginStart">20dp</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-
     <!-- Permission Style -->
     <style name="permission_tips">
         <item name="android:layout_width">wrap_content</item>
@@ -123,41 +116,4 @@
         <item name="android:textColor">@color/permission_tips_title_text_color</item>
     </style>
 
-    <style name="permission_tips_way_text" parent="permission_tips">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
-        <item name="android:layout_marginTop">@dimen/permission_tips_way_margin_top</item>
-        <item name="android:textSize">@dimen/permission_tips_text_size</item>
-        <item name="android:textColor">@color/permission_tips_content_text_color</item>
-    </style>
-
-    <style name="permission_tips_button_text" parent="permission_tips">
-        <item name="android:gravity">center</item>
-        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
-        <item name="android:layout_marginTop">@dimen/permission_tips_way_margin_top</item>
-        <item name="android:textSize">@dimen/permission_tips_text_size</item>
-        <item name="android:textColor">@color/permission_tips_content_text_color</item>
-    </style>
-
-    <style name="permission_tiops_deny" parent="permission_tips">
-        <item name="android:layout_marginLeft">@dimen/permission_tips_margin_left</item>
-        <item name="android:layout_marginRight">@dimen/permission_tips_margin_right</item>
-        <item name="android:layout_marginTop">@dimen/permission_tips_margin_top</item>
-        <item name="android:textSize">@dimen/permission_tips_text_size</item>
-        <item name="android:textColor">@color/permission_tips_content_text_color</item>
-    </style>
-
-    <style name="permission_deny_image_logo">
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_width">@dimen/permission_tips_image_logo_width</item>
-        <item name="android:layout_height">@dimen/permission_tips_image_logo_height</item>
-        <item name="android:layout_marginTop">@dimen/permission_tips_deny_image_margin_top</item>
-    </style>
-
-    <style name="Theme.DrawerLayout" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
 </resources>

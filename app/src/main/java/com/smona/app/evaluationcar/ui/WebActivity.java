@@ -11,7 +11,6 @@ import com.smona.app.evaluationcar.business.ResponseCallback;
 import com.smona.app.evaluationcar.data.bean.BaseBean;
 import com.smona.app.evaluationcar.data.event.PageElementEvent;
 import com.smona.app.evaluationcar.data.item.BannerItem;
-import com.smona.app.evaluationcar.data.item.NewsItem;
 import com.smona.app.evaluationcar.framework.cache.DataDelegator;
 import com.smona.app.evaluationcar.framework.event.EventProxy;
 import com.smona.app.evaluationcar.framework.json.JsonParse;
@@ -49,14 +48,8 @@ public class WebActivity extends HeaderActivity {
 
         @Override
         public void onSuccess(String content) {
-            if (isBanner()) {
-                parseBanner(content);
-            } else if (isNews()) {
-                parseNewsItem(content);
-            } else if (isRules()) {
+            if (isRules()) {
                 parseRules(content);
-            } else {
-                poseBanner(null);
             }
         }
     };
@@ -88,7 +81,6 @@ public class WebActivity extends HeaderActivity {
         mType = getIntent().getIntExtra(CacheContants.WEB_ACTIVITY_TYPE, -1);
         mId = getIntent().getIntExtra(CacheContants.PAGE_ELEMENT_ID, -1);
         CarLog.d(TAG, "type=" + mType + ", id=" + mId);
-
     }
 
     private void initViews() {
@@ -135,13 +127,9 @@ public class WebActivity extends HeaderActivity {
     }
 
     private void updateTitle() {
-        if (isBanner()) {
-            updateTitle(R.string.html_title_banner);
-        } else if (isNews()) {
-            updateTitle(R.string.html_title_news);
-        } else if (isRules()) {
+       if (isRules()) {
             updateTitle(R.string.evalution_rules);
-        }
+       }
     }
 
     @Override
@@ -165,35 +153,13 @@ public class WebActivity extends HeaderActivity {
     }
 
     private void requestData() {
-        if (isBanner()) {
-            DataDelegator.getInstance().queryPageElementDetail(mId, mCallback);
-        } else if (isNews()) {
-            DataDelegator.getInstance().queryNewsDetail(mId, mCallback);
-        } else if(isRules()) {
+        if(isRules()) {
             DataDelegator.getInstance().queryPageElementDetail(mId, mCallback);
         }
     }
 
-    private boolean isBanner() {
-        return CacheContants.TYPE_BANNER == mType;
-    }
-
-    private boolean isNews() {
-        return CacheContants.TYPE_NEWS == mType;
-    }
-
     private boolean isRules() {
         return CacheContants.TYPE_RULES == mType;
-    }
-
-    private void parseBanner(String content) {
-        BannerItem item = JsonParse.parseJson(content, BannerItem.class);
-        poseBanner(item);
-    }
-
-    private void parseNewsItem(String content) {
-        NewsItem item = JsonParse.parseJson(content, NewsItem.class);
-        poseBanner(item);
     }
 
     private void poseBanner(BaseBean item) {
@@ -217,10 +183,6 @@ public class WebActivity extends HeaderActivity {
             title = ((BannerItem) item).previewWord;
             content = ((BannerItem) item).detailContent;
             time = String.format(getString(R.string.news_time), ((BannerItem) item).createTime);
-        } else if (item instanceof NewsItem) {
-            content = ((NewsItem) item).content;
-            title = ((NewsItem) item).title;
-            time = String.format(getString(R.string.news_time), ((NewsItem) item).createTime);
         }
 
         if (item != null) {

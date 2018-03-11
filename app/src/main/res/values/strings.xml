@@ -8,16 +8,6 @@
     <string name="register">注册</string>
     <string name="logining">正在登录</string>
 
-    <string name="uncommit">未提交</string>
-    <string name="auditing">审核中</string>
-    <string name="notpass">未通过</string>
-    <string name="pass">通过</string>
-    <string name="notice_detail">详情</string>
-
-    <string name="system_name">至信评估系统</string>
-
-    <string name="notice_content">"暂无公告"</string>
-
     <!--首页-->
     <string name="home_fragment_nosubmit">未提交</string>
     <string name="home_fragment_submited">已提交</string>
@@ -28,26 +18,19 @@
     <!--我的-->
     <string name="setting_mine_info">个人资料</string>
     <string name="setting_mine_update">检查新版本</string>
-    <string name="setting_mine_phone">客服电话</string>
+    <string name="setting_evalution_rules">拒评规则</string>
     <string name="setting_mine_about">关于</string>
     <string name="setting_mine_logout">账号退出</string>
 
     <!--列表-->
     <string name="list_item_number">单号: </string>
-    <string name="list_item_normal_number">正式评估单号:</string>
     <string name="list_item_time">创建时间: </string>
     <string name="no_carbillid">暂无单号</string>
     <string name="list_item_price">评估价格: </string>
     <string name="list_item_leaseTerm">租赁期限: </string>
     <string name="list_item_residualPrice">残值价格: </string>
-    <string name="list_item_notpass_time">退回时间: </string>
-    <string name="status_bill_progress">审核进度:</string>
 
     <!--评估 -->
-    <string name="evalution_query_vin">查询车况号</string>
-    <string name="evalution_pre">预评估</string>
-    <string name="evalution_residual">残值评估</string>
-    <string name="evalution_start">评估</string>
     <string name="evalution_submit_tips">%1$s的%2$s没有拍照，请拍照</string>
 
     <string name="evalution_rules">拒评规则</string>
@@ -77,7 +60,6 @@
 
 
     <string name="carbill_result">订单结果</string>
-    <string name="bill_count">共有%1$d单</string>
 
 
     <!--权限-->
@@ -104,7 +86,6 @@
     <string name="status_apply_all_opinion">全部意见:</string>
 
     <string name="evaluation_submit_tips">正在后台上传,稍后请到审核中查看！</string>
-    <string name="preevaluation_submit_tips">正在后台上传,稍后请到进度列表中查看！</string>
 
 
     <string name="search_title">搜&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;索</string>
@@ -131,66 +112,14 @@
     <string name="mine_belong_company">"所属公司:"</string>
 
     <string name="mine_about">"关于我们"</string>
-    <string name="mine_telephone">"0755-86962135"</string>
-
-    <string name="evalution_pre_normal">常规预评估</string>
-    <string name="evalution_pre_quick">快速预评估</string>
-    <string name="evalution_pre_status_notpass">驳回</string>
-    <string name="evalution_pre_status_pass">进度列表</string>
-    <string name="evalution_pre_status_local">未提交</string>
-
-    <string name="evalution_car_type">车型</string>
-
-    <string name="select_car_model">请选择品牌车型</string>
-    <string name="select_car_time">请选择上牌时间</string>
-    <string name="select_car_licheng">请输入</string>
-    <string name="select_car_licheng_unit">公里</string>
-    <string name="select_car_city">请选择上牌城市</string>
-    <string name="select_car_color">请输入车颜色</string>
-
-    <string name="title_car_time">上牌时间</string>
-    <string name="title_car_licheng">行驶里程</string>
-    <string name="title_car_city">选择城市</string>
-    <string name="title_car_type">品牌车型</string>
-    <string name="title_car_color">车颜色</string>
-    <string name="title_mark">备注输入</string>
-    <string name="title_mark_1">备注</string>
 
 
-    <string name="select_city">选择城市</string>
-
-    <string name="select_car_date">选择上牌时间</string>
-    <string name="finish">完成</string>
-    <string name="car_time">%1$s年%2$s月</string>
-    <string name="no_select_cartype">请选择车型</string>
-    <string name="no_select_color">请输入车颜色</string>
-    <string name="no_select_date">请选择上牌时间</string>
-    <string name="no_select_licheng">请输入里程</string>
-    <string name="no_select_city">请选择城市</string>
-    <string name="submit_precallbill_success">请去预评估状态里面查看进度</string>
     <string name="html_title">网页浏览</string>
 
 
-    <string name="preevaluation_base_title">基础照片</string>
-    <string name="preevaluation_supplement_title">补充照片</string>
-
-
-    <string name="coming_soon">敬请期待...</string>
-
-
-    <string name="html_title_banner">活动详情</string>
-    <string name="html_title_news">新闻详情</string>
     <string name="html_title_report">报告详情</string>
 
-    <string name="submit_evaluation">提交正式评估</string>
-    <string name="show_evaluation">查看正式评估</string>
-    <string name="submit_evaluation_title">请稍候</string>
-    <string name="show_evaluation_waiting">正在跳转正式评估单</string>
-    <string name="submit_evaluation_waiting">正在提交正式评估中，请稍后</string>
-    <string name="submit_evaluation_failed">提交正式评估失败！</string>
-
     <!--more news-->
-    <string name="more_news">所有新闻</string>
     <string name="news_time">时间：%1$s</string>
 
     <!--kefu -->
@@ -200,7 +129,6 @@
     <string name="register_user_fail">注册用户失败</string>
 
     <string name="uploading_no_action">正在上传中,不能修改</string>
-    <string name="jump_to_evaluation">正在加载，请稍候</string>
 
     <string name="status_process">状态:</string>
     <string name="uploading_status">正在上传</string>

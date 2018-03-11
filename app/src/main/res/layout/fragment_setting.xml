@@ -52,7 +52,6 @@
         <TextView
             style="@style/setting_item_text"
             android:layout_toRightOf="@+id/info_img"
-
             android:text="@string/setting_mine_info" />
 
         <ImageView style="@style/setting_item_arrow_style" />
@@ -90,20 +89,19 @@
 
 
     <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/setting_phone"
+        android:id="@+id/setting_evalution_rules"
         style="@style/setting_item_style">
 
         <View
-            android:id="@+id/phone_img"
+            android:id="@+id/evalution_rules"
             style="@style/setting_item_logo"
             android:background="@drawable/mine_call" />
 
         <TextView
             style="@style/setting_item_text"
-            android:layout_toRightOf="@+id/phone_img"
+            android:layout_toRightOf="@+id/evalution_rules"
 
-            android:text="@string/setting_mine_phone" />
+            android:text="@string/setting_evalution_rules" />
 
         <ImageView style="@style/setting_item_arrow_style" />
 
