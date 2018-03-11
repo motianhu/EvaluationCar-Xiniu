@@ -19,8 +19,7 @@ import java.util.List;
 /**
  * Created by Moth on 2015/8/28 0028.
  */
-
-public class StatusFragment extends ContentFragment {
+public class SubmitedFragment extends ContentFragment {
 
     private ViewPager mViewPager;
 
@@ -67,11 +66,11 @@ public class StatusFragment extends ContentFragment {
         tabLayout.setupWithViewPager(mViewPager);//将TabLayout和ViewPager关联起来。
 
         mViewPager.setAdapter(pagerAdapter);
-        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 // This space for rent
-                CarLog.d("StatusFragment", "position: " + position);
+                CarLog.d("KefuFragment", "position: " + position);
                 switch (position) {
                     case 0:
                         view1.request1Page();

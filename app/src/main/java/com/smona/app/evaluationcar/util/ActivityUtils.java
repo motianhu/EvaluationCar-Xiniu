@@ -62,14 +62,6 @@ public class ActivityUtils {
         contet.startActivity(intent);
     }
 
-    public static void jumpQuickCameraActivity(Context contet, int type, int index, Class clazz) {
-        Intent intent = new Intent();
-        intent.setClass(contet, clazz);
-        SPUtil.put(contet, CacheContants.QUICK_IMAGE_TYPE, type);
-        SPUtil.put(contet, CacheContants.QUICK_IMAGE_TYPE_INDEX, index);
-        contet.startActivity(intent);
-    }
-
     public static void jumpOnlyActivity(Context context, Class clazz) {
         Intent intent = new Intent();
         intent.setClass(context, clazz);
@@ -84,21 +76,6 @@ public class ActivityUtils {
     public static void startQuickUpService(Context context) {
         Intent intent = new Intent(context, QuickUploadService.class);
         context.startService(intent);
-    }
-
-    public static void jumpResultActivity(Activity activity, Class clazz, int requestCode) {
-        Intent intent = new Intent();
-        intent.setClass(activity, clazz);
-        activity.startActivityForResult(intent, requestCode);
-    }
-
-    public static void jumpQuickPreEvaluation(Context context, int billStatus, String carBillId, int imageId, Class clazz) {
-        Intent intent = new Intent();
-        SPUtil.put(context, CacheContants.QUICK_BILL_STATUS, billStatus);
-        SPUtil.put(context, CacheContants.QUICK_CARBILLID, carBillId);
-        SPUtil.put(context, CacheContants.QUICK_IMAGEID, imageId);
-        intent.setClass(context, clazz);
-        context.startActivity(intent);
     }
 
     public static void jumpReportWebActivity(Context context,int type, String id) {

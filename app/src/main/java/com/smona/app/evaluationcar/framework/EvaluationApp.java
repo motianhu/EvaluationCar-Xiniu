@@ -15,7 +15,6 @@ import com.smona.app.evaluationcar.framework.provider.GenerateMaxId;
 import com.smona.app.evaluationcar.framework.push.PushProxy;
 import com.smona.app.evaluationcar.framework.storage.DeviceStorageManager;
 import com.smona.app.evaluationcar.ui.evaluation.ImageModelDelegator;
-import com.smona.app.evaluationcar.ui.evaluation.preevaluation.quick.QuickImageModelDelegator;
 import com.smona.app.evaluationcar.util.ScreenInfo;
 import com.smona.app.evaluationcar.util.ToastUtils;
 
@@ -41,7 +40,6 @@ public class EvaluationApp extends Application {
         HttpDelegator.getInstance().init(this);
         GenerateMaxId.getInstance().initMaxId();
         ImageModelDelegator.getInstance().init(this);
-        QuickImageModelDelegator.getInstance().init(this);
         CrashReportProxy.init(this);
         DeviceStorageManager.getInstance().setContext(this);
         DeviceStorageManager.getInstance().initPath();

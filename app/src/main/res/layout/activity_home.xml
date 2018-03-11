@@ -17,10 +17,17 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rb_home"
+                android:id="@+id/rb_nosubmit"
                 style="@style/tab_menu_item"
                 android:drawableTop="@drawable/tab_menu_channel"
-                android:text="@string/home_fragment_home" />
+                android:text="@string/home_fragment_nosubmit" />
+
+            <RadioButton
+                android:id="@+id/rb_submited"
+                style="@style/tab_menu_item"
+                android:drawableTop="@drawable/tab_menu_list"
+                android:text="@string/home_fragment_submited" />
+
 
             <RadioButton
                 android:id="@+id/rb_evaluation"
@@ -29,10 +36,10 @@
                 android:text="@string/home_fragment_evaluation" />
 
             <RadioButton
-                android:id="@+id/rb_list"
+                android:id="@+id/rb_kefu"
                 style="@style/tab_menu_item"
                 android:drawableTop="@drawable/tab_menu_list"
-                android:text="@string/home_fragment_list" />
+                android:text="@string/home_fragment_kefu" />
 
             <RadioButton
                 android:id="@+id/rb_setting"
@@ -56,17 +63,4 @@
             android:layout_above="@id/div_tab_bar" />
 
     </RelativeLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/kefu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="@dimen/kefu_margin_bottom"
-        android:layout_marginEnd="@dimen/kefu_margin_right"
-        app:backgroundTint="#2f9df7"
-        app:elevation="6dp"
-        app:pressedTranslationZ="12dp"
-        app:rippleColor="#33728dff"
-        app:srcCompat="@drawable/kefu" />
 </android.support.design.widget.CoordinatorLayout>

@@ -18,9 +18,7 @@ import com.smona.app.evaluationcar.framework.cache.DataDelegator;
 import com.smona.app.evaluationcar.framework.event.EventProxy;
 import com.smona.app.evaluationcar.framework.json.JsonParse;
 import com.smona.app.evaluationcar.framework.provider.DBDelegator;
-import com.smona.app.evaluationcar.ui.HomeActivity;
 import com.smona.app.evaluationcar.ui.common.base.BaseRelativeLayout;
-import com.smona.app.evaluationcar.ui.evaluation.preevaluation.PreEvaluationActivity;
 import com.smona.app.evaluationcar.util.ActivityUtils;
 import com.smona.app.evaluationcar.util.CacheContants;
 import com.smona.app.evaluationcar.util.CarLog;
@@ -128,40 +126,15 @@ public class EvaluationLayer extends BaseRelativeLayout implements View.OnClickL
         findViewById(R.id.photos).setOnClickListener(this);
 
 
-        String content = getResources().getString(R.string.home_bill_total);
-
-        mUnCommitTv = (TextView) findViewById(R.id.tv_uncommit);
-        mUnCommitTv.setText(String.format(content, mLocalCount));
-
-        mAuditingTv = (TextView) findViewById(R.id.tv_auditing);
-        mAuditingTv.setText(String.format(content, 0));
-
-        mNotPassTv = (TextView) findViewById(R.id.tv_notpass);
-        mNotPassTv.setText(String.format(content, 0));
-
-        mPassTv = (TextView) findViewById(R.id.tv_pass);
-        mPassTv.setText(String.format(content, 0));
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.uncommit:
-                ((HomeActivity) getContext()).changeList(0);
-                break;
-            case R.id.auditing:
-                ((HomeActivity) getContext()).changeList(1);
-                break;
-            case R.id.notpass:
-                ((HomeActivity) getContext()).changeList(2);
-                break;
-            case R.id.pass:
-                ((HomeActivity) getContext()).changeList(3);
-                break;
             case R.id.preEvalution:
                 if(mUser.userBean.isXianfeng()) {
-                    ActivityUtils.jumpOnlyActivity(getContext(), PreEvaluationActivity.class);
+
                 } else if(mUser.userBean.isGuanghui()) {
                     ActivityUtils.jumpEvaluation(getContext(), StatusUtils.BILL_STATUS_NONE, "", 0, true, EvaluationActivity.class);
                 }

@@ -19,12 +19,11 @@
     <string name="notice_content">"暂无公告"</string>
 
     <!--首页-->
-    <string name="home_fragment_home">首页</string>
+    <string name="home_fragment_nosubmit">未提交</string>
+    <string name="home_fragment_submited">已提交</string>
     <string name="home_fragment_evaluation">评估</string>
-    <string name="home_fragment_list">列表</string>
+    <string name="home_fragment_kefu">客服</string>
     <string name="home_fragment_setting">我</string>
-    <string name="home_bill_total">总单量:  %1$d</string>
-
 
     <!--我的-->
     <string name="setting_mine_info">个人资料</string>
