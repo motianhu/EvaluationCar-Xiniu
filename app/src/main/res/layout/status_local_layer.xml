@@ -24,7 +24,7 @@
         android:layout_height="1dp"
         android:background="@color/div_white" />
 
-    <com.smona.app.evaluationcar.ui.status.notsubmit.LocalLayer
+    <com.smona.app.evaluationcar.ui.status.nosubmit.NoSubmitLayer
         android:id="@+id/local_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,7 +33,7 @@
 
         <include layout="@layout/refresh_head" />
 
-        <com.smona.app.evaluationcar.ui.status.notsubmit.LocalListView
+        <com.smona.app.evaluationcar.ui.status.nosubmit.NoSubmitListView
             android:id="@+id/local_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -47,5 +47,5 @@
         <include layout="@layout/refresh_network_tip" />
 
         <include layout="@layout/refresh_center_loading" />
-    </com.smona.app.evaluationcar.ui.status.notsubmit.LocalLayer>
+    </com.smona.app.evaluationcar.ui.status.nosubmit.NoSubmitLayer>
 </LinearLayout>

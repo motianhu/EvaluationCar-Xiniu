@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.notsubmit;
+package com.smona.app.evaluationcar.ui.status.nosubmit;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -24,11 +24,11 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.List;
 
-public class LocalLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
+public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
     //23,33,43,53+本地
-    private static final String TAG = LocalLayer.class.getSimpleName();
+    private static final String TAG = NoSubmitLayer.class.getSimpleName();
     private static final int PAGE_SIZE = 10;
-    private LocalListView mLocalListView = null;
+    private NoSubmitListView mLocalListView = null;
 
     private View mNoDataLayout = null;
     private View mLoadingView = null;
@@ -55,15 +55,15 @@ public class LocalLayer extends PullToRefreshLayout implements RequestFace, Requ
         }
     };
 
-    public LocalLayer(Context context) {
+    public NoSubmitLayer(Context context) {
         super(context);
     }
 
-    public LocalLayer(Context context, AttributeSet attrs) {
+    public NoSubmitLayer(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public LocalLayer(Context context, AttributeSet attrs, int defStyle) {
+    public NoSubmitLayer(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -138,7 +138,7 @@ public class LocalLayer extends PullToRefreshLayout implements RequestFace, Requ
             mNoDataLayout.setVisibility(VISIBLE);
             mFootView.setVisibility(INVISIBLE);
             mHeadView.setVisibility(INVISIBLE);
-            NetworkTipUtil.showNoDataTip(LocalLayer.this, getContext().getString(R.string.no_data_tips), mReloadClickListener);
+            NetworkTipUtil.showNoDataTip(NoSubmitLayer.this, getContext().getString(R.string.no_data_tips), mReloadClickListener);
         } else {
             mNoDataLayout.setVisibility(GONE);
             mFootView.setVisibility(VISIBLE);
@@ -150,7 +150,7 @@ public class LocalLayer extends PullToRefreshLayout implements RequestFace, Requ
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mLocalListView = (LocalListView) findViewById(R.id.local_listview);
+        mLocalListView = (NoSubmitListView) findViewById(R.id.local_listview);
         mLocalListView.setOnRequestFace(this);
         mNoDataLayout = findViewById(R.id.no_content_layout);
         mLoadingView = findViewById(R.id.loading);

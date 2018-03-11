@@ -1,4 +1,4 @@
-package com.smona.app.evaluationcar.ui.status.notpass;
+package com.smona.app.evaluationcar.ui.status.nosubmit;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -12,9 +12,12 @@ import android.widget.TextView;
 import com.smona.app.evaluationcar.R;
 import com.smona.app.evaluationcar.data.bean.CarBillBean;
 import com.smona.app.evaluationcar.framework.imageloader.ImageLoaderProxy;
-import com.smona.app.evaluationcar.ui.status.StatusActivity;
+import com.smona.app.evaluationcar.framework.upload.UploadTaskExecutor;
+import com.smona.app.evaluationcar.ui.evaluation.EvaluationActivity;
 import com.smona.app.evaluationcar.util.ActivityUtils;
-import com.smona.app.evaluationcar.util.UrlConstants;
+import com.smona.app.evaluationcar.util.CarLog;
+import com.smona.app.evaluationcar.util.StatusUtils;
+import com.smona.app.evaluationcar.util.ToastUtils;
 import com.smona.app.evaluationcar.util.ViewUtil;
 
 import java.util.ArrayList;
@@ -24,14 +27,14 @@ import java.util.List;
  * Created by motianhu on 4/7/17.
  */
 
-public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener {
-    private static final String TAG = SubmitedAdapter.class.getSimpleName();
+public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
+    private static final String TAG = NoSubmitAdapter.class.getSimpleName();
 
     private int mScrollState = AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
     private Context mContext;
     private List<CarBillBean> mDataList = new ArrayList<CarBillBean>();
 
-    public SubmitedAdapter(Context context) {
+    public NoSubmitAdapter(Context context) {
         mContext = context;
     }
 
@@ -63,24 +66,33 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
         CarBillBean carbill = mDataList.get(position);
         if (convertView == null) {
             convertView = ViewUtil.inflater(mContext,
-                    R.layout.status_list_notpass_item);
+                    R.layout.status_list_local_item);
         }
 
         convertView.setOnClickListener(this);
+        convertView.setOnLongClickListener(this);
         convertView.setTag(carbill);
 
         ImageView carImage = (ImageView) convertView.findViewById(R.id.carImage);
-        ImageLoaderProxy.loadCornerImage(UrlConstants.getProjectInterface() + carbill.imageThumbPath, carImage);
+        ImageLoaderProxy.loadCornerImage(carbill.imageThumbPath, carImage);
 
         TextView textNum = (TextView) convertView.findViewById(R.id.carNum);
         String carTitle = TextUtils.isEmpty(carbill.carBillId) ? mContext.getString(R.string.no_carbillid) : carbill.carBillId;
         textNum.setText(mContext.getString(R.string.list_item_number) + " " + carTitle);
 
+        TextView uploadStatus = (TextView) convertView.findViewById(R.id.uploadstatus);
+        String upload = mContext.getString(R.string.saving_status);
+        boolean isRunning = UploadTaskExecutor.getInstance().isRunningTask(carbill.imageId, carbill.carBillId);
+        boolean isWaiting = UploadTaskExecutor.getInstance().isWaittingTask(carbill.imageId, carbill.carBillId);
+        if(isRunning) {
+            upload = mContext.getString(R.string.uploading_status);
+        } else if(isWaiting) {
+            upload = mContext.getString(R.string.waiting_status);
+        }
+        uploadStatus.setText(mContext.getString(R.string.status_process) + " " + upload);
+
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
-
-        TextView notPassTime = (TextView) convertView.findViewById(R.id.carNotPassTime);
-        notPassTime.setText(mContext.getString(R.string.list_item_notpass_time) + " " + carbill.modifyTime);
 
         return convertView;
     }
@@ -90,8 +102,17 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
         Object tag = v.getTag();
         if (tag instanceof CarBillBean) {
             CarBillBean info = (CarBillBean) tag;
-            //已完成
-            ActivityUtils.jumpStatus(mContext, info, StatusActivity.class);
+            if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
+                    !TextUtils.isEmpty(info.carBillId) &&
+                    UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {
+                ToastUtils.show(mContext, R.string.uploading_no_action);
+            }else if(info.status == 23) {
+                //驳回
+                ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+            } else {
+                //保存重新编辑
+                ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_SAVE, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+            }
         }
     }
 
@@ -102,5 +123,11 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
     public void clear() {
         mDataList.clear();
         notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onLongClick(View v) {
+        CarLog.d(TAG, "TAG " + v);
+        return false;
     }
 }

@@ -53,6 +53,7 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
 
         @Override
         public void onSuccess(String content) {
+            CarLog.d(TAG, "content: " + content);
             ResCarBillPage pages = JsonParse.parseJson(content, ResCarBillPage.class);
             int total = mRequestParams.curPage * mRequestParams.pageSize;
             saveToDB(pages.data);
@@ -101,7 +102,7 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
             mRequestParams.userName = user.mId;
             mRequestParams.curPage = 1;
             mRequestParams.pageSize = PAGE_SIZE;
-            mRequestParams.status = "54,80";
+            mRequestParams.status = "21,22,24,31,32,34,41,42,44,51,52,54,80";
         }
     }
 

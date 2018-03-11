@@ -2,6 +2,7 @@ package com.smona.app.evaluationcar.ui.home.fragment;
 
 import android.view.View;
 import com.smona.app.evaluationcar.R;
+import com.smona.app.evaluationcar.ui.status.submited.SubmitedLayer;
 
 
 /**
@@ -15,6 +16,8 @@ public class SubmitedFragment extends ContentFragment {
 
 
     protected void init(View root) {
+        SubmitedLayer layer = (SubmitedLayer)root.findViewById(R.id.submitted_layer);
+        layer.request1Page();
 
     }
 }
