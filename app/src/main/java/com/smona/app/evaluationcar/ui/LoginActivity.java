@@ -9,16 +9,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.hyphenate.chat.ChatClient;
 import com.smona.app.evaluationcar.R;
@@ -42,8 +43,6 @@ import cn.jpush.android.api.TagAliasCallback;
 
 public class LoginActivity extends PermissionActivity implements OnClickListener {
     protected static final String TAG = LoginActivity.class.getSimpleName();
-    private LinearLayout mLoginLinearLayout; // 登录内容的容器
-    private Animation mTranslate; // 位移动画
     private Dialog mLoginingDlg; // 显示正在登录的Dialog
     private EditText mIdEditText; // 登录ID编辑框
     private EditText mPwdEditText; // 登录密码编辑框
@@ -51,7 +50,6 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
     private String mIdString;
     private String mPwdString;
     private UserItem mUser; // 用户列表
-    private View mRegisterView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,12 +70,6 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
         setContentView(R.layout.activity_login);
         initView();
         setListener();
-        initAnim();
-    }
-
-    private void initAnim() {
-        mTranslate = AnimationUtils.loadAnimation(this, R.anim.my_translate); // 初始化动画对象
-        mLoginLinearLayout.startAnimation(mTranslate); // Y轴水平移动
     }
 
     private void initUser() {
@@ -85,7 +77,6 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
         mUser.readSelf(this);
         if (TextUtils.isEmpty(mUser.mId) || TextUtils.isEmpty(mUser.mPwd)) {
             mUser = null;
-            return;
         }
     }
 
@@ -119,15 +110,25 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
             }
         });
         mLoginButton.setOnClickListener(this);
-        mRegisterView.setOnClickListener(this);
     }
 
     private void initView() {
         mIdEditText = (EditText) findViewById(R.id.login_edtId);
         mPwdEditText = (EditText) findViewById(R.id.login_edtPwd);
         mLoginButton = (Button) findViewById(R.id.login_btnLogin);
-        mLoginLinearLayout = (LinearLayout) findViewById(R.id.login_linearLayout);
-        mRegisterView = findViewById(R.id.register);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.show_passwd);
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //如果选中，显示密码
+                    mPwdEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
+                    //否则隐藏密码
+                    mPwdEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
 
         initLoginingDlg();
     }
@@ -202,9 +203,6 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
                     requestLogin();
                 }
                 break;
-            case R.id.register:
-                gotoRegister();
-                break;
             default:
                 break;
         }
@@ -217,7 +215,7 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
         builer.setMessage(R.string.waring_content);
         builer.setPositiveButton(R.string.upgrade_ok, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                ((EvaluationApp)getApplicationContext()).clearAllTableData();
+                ((EvaluationApp) getApplicationContext()).clearAllTableData();
                 requestLogin();
             }
         }).setNegativeButton(R.string.upgrade_cancle, new DialogInterface.OnClickListener() {
@@ -226,7 +224,7 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
             }
         });
 
-        AlertDialog clearDataDialog  = builer.create();
+        AlertDialog clearDataDialog = builer.create();
         clearDataDialog.show();
     }
 

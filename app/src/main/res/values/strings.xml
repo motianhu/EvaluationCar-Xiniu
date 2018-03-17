@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--启动页-->
     <string name="app_name">至信评</string>
-    <string name="id_txt_hint">用户名</string>
+    <string name="id_txt_hint">账号</string>
     <string name="pwd_txt_hint">密码</string>
     <string name="login_btn_text">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
     <string name="register">注册</string>
     <string name="logining">正在登录</string>
+    <string name="welcome_use">欢迎使用\n犀牛二手车评估软件</string>
 
     <!--首页-->
     <string name="home_fragment_nosubmit">未提交</string>
