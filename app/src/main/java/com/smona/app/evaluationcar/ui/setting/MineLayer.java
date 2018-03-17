@@ -50,42 +50,41 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
         mUserItem.readSelf(getContext());
         mUserItem.readUserProp(getContext());
 
-        findViewById(R.id.mine_image).setOnClickListener(this);
-        TextView name = (TextView) findViewById(R.id.mine_name);
-        name.setText(mUserItem.userBean.userChineseName);
+        TextView company = (TextView) findViewById(R.id.belong_company);
+        String companyFormat = getResources().getString(R.string.fragment_mine_belong_company);
+        companyFormat = String.format(companyFormat, mUserItem.userBean.companyName);
+        company.setText(companyFormat);
+
+        TextView chineseName = (TextView) findViewById(R.id.mine_name);
+        String accountFormat = getResources().getString(R.string.fragment_mine_account);
+        accountFormat = String.format(accountFormat, mUserItem.userBean.userChineseName);
+        chineseName.setText(accountFormat);
+
+        String versionName = Utils.getVersion(getContext());
+        TextView version = (TextView) findViewById(R.id.version);
+        if(DeviceStorageManager.getInstance().isTestEvn()) {
+            versionName ="testevn " + versionName;
+        }
+        String versionFormat = getResources().getString(R.string.fragment_mine_account);
+        versionFormat = String.format(versionFormat, versionName);
+        version.setText(versionFormat);
 
         CarLog.d(TAG, "userBean: " + mUserItem.userBean);
 
-        findViewById(R.id.setting_info).setOnClickListener(this);
-        findViewById(R.id.setting_update).setOnClickListener(this);
         findViewById(R.id.setting_about).setOnClickListener(this);
-        findViewById(R.id.setting_evalution_rules).setOnClickListener(this);
+        findViewById(R.id.setting_account).setOnClickListener(this);
         findViewById(R.id.setting_logout).setOnClickListener(this);
-
-        String version = Utils.getVersion(getContext());
-        if(DeviceStorageManager.getInstance().isTestEvn()) {
-            version ="testevn: " + version;
-        }
-        ((TextView) findViewById(R.id.version)).setText(version);
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.setting_info:
-            case R.id.mine_image:
-                ActivityUtils.jumpOnlyActivity(getContext(), MineActivity.class);
-                break;
-            case R.id.setting_update:
-                ((HomeActivity) getContext()).requestUpgradeInfo(true);
-                ToastUtils.show(getContext(), R.string.upgrading);
-                break;
             case R.id.setting_about:
                 ActivityUtils.jumpOnlyActivity(getContext(), SettingActivity.class);
                 break;
-            case R.id.setting_evalution_rules:
-                ActivityUtils.jumpWebActivity(getContext(), CacheContants.TYPE_RULES,4);
+            case R.id.setting_account:
+                ActivityUtils.jumpOnlyActivity(getContext(), MineActivity.class);
                 break;
             case R.id.setting_logout:
                 //弹出对话框，退出

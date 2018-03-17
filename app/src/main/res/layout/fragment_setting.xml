@@ -1,155 +1,168 @@
 <com.smona.app.evaluationcar.ui.setting.MineLayer xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/setting_bg"
+    android:background="@color/white"
+    android:clipChildren="true"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/mine_top_layer"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@color/setting_image">
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:background="@color/bg_gray"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
+        android:text="@string/home_fragment_setting" />
 
-        <TextView
-            android:id="@+id/version"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/bg_mine_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/mine_bg" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/belong_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_mine_belong_company"
+                    android:textColor="@color/text_topbar"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/mine_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_mine_account"
+                    android:textColor="@color/text_topbar"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/version"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fragment_mine_version"
+                    android:textColor="@color/text_topbar"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/setting_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_below="@+id/bg_mine_container"
+            android:layout_marginTop="-18dp">
+
+            <FrameLayout
+                android:id="@+id/circle_blue_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/circle_blue_bg" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/about" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circle_blue_about"
+                android:layout_centerHorizontal="true"
+                android:text="@string/setting_mine_about" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/setting_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bg_mine_container"
+            android:layout_centerHorizontal="true">
+
+
+            <FrameLayout
+                android:id="@+id/circle_blue_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/circle_blue_bg" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/account" />
+            </FrameLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circle_blue_account"
+                android:layout_centerHorizontal="true"
+                android:text="@string/setting_mine_account" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/setting_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true" />
+            android:layout_below="@+id/bg_mine_container"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="-18dp">
 
-        <ImageView
-            android:id="@+id/mine_image"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/circle_shape"
-            android:scaleType="centerInside"
-            android:src="@drawable/mine_logo" />
+            <FrameLayout
+                android:id="@+id/circle_blue_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/mine_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/mine_image"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:textColor="@color/text_topbar"
-            android:textSize="18sp" />
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/circle_blue_bg" />
 
-    </RelativeLayout>
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logout" />
+            </FrameLayout>
 
-    <RelativeLayout
-        android:id="@+id/setting_info"
-        style="@style/setting_item_style"
-        android:layout_marginTop="@dimen/setting_item_gap">
-
-        <View
-            android:id="@+id/info_img"
-            style="@style/setting_item_logo"
-            android:background="@drawable/mine_info" />
-
-        <TextView
-            style="@style/setting_item_text"
-            android:layout_toRightOf="@+id/info_img"
-            android:text="@string/setting_mine_info" />
-
-        <ImageView style="@style/setting_item_arrow_style" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/setting_update"
-        style="@style/setting_item_style"
-        android:layout_marginTop="@dimen/setting_item_gap">
-
-        <View
-            android:id="@+id/update_img"
-            style="@style/setting_item_logo"
-            android:background="@drawable/mine_upgrade" />
-
-        <TextView
-
-            style="@style/setting_item_text"
-
-            android:layout_toEndOf="@+id/update_img"
-            android:text="@string/setting_mine_update" />
-
-        <ImageView style="@style/setting_item_arrow_style" />
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/setting_bg" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/setting_evalution_rules"
-        style="@style/setting_item_style">
-
-        <View
-            android:id="@+id/evalution_rules"
-            style="@style/setting_item_logo"
-            android:background="@drawable/mine_call" />
-
-        <TextView
-            style="@style/setting_item_text"
-            android:layout_toRightOf="@+id/evalution_rules"
-
-            android:text="@string/setting_evalution_rules" />
-
-        <ImageView style="@style/setting_item_arrow_style" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/setting_bg" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/setting_about"
-        style="@style/setting_item_style">
-
-
-        <View
-            android:id="@+id/about_img"
-            style="@style/setting_item_logo"
-            android:background="@drawable/mine_setting" />
-
-        <TextView
-            style="@style/setting_item_text"
-            android:layout_toRightOf="@+id/about_img"
-            android:text="@string/setting_mine_about" />
-
-        <ImageView style="@style/setting_item_arrow_style" />
-
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/setting_logout"
-        style="@style/setting_item_style"
-        android:layout_marginTop="@dimen/setting_item_gap">
-
-        <View
-            android:id="@+id/logout_img"
-            style="@style/setting_item_logo"
-            android:background="@drawable/mine_logout" />
-
-        <TextView
-            style="@style/setting_item_text"
-            android:layout_toRightOf="@+id/logout_img"
-            android:text="@string/setting_mine_logout" />
-
-        <ImageView style="@style/setting_item_arrow_style" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/circle_blue_logout"
+                android:layout_centerHorizontal="true"
+                android:text="@string/setting_mine_logout" />
+        </RelativeLayout>
     </RelativeLayout>
 
 
