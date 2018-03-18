@@ -1,4 +1,4 @@
-<com.smona.app.evaluationcar.ui.setting.MineLayer xmlns:android="http://schemas.android.com/apk/res/android"
+<com.smona.app.xiniueval.ui.setting.MineLayer xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -278,4 +278,4 @@
     </RelativeLayout>
 
 
-</com.smona.app.evaluationcar.ui.setting.MineLayer>
+</com.smona.app.xiniueval.ui.setting.MineLayer>

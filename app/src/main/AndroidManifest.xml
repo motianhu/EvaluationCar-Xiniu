@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smona.app.evaluationcar">
+    package="com.smona.app.xiniueval">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -11,14 +11,14 @@
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <application
-        android:name=".framework.EvaluationApp"
+        android:name="com.smona.app.xiniueval.framework.EvaluationApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.LoginActivity"
+            android:name="com.smona.app.xiniueval.ui.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/LoginTheme">
@@ -30,47 +30,47 @@
         </activity>
 
         <activity
-            android:name=".ui.common.activity.PermissionSettingActivity"
+            android:name="com.smona.app.xiniueval.ui.common.activity.PermissionSettingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.StartupActivity"
+            android:name="com.smona.app.xiniueval.ui.StartupActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.HomeActivity"
+            android:name="com.smona.app.xiniueval.ui.HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ui.RegisterActivity"
+            android:name="com.smona.app.xiniueval.ui.RegisterActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.evaluation.EvaluationActivity"
+            android:name="com.smona.app.xiniueval.ui.evaluation.EvaluationActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
 
         <activity
-            android:name=".ui.evaluation.search.SearchActivity"
+            android:name="com.smona.app.xiniueval.ui.evaluation.search.SearchActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.WebActivity"
+            android:name="com.smona.app.xiniueval.ui.WebActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.common.activity.ReportWebActivity"
+            android:name="com.smona.app.xiniueval.ui.common.activity.ReportWebActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.evaluation.camera.CameraActivity"
+            android:name="com.smona.app.xiniueval.ui.evaluation.camera.CameraActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
@@ -78,23 +78,23 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".ui.evaluation.preview.PreviewPictureActivity"
+            android:name="com.smona.app.xiniueval.ui.evaluation.preview.PreviewPictureActivity"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.status.StatusActivity"
+            android:name="com.smona.app.xiniueval.ui.status.StatusActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.evaluation.attach.AttachmentActivity"
+            android:name="com.smona.app.xiniueval.ui.evaluation.attach.AttachmentActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.chat.ChatActivity"
+            android:name="com.smona.app.xiniueval.ui.chat.ChatActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|navigation"
             android:label="@string/app_name"
             android:launchMode="singleTop"
@@ -103,7 +103,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name=".ui.chat.CheckChatActivity"
+            android:name="com.smona.app.xiniueval.ui.chat.CheckChatActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|navigation"
             android:label="@string/app_name"
             android:launchMode="singleTop"
@@ -111,20 +111,20 @@
             android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
-            android:name=".ui.setting.MineActivity"
+            android:name="com.smona.app.xiniueval.ui.setting.MineActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".ui.setting.SettingActivity"
+            android:name="com.smona.app.xiniueval.ui.setting.SettingActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
 
-        <service android:name=".service.UploadService" />
+        <service android:name="com.smona.app.xiniueval.service.UploadService" />
 
         <provider
-            android:name="com.smona.app.evaluationcar.framework.provider.EvaluationProvider"
-            android:authorities="com.smona.app.evaluationcar"
+            android:name="com.smona.app.xiniueval.framework.provider.EvaluationProvider"
+            android:authorities="com.smona.app.xiniueval"
             android:exported="false" />
     </application>
 </manifest>

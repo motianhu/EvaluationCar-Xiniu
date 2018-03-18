@@ -34,7 +34,7 @@
         android:layout_height="1dp"
         android:background="@color/div_white" />
 
-    <com.smona.app.evaluationcar.ui.status.submited.SubmitedLayer
+    <com.smona.app.xiniueval.ui.status.submited.SubmitedLayer
         android:id="@+id/submitted_layer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,7 +43,7 @@
 
         <include layout="@layout/refresh_head" />
 
-        <com.smona.app.evaluationcar.ui.status.submited.SubmitedListView
+        <com.smona.app.xiniueval.ui.status.submited.SubmitedListView
             android:id="@+id/local_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -57,5 +57,5 @@
         <include layout="@layout/refresh_network_tip" />
 
         <include layout="@layout/refresh_center_loading" />
-    </com.smona.app.evaluationcar.ui.status.submited.SubmitedLayer>
+    </com.smona.app.xiniueval.ui.status.submited.SubmitedLayer>
 </LinearLayout>

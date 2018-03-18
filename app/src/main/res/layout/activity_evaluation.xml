@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp" />
 
-    <com.smona.app.evaluationcar.ui.common.base.BaseScrollView
+    <com.smona.app.xiniueval.ui.common.base.BaseScrollView
         android:id="@+id/baseScrollView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -92,7 +92,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_registration"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_driving_license"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -168,7 +168,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_vehicle_nameplate"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -206,7 +206,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_car_body"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -244,7 +244,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_car_frame"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -282,7 +282,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_vehicle_interior"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -320,7 +320,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_difference_supplement"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -358,7 +358,7 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <com.smona.app.evaluationcar.ui.common.base.LimitGridView
+            <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_original_car_insurancet"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -380,7 +380,7 @@
                 android:id="@+id/include_input"
                 layout="@layout/evaluation_editor_item" />
         </LinearLayout>
-    </com.smona.app.evaluationcar.ui.common.base.BaseScrollView>
+    </com.smona.app.xiniueval.ui.common.base.BaseScrollView>
 
     <include
         android:id="@+id/include_indicator"
