@@ -24,7 +24,7 @@
         <RadioGroup
             android:id="@+id/rg_home"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="65dp"
             android:layout_alignParentBottom="true"
             android:background="@color/bg_white"
             android:orientation="horizontal">
@@ -32,26 +32,24 @@
             <RadioButton
                 android:id="@+id/rb_nosubmit"
                 style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_channel"
-                android:text="@string/home_fragment_nosubmit" />
+                android:drawableTop="@drawable/tab_menu_channel" />
 
             <RadioButton
                 android:id="@+id/rb_submited"
                 style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_list"
-                android:text="@string/home_fragment_submited" />
+                android:drawableTop="@drawable/tab_menu_list"/>
 
 
             <RelativeLayout
                 android:id="@+id/rb_evaluation"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
+                android:layout_height="100dp"
                 android:layout_gravity="bottom|center"
                 android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:src="@drawable/tab_menu_evaluation" />
             </RelativeLayout>
@@ -59,14 +57,12 @@
             <RadioButton
                 android:id="@+id/rb_kefu"
                 style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_kefu"
-                android:text="@string/home_fragment_kefu" />
+                android:drawableTop="@drawable/tab_menu_kefu" />
 
             <RadioButton
                 android:id="@+id/rb_setting"
                 style="@style/tab_menu_item"
-                android:drawableTop="@drawable/tab_menu_mine"
-                android:text="@string/home_fragment_setting" />
+                android:drawableTop="@drawable/tab_menu_mine"/>
 
         </RadioGroup>
 
