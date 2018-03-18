@@ -30,6 +30,8 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
     private static final int PAGE_SIZE = 10;
     private NoSubmitListView mLocalListView = null;
 
+    private StatusFilter mCurFilter= StatusFilter.All;
+
     private View mNoDataLayout = null;
     private View mLoadingView = null;
     private View mHeadView;
@@ -65,6 +67,22 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
 
     public NoSubmitLayer(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    public void setFilter(StatusFilter filter) {
+        if(mCurFilter == filter) {
+            return;
+        }
+        mCurFilter = filter;
+        notifyFilter();
+    }
+
+    public StatusFilter getFilter() {
+        return mCurFilter;
+    }
+
+    private void notifyFilter() {
+
     }
 
     @Override

@@ -19,6 +19,7 @@ import com.smona.app.evaluationcar.ui.common.refresh.NetworkTipUtil;
 import com.smona.app.evaluationcar.ui.common.refresh.PullToRefreshLayout;
 import com.smona.app.evaluationcar.ui.status.Request1Page;
 import com.smona.app.evaluationcar.ui.status.RequestFace;
+import com.smona.app.evaluationcar.ui.status.nosubmit.StatusFilter;
 import com.smona.app.evaluationcar.util.CarLog;
 import com.smona.app.evaluationcar.util.StatusUtils;
 
@@ -39,6 +40,23 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
     private boolean mPullRequest = false;
 
     private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
+
+    private StatusFilter mCurFilter= StatusFilter.All;
+    public void setFilter(StatusFilter filter) {
+        if(mCurFilter == filter) {
+            return;
+        }
+        mCurFilter = filter;
+        notifyFilter();
+    }
+
+    public StatusFilter getFilter() {
+        return mCurFilter;
+    }
+
+    private void notifyFilter() {
+
+    }
 
     private CarbillParam mRequestParams = new CarbillParam();
     private ResponseCallback<String> mResonponseCallBack = new ResponseCallback<String>() {
