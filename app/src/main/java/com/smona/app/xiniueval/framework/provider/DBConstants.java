@@ -5,5 +5,5 @@ package com.smona.app.xiniueval.framework.provider;
  */
 
 public class DBConstants {
-    public static final String AUTHORITY = "com.smona.app.evaluationcar";
+    public static final String AUTHORITY = "com.smona.app.xiniueval";
 }

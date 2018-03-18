@@ -237,7 +237,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         mDesLayer = findViewById(R.id.desLayer);
         mDescription = (TextView) findViewById(R.id.description);
         mDescription.setText(mCurCarImage.displayName);
-        if(mCurCarImage.displayName.contains("选拍")) {
+        if (mCurCarImage.displayName.contains("选拍")) {
             mDescription.setTextColor(getResources().getColor(R.color.green));
         }
         mNote = (TextView) findViewById(R.id.note);
@@ -396,7 +396,7 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
             mCurCarImage = mCarImageList.get(mCurCarImage.imageSeqNum + 1);
             initDisplayName();
             mDescription.setText(mCurCarImage.displayName);
-            if(mCurCarImage.displayName.contains("选拍")) {
+            if (mCurCarImage.displayName.contains("选拍")) {
                 mDescription.setTextColor(getResources().getColor(R.color.green));
             }
         }
@@ -543,11 +543,28 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
 
             recycle(mBitmap);
             BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(imagePath, options);
+            int srcH = options.outHeight;
+            int srcW = options.outWidth;
+            CarLog.d(TAG, "onActivityResult srcH = " + srcH + ", srcW = " + srcW);
+            if (srcH <= 0 || srcW <= 0) {
+                return;
+            }
+            //standard w*h=1024*1024
+            int scaleW = srcW / 1024;
+            int scaleH = srcH / 1024;
+            //取小的那个值，最小为1。
+            int scale = scaleH > scaleW ? scaleW : scaleH;
+            scale = scale > 1 ? scale : 1;
+            CarLog.d(TAG, "onActivityResult scaleH = " + scaleH + ", scaleW = " + scaleW);
+            options.inSampleSize = scale;
+            options.inJustDecodeBounds = false;
             mBitmap = BitmapFactory.decodeFile(imagePath, options);
 
             //save as
             mBitmapPath = DeviceStorageManager.getInstance().getThumbnailPath() +
-                    File.separator + System.currentTimeMillis() + ".jpeg";
+                    File.separator + System.currentTimeMillis() + ".jpg";
             BitmapUtils.saveJPGE_After(CameraActivity.this, mBitmap, mBitmapPath, 100);
             CarLog.d(TAG, "onActivityResult mBitmapPath " + mBitmapPath);
 
@@ -622,9 +639,35 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
             @Override
             public void onPictureTaken(byte[] data, Camera camera) {
                 recycle(mBitmap);
-                mBitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+
+                Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
                 mBitmapPath = DeviceStorageManager.getInstance().getThumbnailPath() +
                         File.separator + System.currentTimeMillis() + ".jpeg";
+
+
+                if (bitmap == null) {
+                    return;
+                }
+                int srcH = bitmap.getHeight();
+                int srcW = bitmap.getWidth();
+                CarLog.d(TAG, "takePicture srcW = (" + srcW + ", " + srcH + ")");
+                if (srcH <= 0 || srcW <= 0) {
+                    return;
+                }
+                //standard w*h=1024*1024
+                int scaleW = srcW / 1024;
+                int scaleH = srcH / 1024;
+                //取小的那个值，最小为1。
+                int scale = scaleH > scaleW ? scaleW : scaleH;
+                scale = scale > 1 ? scale : 1;
+                int targetW = srcW / scale;
+                int targetH = srcH / scale;
+                CarLog.d(TAG, "takePicture scale = (" + scaleH + ", " + scaleW + "), target=(" + targetW + "," + targetH + ")");
+                mBitmap = Bitmap.createScaledBitmap(bitmap, targetW, targetH, true);
+                if(mBitmap != bitmap) {
+                    recycle(bitmap);
+                }
+
                 BitmapUtils.saveJPGE_After(CameraActivity.this, mBitmap, mBitmapPath, 100);
                 CarLog.d(TAG, "captrue mBitmapPath " + mBitmapPath);
 

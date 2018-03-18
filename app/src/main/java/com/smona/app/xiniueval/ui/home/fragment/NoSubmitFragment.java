@@ -38,7 +38,7 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
 
     private void showFilter(View v) {
         StatusFilter filter = mLayer.getFilter();
-        int pos = filter == StatusFilter.All ? 0 : filter == StatusFilter.Submited ? 1 : 2;
+        int pos = filter == StatusFilter.All ? 0 : filter == StatusFilter.UnSub ? 1 : 2;
         AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
         /**
          * 设置内容区域为单选列表项
