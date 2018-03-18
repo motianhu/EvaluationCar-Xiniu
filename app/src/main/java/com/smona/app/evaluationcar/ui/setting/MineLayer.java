@@ -74,6 +74,8 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
         findViewById(R.id.setting_about).setOnClickListener(this);
         findViewById(R.id.setting_account).setOnClickListener(this);
         findViewById(R.id.setting_logout).setOnClickListener(this);
+        findViewById(R.id.setting_juping).setOnClickListener(this);
+        findViewById(R.id.setting_paizhao).setOnClickListener(this);
     }
 
     @Override
@@ -89,6 +91,12 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
             case R.id.setting_logout:
                 //弹出对话框，退出
                 showDialog();
+                break;
+            case R.id.setting_juping:
+                ActivityUtils.jumpReportWebActivity(getContext(), CacheContants.TYPE_TAKEPHOTO, "3");
+                break;
+            case R.id.setting_paizhao:
+                ActivityUtils.jumpWebActivity(getContext(), CacheContants.TYPE_RULES, 3);
                 break;
         }
     }
