@@ -39,11 +39,14 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <ImageView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="75dp"
-        android:src="@drawable/zhixing_desc" />
+        android:gravity="center"
+        android:textColor="@color/black_text"
+        android:textSize="18sp"
+        android:text="@string/welcome_use" />
 </RelativeLayout>
