@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature android:name="android.hardware.camera" />
@@ -12,7 +11,7 @@
 
     <application
         android:name="com.smona.app.xiniueval.framework.EvaluationApp"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -92,23 +91,6 @@
             android:name="com.smona.app.xiniueval.ui.evaluation.attach.AttachmentActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
-
-        <activity
-            android:name="com.smona.app.xiniueval.ui.chat.ChatActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|navigation"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
-
-        <activity
-            android:name="com.smona.app.xiniueval.ui.chat.CheckChatActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|navigation"
-            android:label="@string/app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|stateHidden" />
 
         <activity
             android:name="com.smona.app.xiniueval.ui.setting.MineActivity"

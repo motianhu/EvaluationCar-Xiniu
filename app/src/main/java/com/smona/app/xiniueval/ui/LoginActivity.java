@@ -21,7 +21,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import com.hyphenate.chat.ChatClient;
 import com.smona.app.xiniueval.R;
 import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.business.param.UserParam;
@@ -29,17 +28,11 @@ import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.data.model.ResUserModel;
 import com.smona.app.xiniueval.framework.EvaluationApp;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
-import com.smona.app.xiniueval.framework.chatclient.ChatClientProxy;
 import com.smona.app.xiniueval.framework.json.JsonParse;
 import com.smona.app.xiniueval.ui.common.activity.PermissionActivity;
 import com.smona.app.xiniueval.util.AccountManager;
 import com.smona.app.xiniueval.util.CarLog;
 import com.smona.app.xiniueval.util.ToastUtils;
-
-import java.util.Set;
-
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
 
 public class LoginActivity extends PermissionActivity implements OnClickListener {
     protected static final String TAG = LoginActivity.class.getSimpleName();
@@ -239,9 +232,6 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
             public void onSuccess(String result) {
                 ResUserModel normal = JsonParse.parseJson(result, ResUserModel.class);
                 CarLog.d(TAG, "onSuccess normal: " + normal);
-                if (normal.success) {
-                    registerThirdFunc();
-                }
                 runUI(normal);
             }
 
@@ -278,31 +268,5 @@ public class LoginActivity extends PermissionActivity implements OnClickListener
         finish();
     }
 
-    private void gotoRegister() {
-        Intent intent = new Intent();
-        intent.setClass(this, RegisterActivity.class);
-        startActivity(intent);
-    }
 
-
-    private void registerThirdFunc() {
-        //register jpush
-        JPushInterface.setAlias(LoginActivity.this, mIdString, new TagAliasCallback() {
-            @Override
-            public void gotResult(int i, String s, Set<String> set) {
-                CarLog.d(TAG, "jpush register alias i=" + i);
-            }
-        });
-
-        //register huanxin kefu
-        //可以检测是否已经登录过环信，如果登录过则环信SDK会自动登录，不需要再次调用登录操作
-        if (ChatClient.getInstance().isLoggedInBefore()) {
-
-        } else {
-            // 自动生成账号,此处每次都随机生成一个账号,为了演示.正式应从自己服务器获取账号
-            final String account = ChatClientProxy.getInstance().getRandomAccount();
-            final String userPwd = "123456";
-            ChatClientProxy.getInstance().createChatAccount(account, userPwd);
-        }
-    }
 }

@@ -5,14 +5,12 @@ import android.app.Application;
 import com.smona.app.xiniueval.business.HttpDelegator;
 import com.smona.app.xiniueval.data.event.ToastEvent;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
-import com.smona.app.xiniueval.framework.chatclient.ChatClientProxy;
 import com.smona.app.xiniueval.framework.crashreport.CrashReportProxy;
 import com.smona.app.xiniueval.framework.event.EventProxy;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.framework.provider.DBDelegator;
 import com.smona.app.xiniueval.framework.provider.EvaluationProvider;
 import com.smona.app.xiniueval.framework.provider.GenerateMaxId;
-import com.smona.app.xiniueval.framework.push.PushProxy;
 import com.smona.app.xiniueval.framework.storage.DeviceStorageManager;
 import com.smona.app.xiniueval.ui.evaluation.ImageModelDelegator;
 import com.smona.app.xiniueval.util.ScreenInfo;
@@ -33,7 +31,6 @@ public class EvaluationApp extends Application {
     public void onCreate() {
         super.onCreate();
         ImageLoaderProxy.init(this);
-        PushProxy.init(this);
         ScreenInfo.getInstance().init(this);
         DBDelegator.getInstance().init(this);
         DataDelegator.getInstance().init(this);
@@ -43,7 +40,6 @@ public class EvaluationApp extends Application {
         CrashReportProxy.init(this);
         DeviceStorageManager.getInstance().setContext(this);
         DeviceStorageManager.getInstance().initPath();
-        ChatClientProxy.getInstance().init(this);
         EventProxy.register(this);
     }
 

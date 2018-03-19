@@ -42,10 +42,6 @@ public class PermissionManager {
             callback.onPermissionOk();
             return;
         }
-        boolean checkPhonePermission = PermissionManager.getsInstance()
-                .checkSelfPermission(activity,
-                        Manifest.permission.READ_PHONE_STATE);
-
         boolean checkMediaPermission = PermissionManager.getsInstance()
                 .checkSelfPermission(activity,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -54,11 +50,7 @@ public class PermissionManager {
                 .checkSelfPermission(activity,
                         Manifest.permission.CAMERA);
 
-        boolean checkLocationPermission = PermissionManager.getsInstance()
-                .checkSelfPermission(activity,
-                        Manifest.permission.ACCESS_COARSE_LOCATION);
-
-        if (checkPhonePermission || checkMediaPermission || checkCameraPermission || checkLocationPermission) {
+        if (checkMediaPermission || checkCameraPermission) {
             Intent intent = new Intent();
             intent.setClass(activity, PermissionSettingActivity.class);
             activity.startActivityForResult(intent, requestCode);
