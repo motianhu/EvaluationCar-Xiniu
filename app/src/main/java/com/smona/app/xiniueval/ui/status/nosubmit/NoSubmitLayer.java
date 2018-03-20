@@ -182,7 +182,11 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void update(LocalStatusEvent event) {
-        CarLog.d(TAG, "LocalStatusEvent event.getTag()=" + event.getTag() + "; mPullRequest=" + mPullRequest);
+        CarLog.d(TAG, "LocalStatusEvent event.getTag()=" + event.getTag() + "; mPullRequest=" + mPullRequest + ",mCurPage=" + mCurPage);
+        //添加一个单据时，刷新未提交列表
+        if(mCurPage == 1) {
+            mLocalListView.clear();
+        }
         List<CarBillBean> deltaList = (List<CarBillBean>) event.getContent();
         if (deltaList != null) {
             mLocalListView.update(deltaList, mTag);
