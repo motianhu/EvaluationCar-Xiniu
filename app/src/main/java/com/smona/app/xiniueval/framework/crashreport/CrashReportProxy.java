@@ -11,7 +11,7 @@ import com.tencent.bugly.crashreport.CrashReport;
 public class CrashReportProxy {
 
     public static void init(Context appContext) {
-        CrashReport.initCrashReport(appContext, "18e9624730", false);
+        CrashReport.initCrashReport(appContext, "353d1b44b1", false);
     }
 
 }
