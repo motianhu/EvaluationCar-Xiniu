@@ -135,6 +135,7 @@ public class HomeActivity extends UserActivity implements RadioGroup.OnCheckedCh
         mViewPager = (NoScrollViewPager) findViewById(R.id.vp_home);
         mViewPager.setNoScroll(true);
         mViewPager.setAdapter(fragmentAdapter);
+        mViewPager.setOffscreenPageLimit(3);
 
         RadioGroup rbGroup = (RadioGroup) findViewById(R.id.rg_home);
         rbGroup.setOnCheckedChangeListener(this);
