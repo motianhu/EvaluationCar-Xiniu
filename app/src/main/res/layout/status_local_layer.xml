@@ -38,6 +38,7 @@
         android:id="@+id/local_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/bg_gray"
         android:descendantFocusability="beforeDescendants"
         android:gravity="center_horizontal">
 
@@ -48,8 +49,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:dividerHeight="1dp"
-            android:divider="@color/bg_blue"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:dividerHeight="5dp"
+            android:divider="@color/bg_gray"
             android:overScrollMode="never" />
 
         <include layout="@layout/refresh_load_more" />

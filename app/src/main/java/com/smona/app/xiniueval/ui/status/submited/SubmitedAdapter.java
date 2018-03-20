@@ -17,7 +17,6 @@ import com.smona.app.xiniueval.ui.status.StatusActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
 import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.ViewUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 
