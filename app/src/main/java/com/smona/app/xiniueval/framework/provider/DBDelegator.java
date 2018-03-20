@@ -129,9 +129,9 @@ public class DBDelegator {
         return null;
     }
 
-    public List<CarBillBean> queryLocalCarbill(int curPage, int pageSize) {
+    public List<CarBillBean> queryNoSubmitCarBill(int curPage, int pageSize) {
         BaseDao<CarBillBean> dao = DaoFactory.buildDaoEntry(mAppContext, DaoFactory.TYPE_CARBILL);
-        String select = CarBillTable.BILLSTATUS + " =0 and " + CarBillTable.IMAGEID + " >0";
+        String select = "(" + CarBillTable.BILLSTATUS + " =0 and " + CarBillTable.IMAGEID + " >0 ) or billStatus in (23,33,43,53)";
         String order = CarBillTable.CREATETIME + " desc limit " + (curPage - 1) * pageSize + "," + pageSize;
         List<CarBillBean> list = dao.getResult(select, null, order);
         return list;
@@ -145,18 +145,6 @@ public class DBDelegator {
             return list.get(0);
         } else {
             return null;
-        }
-    }
-
-    public int queryLocalBillCount() {
-        BaseDao<CarBillBean> dao = DaoFactory.buildDaoEntry(mAppContext, DaoFactory.TYPE_CARBILL);
-        String select = CarBillTable.BILLSTATUS + "=0";
-        List<CarBillBean> list = dao.getResult(select, null, null);
-        CarLog.d("DBDelegator", "queryLocalBillCount " + list.size());
-        if (list != null && list.size() > 0) {
-            return list.size();
-        } else {
-            return 0;
         }
     }
 

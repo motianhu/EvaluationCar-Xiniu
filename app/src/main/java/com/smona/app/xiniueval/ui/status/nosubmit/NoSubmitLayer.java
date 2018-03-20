@@ -5,11 +5,18 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.smona.app.xiniueval.R;
+import com.smona.app.xiniueval.business.ResponseCallback;
+import com.smona.app.xiniueval.business.param.CarbillParam;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.event.LocalStatusEvent;
+import com.smona.app.xiniueval.data.event.PassStatusEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
+import com.smona.app.xiniueval.data.item.UserItem;
+import com.smona.app.xiniueval.data.model.ResCarBillPage;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.event.EventProxy;
+import com.smona.app.xiniueval.framework.json.JsonParse;
+import com.smona.app.xiniueval.framework.provider.DBDelegator;
 import com.smona.app.xiniueval.ui.common.refresh.NetworkTipUtil;
 import com.smona.app.xiniueval.ui.common.refresh.PullToRefreshLayout;
 import com.smona.app.xiniueval.ui.evaluation.EvaluationActivity;
@@ -25,9 +32,11 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.List;
 
 public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, Request1Page {
+    // 思路：
+    // 先把服务器上所有的驳回单据拉取下来并保存，然后查询驳回单据以及正在上传和未提交的单据，并按分批显示
     //23,33,43,53+本地
     private static final String TAG = NoSubmitLayer.class.getSimpleName();
-    private static final int PAGE_SIZE = 10;
+    private static final int PAGE_SIZE = 200;
     private NoSubmitListView mLocalListView = null;
 
     private StatusFilter mCurFilter= StatusFilter.All;
@@ -40,8 +49,6 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
     private boolean mPullRequest = false;
     private int mCurPage = 1;
     private int mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
-
-    private boolean mComplementInit = false;
 
     private View.OnClickListener mReloadClickListener = new View.OnClickListener() {
 
@@ -69,6 +76,55 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
         super(context, attrs, defStyle);
     }
 
+    private CarbillParam mRequestParams = new CarbillParam();
+    private void initRequestParams() {
+        UserItem user = new UserItem();
+        boolean success = user.readSelf(getContext());
+        if (success) {
+            mRequestParams.userName = user.mId;
+            mRequestParams.curPage = 1;
+            mRequestParams.pageSize = PAGE_SIZE;
+            mRequestParams.status = "23,33,43,53";
+        }
+    }
+
+    private void postNoPass() {
+        DataDelegator.getInstance().queryCarbillList(mRequestParams, mResonponseCallBack);
+    }
+    private ResponseCallback<String> mResonponseCallBack = new ResponseCallback<String>() {
+        @Override
+        public void onFailed(String error) {
+            CarLog.d(TAG, "error: " + error);
+            //失败则加载本地未提交或者正在提交的数据
+            reloadNormal(false);
+        }
+
+        @Override
+        public void onSuccess(String content) {
+            CarLog.d(TAG, "content: " + content);
+            ResCarBillPage pages = JsonParse.parseJson(content, ResCarBillPage.class);
+            //我们认为所有驳回数据拉取成功，并保存起来
+            saveToDB(pages.data);
+            reloadNormal(true);
+        }
+    };
+
+    private void saveToDB(List<CarBillBean> deltaList) {
+        if (deltaList == null || deltaList.size() == 0) {
+            return;
+        }
+        for (CarBillBean bean : deltaList) {
+            CarBillBean temp = DBDelegator.getInstance().queryCarBill(bean.carBillId);
+            if (temp == null) {
+                DBDelegator.getInstance().insertCarBill(bean);
+            } else {
+                bean.imageId = temp.imageId;
+                bean.uploadStatus = temp.uploadStatus;
+                DBDelegator.getInstance().updateCarBill(bean);
+            }
+        }
+    }
+
     public void setFilter(StatusFilter filter) {
         if(mCurFilter == filter) {
             return;
@@ -88,10 +144,7 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
     @Override
     public void addObserver() {
         EventProxy.register(this);
-        if(!mComplementInit) {
-            mComplementInit = true;
-            request1Page();
-        }
+        request1Page();
     }
 
     private void post() {
@@ -104,19 +157,8 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
         mLocalListView.clear();
     }
 
-    @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    public void reloadDBData(LocalStatusSubEvent event) {
-        CarLog.d(TAG, "LocalStatusSubEvent event.getTag()=" + event.getTag());
-        if (LocalStatusSubEvent.TAG_ADD_CARBILL.equals(event.getTag())) {
-            mLocalListView.clear();
-            mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
-            mCurPage = 1;
-        }
-        reloadNormal();
-    }
-
-    private void reloadNormal() {
-        List<CarBillBean> datas = DataDelegator.getInstance().queryLocalCarbill(mCurPage, PAGE_SIZE);
+    private void reloadNormal(boolean success) {
+        List<CarBillBean> datas = DataDelegator.getInstance().queryNoSubmitCarBill(mCurPage, PAGE_SIZE);
         if (datas.size() < PAGE_SIZE) {
             mTag = StatusUtils.MESSAGE_REQUEST_PAGE_LAST;
         } else {
@@ -126,6 +168,16 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
         LocalStatusEvent local = new LocalStatusEvent();
         local.setContent(datas);
         EventProxy.post(local);
+    }
+
+    @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    public void reloadDBData(LocalStatusSubEvent event) {
+        CarLog.d(TAG, "LocalStatusSubEvent event.getTag()=" + event.getTag());
+        if (LocalStatusSubEvent.TAG_ADD_CARBILL.equals(event.getTag())) {
+            mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
+            mCurPage = 1;
+        }
+        reloadNormal(true);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -200,11 +252,13 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
 
     @Override
     public void request1Page() {
+        //一次性拉取完此用户所有的驳回单据
+        initRequestParams();
         mTag = StatusUtils.MESSAGE_REQUEST_PAGE_MORE;
         mCurPage = 1;
         mLocalListView.clear();
         changeState(INIT);
         mPullRequest = false;
-        post();
+        postNoPass();
     }
 }

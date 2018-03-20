@@ -61,8 +61,9 @@ public class DataDelegator {
         HttpDelegator.getInstance().submitCarBill(userName, carBill, callback);
     }
 
-    public List<CarBillBean> queryLocalCarbill(int curPage, int pageSize) {
-        List<CarBillBean> dataList = DBDelegator.getInstance().queryLocalCarbill(curPage, pageSize);
+    //查询本地未提交，正在提交以及驳回的单据
+    public List<CarBillBean> queryNoSubmitCarBill(int curPage, int pageSize) {
+        List<CarBillBean> dataList = DBDelegator.getInstance().queryNoSubmitCarBill(curPage, pageSize);
         return dataList;
     }
 
