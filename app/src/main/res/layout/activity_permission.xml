@@ -10,7 +10,7 @@
         android:layout_height="132dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:src="@drawable/icon_avatar_login" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/title"

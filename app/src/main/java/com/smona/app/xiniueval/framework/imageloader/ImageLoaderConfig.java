@@ -16,11 +16,11 @@ public class ImageLoaderConfig {
     public static DisplayImageOptions getDefaultOption() {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 // 设置图片在下载期间显示的图片
-                .showImageOnLoading(R.drawable.ad_empty)
+                .showImageOnLoading(R.drawable.empty_default)
                 // 设置图片Uri为空或是错误的时候显示的图片
-                .showImageForEmptyUri(R.drawable.ad_empty)
+                .showImageForEmptyUri(R.drawable.empty_default)
                 // 设置图片加载/解码过程中错误时候显示的图片
-                .showImageOnFail(R.drawable.ad_empty)
+                .showImageOnFail(R.drawable.empty_default)
                 // 设置下载的图片是否缓存在内存中
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
@@ -70,11 +70,11 @@ public class ImageLoaderConfig {
     public static DisplayImageOptions getCornerImage() {
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 // 设置图片在下载期间显示的图片
-                .showImageOnLoading(R.drawable.ad_empty)
+                .showImageOnLoading(R.drawable.empty_default)
                 // 设置图片Uri为空或是错误的时候显示的图片
-                .showImageForEmptyUri(R.drawable.ad_empty)
+                .showImageForEmptyUri(R.drawable.empty_default)
                 // 设置图片加载/解码过程中错误时候显示的图片
-                .showImageOnFail(R.drawable.ad_empty)
+                .showImageOnFail(R.drawable.empty_default)
                 .displayer(new RoundedBitmapDisplayer(25))
                 // 设置下载的图片是否缓存在内存中
                 .cacheInMemory(true)

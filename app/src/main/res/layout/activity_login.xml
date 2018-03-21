@@ -4,20 +4,28 @@
     android:background="@color/bg_gray">
 
     <ImageView
+        android:id="@+id/img_logo"
         android:layout_width="132dp"
         android:layout_height="132dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/icon_avatar_login" />
+        android:layout_marginTop="133dp"
+        android:src="@drawable/logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo_word" />
 
     <Button
         android:id="@+id/login_btnLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginStart="45dp"
         android:background="@drawable/login_button"
         android:text="@string/login_btn_text"
         android:textColor="@color/bg_white"
@@ -26,18 +34,19 @@
 
     <RelativeLayout
         android:id="@+id/login_edtPwd_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/login_btnLogin"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginStart="45dp">
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
 
         <EditText
             android:id="@+id/login_edtPwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/login_input"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/login_pwd"
             android:hint="@string/pwd_txt_hint"
             android:inputType="textPassword"
             android:maxLines="1"
@@ -60,13 +69,14 @@
 
     <EditText
         android:id="@+id/login_edtId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
         android:layout_above="@+id/login_edtPwd_container"
-        android:layout_marginBottom="25dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginStart="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/login_input"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/login_user"
         android:ems="10"
         android:hint="@string/id_txt_hint"
         android:maxLines="1"
