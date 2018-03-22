@@ -84,8 +84,11 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
         String upload = mContext.getString(R.string.saving_status);
         boolean isRunning = UploadTaskExecutor.getInstance().isRunningTask(carbill.imageId, carbill.carBillId);
         boolean isWaiting = UploadTaskExecutor.getInstance().isWaittingTask(carbill.imageId, carbill.carBillId);
+        
+        int resId = R.drawable.unfinish;
         if(isRunning) {
             upload = mContext.getString(R.string.uploading_status);
+            resId = R.drawable.uploading;
         } else if(isWaiting) {
             upload = mContext.getString(R.string.waiting_status);
         }
@@ -93,6 +96,9 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
 
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
+
+        ImageView image = (ImageView)convertView.findViewById(R.id.status_list_item_arrow);
+        image.setImageResource(resId);
 
         return convertView;
     }

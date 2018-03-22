@@ -87,6 +87,13 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
 
+        int resId = R.drawable.auditing;
+        if(carbill.status == 54) {
+            resId = R.drawable.finish;
+        }
+        ImageView image = (ImageView)convertView.findViewById(R.id.status_list_item_arrow);
+        image.setImageResource(resId);
+
         return convertView;
     }
 
