@@ -367,7 +367,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="@drawable/selector_btn_red"
+            android:background="@drawable/submit_bg"
             android:text="立即提交"
             android:textColor="@color/white"
             android:textSize="17sp" />
