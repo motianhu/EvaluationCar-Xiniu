@@ -32,11 +32,13 @@
             <RadioButton
                 android:id="@+id/rb_nosubmit"
                 style="@style/tab_menu_item"
+                android:text="@string/home_fragment_nosubmit"
                 android:drawableTop="@drawable/tab_menu_channel" />
 
             <RadioButton
                 android:id="@+id/rb_submited"
                 style="@style/tab_menu_item"
+                android:text="@string/home_fragment_submited"
                 android:drawableTop="@drawable/tab_menu_list"/>
 
 
@@ -57,11 +59,13 @@
             <RadioButton
                 android:id="@+id/rb_kefu"
                 style="@style/tab_menu_item"
+                android:text="@string/home_fragment_kefu"
                 android:drawableTop="@drawable/tab_menu_kefu" />
 
             <RadioButton
                 android:id="@+id/rb_setting"
                 style="@style/tab_menu_item"
+                android:text="@string/home_fragment_setting"
                 android:drawableTop="@drawable/tab_menu_mine"/>
 
         </RadioGroup>
