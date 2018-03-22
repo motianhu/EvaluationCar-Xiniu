@@ -39,8 +39,9 @@ public class ImageModelAdapter extends BaseAdapter {
     public ImageModelAdapter(Context context, int type) {
         mContext = context;
         int i = ScreenInfo.getInstance().getScreenWidth();
-        int j = context.getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
-        mImageWidth = ((i - j * 3) / 2);
+        int margin = context.getResources().getDimensionPixelSize(R.dimen.activity_horizontal_margin);
+        int padding = context.getResources().getDimensionPixelSize(R.dimen.grid_divider_width);
+        mImageWidth = ((i - margin * 2 - padding * 2) / 3);
     }
 
     public void update(List<CarImageBean> datas) {
