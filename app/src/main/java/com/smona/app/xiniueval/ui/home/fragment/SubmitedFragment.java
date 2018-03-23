@@ -1,8 +1,10 @@
 package com.smona.app.xiniueval.ui.home.fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
@@ -30,6 +32,12 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
         mLayer.request1Page();
         mTvFilter = (TextView) root.findViewById(R.id.filter);
         mTvFilter.setOnClickListener(this);
+        hideSoftInput(getContext(), root.findViewById(R.id.search));
+    }
+
+    public void hideSoftInput(Context context, View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
     @Override

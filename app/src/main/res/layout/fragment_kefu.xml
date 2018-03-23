@@ -7,16 +7,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/bg_gray">
+        android:layout_height="40dp"
+        android:background="@color/white">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/home_fragment_kefu"
-            android:textColor="@color/blue"
-            android:textSize="25sp" />
+            android:textColor="@color/black_text"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <View
