@@ -2,15 +2,21 @@ package com.smona.app.xiniueval.ui.home.fragment;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
 import com.smona.app.xiniueval.ui.status.nosubmit.NoSubmitLayer;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
+
+import org.w3c.dom.Text;
 
 /**
  * Created by Moth on 2015/8/28 0028.
@@ -19,6 +25,8 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
 
     private NoSubmitLayer mLayer;
     private TextView mTvFilter;
+
+    private final String[] items={"所有","未提交","驳回"};
 
     protected int getLayoutId() {
         return R.layout.status_local_layer;
@@ -34,40 +42,50 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.filter:
-                showFilter(v);
+                showFilter();
                 break;
         }
     }
 
-    private void showFilter(View v) {
-        StatusFilter filter = mLayer.getFilter();
-        int pos = filter == StatusFilter.All ? 0 : filter == StatusFilter.UnSub ? 1 : 2;
-        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-        /**
-         * 设置内容区域为单选列表项
-         */
-        final String[] items={"所有","未提交","驳回"};
-        builder.setSingleChoiceItems(items, pos, new DialogInterface.OnClickListener() {
+    private void showFilter() {
+        View contentView= LayoutInflater.from(getContext()).inflate(R.layout.popwin_filter, null);
+        int w = getContext().getResources().getDimensionPixelSize(R.dimen.popwind_w);
+        int h = getContext().getResources().getDimensionPixelSize(R.dimen.popwind_h);
+        final PopupWindow window=new PopupWindow(contentView, w, h, true);
+        TextView head = (TextView)contentView.findViewById(R.id.head_position);
+        head.setText(items[0]);
+        head.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                switch (i) {
-                    case 0:
-                        mLayer.setFilter(StatusFilter.All);
-                        break;
-                    case 1:
-                        mLayer.setFilter(StatusFilter.UnSub);
-                        break;
-                    case 2:
-                        mLayer.setFilter(StatusFilter.Reject);
-                        break;
-                }
-                mTvFilter.setText(items[i]);
-                dialogInterface.dismiss();
+            public void onClick(View v) {
+                mLayer.setFilter(StatusFilter.All);
+                mTvFilter.setText(items[0]);
+                window.dismiss();
+            }
+        });
+        TextView middle = (TextView)contentView.findViewById(R.id.middle_position);
+        middle.setText(items[1]);
+        middle.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mLayer.setFilter(StatusFilter.UnSub);
+                mTvFilter.setText(items[1]);
+                window.dismiss();
+            }
+        });
+        TextView tail = (TextView)contentView.findViewById(R.id.tail_position);
+        tail.setText(items[2]);
+        tail.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                mLayer.setFilter(StatusFilter.Reject);
+                mTvFilter.setText(items[2]);
+                window.dismiss();
             }
         });
 
-        builder.setCancelable(true);
-        AlertDialog dialog=builder.create();
-        dialog.show();
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.setOutsideTouchable(true);
+        window.setTouchable(true);
+        window.showAsDropDown(mTvFilter, 0, 0);
     }
 }

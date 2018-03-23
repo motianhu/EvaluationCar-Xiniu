@@ -20,9 +20,9 @@
         android:background="@color/bg_gray">
 
         <EditText
+            android:id="@+id/search"
             android:layout_width="160dp"
             android:layout_height="34dp"
-            android:id="@+id/search"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:background="@drawable/search_bg"
@@ -35,13 +35,18 @@
 
         <TextView
             android:id="@+id/filter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="90dp"
+            android:layout_height="32dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/filter_btn_bg"
+            android:drawableEnd="@drawable/arraw_down"
+            android:gravity="center"
+            android:paddingEnd="10dp"
             android:text="@string/select_all"
-            android:textSize="16sp" />
+            android:textColor="@color/white"
+            android:textSize="14sp" />
     </RelativeLayout>
 
     <View

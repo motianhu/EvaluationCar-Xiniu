@@ -41,4 +41,6 @@
     <dimen name="camera_left_w">50dp</dimen>
     <dimen name="camera_right_w">110dp</dimen>
 
+    <dimen name="popwind_w">90dp</dimen>
+    <dimen name="popwind_h">100dp</dimen>
 </resources>
