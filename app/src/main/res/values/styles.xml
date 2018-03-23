@@ -113,4 +113,31 @@
         <item name="android:textColor">@color/permission_tips_title_text_color</item>
     </style>
 
+    <style name="evaluation_class_title_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginEnd">@dimen/evaluation_class_margin</item>
+        <item name="android:layout_marginStart">@dimen/evaluation_class_margin</item>
+        <item name="android:layout_marginTop">@dimen/evaluation_class_margin</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:paddingEnd">@dimen/evaluation_class_padding</item>
+        <item name="android:paddingStart">@dimen/evaluation_class_padding</item>
+    </style>
+
+    <style name="evaluation_gridview_style">
+        <item name="android:layout_marginStart">@dimen/evaluation_class_margin</item>
+        <item name="android:layout_marginEnd">@dimen/evaluation_class_margin</item>
+        <item name="android:padding">@dimen/evaluation_class_padding</item>
+        <item name="android:horizontalSpacing">@dimen/grid_divider_width</item>
+        <item name="android:listSelector">@color/transparent</item>
+        <item name="android:numColumns">3</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:scrollbars">none</item>
+        <item name="android:verticalSpacing">10dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>

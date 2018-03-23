@@ -24,7 +24,7 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
     private SubmitedLayer mLayer;
     private TextView mTvFilter;
 
-    private final String[] items={"所有","已提交","完成"};
+    private final String[] items={"所有","已提交","已完成"};
 
     protected int getLayoutId() {
         return R.layout.status_pass_layer;

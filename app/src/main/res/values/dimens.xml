@@ -4,6 +4,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="grid_divider_width">4dp</dimen>
 
+    <dimen name="evaluation_class_margin">10dp</dimen>
+    <dimen name="evaluation_class_padding">6dp</dimen>
+    <dimen name="evaluation_class_divider_margin">22dp</dimen>
+
     <dimen name="loginingdlg_height">42dp</dimen>
     <dimen name="loginingdlg_lr_margin">10dp</dimen>
     <dimen name="loginingdlg_top_margin">20dp</dimen>
@@ -21,6 +25,8 @@
     <dimen name="border_line_width">0.8dp</dimen>
 
     <dimen name="evaluation_title_image_size">15dp</dimen>
+    <dimen name="evaluation_title_image_w">1dp</dimen>
+    <dimen name="evaluation_title_image_h">16dp</dimen>
     <dimen name="evaluation_title_image_margin_left">5dp</dimen>
 
     <!--权限-->

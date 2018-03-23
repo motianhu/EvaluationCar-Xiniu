@@ -24,18 +24,12 @@
 
             <LinearLayout
                 android:id="@+id/reason"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
 
-                <ImageView
-                    android:layout_width="@dimen/evaluation_title_image_size"
-                    android:layout_height="@dimen/evaluation_title_image_size"
-                    android:src="@drawable/icon_circle" />
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/reason_text"
@@ -49,32 +43,30 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/reason_attach"
                 android:layout_width="wrap_content"
-                android:layout_gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/reason_attach"
-                android:id="@+id/reason_attach"/>
+                android:visibility="gone" />
 
             <WebView
-                android:layout_marginTop="@dimen/view_space_vertical"
                 android:id="@+id/reason_webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin" />
-
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/view_space_vertical" />
 
 
             <LinearLayout
                 android:id="@+id/class_registration_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_registration_title"
@@ -83,30 +75,27 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_registration"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
+
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_registration"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_driving_license_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_driving_license_title"
@@ -115,30 +104,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_driving_license"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_driving_license"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_vehicle_nameplate_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_vehicle_nameplate_title"
@@ -147,30 +132,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_vehicle_nameplate"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp"/>
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_vehicle_nameplate"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_car_body_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_car_body_title"
@@ -179,30 +160,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_car_body"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_car_body"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_car_frame_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_car_frame_title"
@@ -211,30 +188,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_car_frame"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_car_frame"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_vehicle_interior_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_vehicle_interior_title"
@@ -243,30 +216,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_vehicle_interior"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_vehicle_interior"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_difference_supplement_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_difference_supplement_title"
@@ -275,30 +244,26 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_difference_supplement"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp"/>
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_difference_supplement"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
             <LinearLayout
                 android:id="@+id/class_original_car_insurancet_layer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/view_space_vertical"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/view_space_vertical">
+                style="@style/evaluation_class_title_style">
+
+                <View
+                    android:layout_width="@dimen/evaluation_title_image_w"
+                    android:layout_height="@dimen/evaluation_title_image_h"
+                    android:background="@color/blue" />
 
                 <TextView
                     android:id="@+id/class_original_car_insurancet_title"
@@ -307,20 +272,17 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/class_original_car_insurancet"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp" />
+                    android:textSize="12sp" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
 
             <com.smona.app.xiniueval.ui.common.base.LimitGridView
                 android:id="@+id/class_original_car_insurancet"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:horizontalSpacing="@dimen/grid_divider_width"
-                android:listSelector="@color/transparent"
-                android:numColumns="3"
-                android:scrollbars="none"
-                android:verticalSpacing="10dip" />
+                style="@style/evaluation_gridview_style" />
 
 
             <View
@@ -336,6 +298,7 @@
 
     <include
         android:id="@+id/include_indicator"
+        android:visibility="gone"
         layout="@layout/layou_instruction_edit" />
 
     <View
@@ -356,11 +319,11 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:visibility="gone"
             android:background="@drawable/selector_round_btn_white"
             android:text="保存"
             android:textColor="@color/red_theme"
-            android:textSize="17sp" />
+            android:textSize="17sp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_submit"
