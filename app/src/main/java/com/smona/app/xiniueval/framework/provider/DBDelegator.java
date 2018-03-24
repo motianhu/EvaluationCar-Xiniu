@@ -129,9 +129,17 @@ public class DBDelegator {
         return null;
     }
 
-    public List<CarBillBean> queryNoSubmitCarBill(int curPage, int pageSize) {
+    //queryType=0--all;queryType=1--local;queryType=2--inject
+    public List<CarBillBean> queryNoSubmitCarBill(int queryType, int curPage, int pageSize) {
         BaseDao<CarBillBean> dao = DaoFactory.buildDaoEntry(mAppContext, DaoFactory.TYPE_CARBILL);
-        String select = "(" + CarBillTable.BILLSTATUS + " =0 and " + CarBillTable.IMAGEID + " >0 ) or billStatus in (23,33,43,53)";
+        String localSelect = "(" + CarBillTable.BILLSTATUS + " =0 and " + CarBillTable.IMAGEID + " >0 )";
+        String injectSelect = "(" + CarBillTable.BILLSTATUS + " in (23,33,43,53))";
+        String select =  localSelect + " or " + injectSelect;
+        if(queryType == 1) {
+            select = localSelect;
+        } else if (queryType == 2) {
+            select = injectSelect;
+        }
         String order = CarBillTable.CREATETIME + " desc limit " + (curPage - 1) * pageSize + "," + pageSize;
         List<CarBillBean> list = dao.getResult(select, null, order);
         return list;

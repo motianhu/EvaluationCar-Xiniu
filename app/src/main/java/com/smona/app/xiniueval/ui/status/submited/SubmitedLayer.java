@@ -56,7 +56,7 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
     }
 
     private void notifyFilter() {
-
+        EventProxy.post(new SubmitStatusEvent());
     }
 
     private CarbillParam mRequestParams = new CarbillParam();
@@ -131,6 +131,12 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
     }
 
     private void post() {
+        mRequestParams.status = "21,22,24,31,32,34,41,42,44,51,52,54,80";
+        if(mCurFilter == StatusFilter.Submited) {
+            mRequestParams.status = "21,22,24,31,32,34,41,42,44,51,52";
+        } else if(mCurFilter == StatusFilter.Pass) {
+            mRequestParams.status = "54,80";
+        }
         DataDelegator.getInstance().queryCarbillList(mRequestParams, mResonponseCallBack);
     }
 

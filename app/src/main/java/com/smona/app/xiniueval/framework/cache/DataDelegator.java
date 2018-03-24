@@ -62,8 +62,8 @@ public class DataDelegator {
     }
 
     //查询本地未提交，正在提交以及驳回的单据
-    public List<CarBillBean> queryNoSubmitCarBill(int curPage, int pageSize) {
-        List<CarBillBean> dataList = DBDelegator.getInstance().queryNoSubmitCarBill(curPage, pageSize);
+    public List<CarBillBean> queryNoSubmitCarBill(int queryType, int curPage, int pageSize) {
+        List<CarBillBean> dataList = DBDelegator.getInstance().queryNoSubmitCarBill(queryType, curPage, pageSize);
         return dataList;
     }
 

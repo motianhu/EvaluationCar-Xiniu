@@ -135,7 +135,8 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
     }
 
     private void notifyFilter() {
-
+        LocalStatusRefreshEvent event = new LocalStatusRefreshEvent();
+        EventProxy.post(event);
     }
 
     @Override
@@ -155,7 +156,13 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
     }
 
     private void reloadNormal(boolean success) {
-        List<CarBillBean> datas = DataDelegator.getInstance().queryNoSubmitCarBill(mCurPage, PAGE_SIZE);
+        int queryType = 0;
+        if(mCurFilter == StatusFilter.Reject) {
+            queryType = 2;
+        } else if(mCurFilter == StatusFilter.UnSub) {
+            queryType = 1;
+        }
+        List<CarBillBean> datas = DataDelegator.getInstance().queryNoSubmitCarBill(queryType, mCurPage, PAGE_SIZE);
         if (datas.size() < PAGE_SIZE) {
             mTag = StatusUtils.MESSAGE_REQUEST_PAGE_LAST;
         } else {
