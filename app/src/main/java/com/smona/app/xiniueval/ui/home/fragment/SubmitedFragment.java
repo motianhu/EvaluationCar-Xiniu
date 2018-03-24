@@ -8,6 +8,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
+import com.smona.app.xiniueval.data.event.SubmitStatusEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
 import com.smona.app.xiniueval.framework.event.EventProxy;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
@@ -92,6 +93,6 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
     }
 
     private void refreshSubmited() {
-        mLayer.request1Page();
+        EventProxy.post(new SubmitStatusEvent());
     }
 }

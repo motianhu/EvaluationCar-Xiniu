@@ -23,10 +23,8 @@ import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.bean.CarImageBean;
 import com.smona.app.xiniueval.data.bean.ImageMetaBean;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
-import com.smona.app.xiniueval.data.event.background.StatisticsStatusSubEvent;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.event.EventProxy;
-import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.framework.provider.DBDelegator;
 import com.smona.app.xiniueval.framework.storage.DeviceStorageManager;
 import com.smona.app.xiniueval.ui.evaluation.ImageModelDelegator;
@@ -37,7 +35,6 @@ import com.smona.app.xiniueval.util.DateUtils;
 import com.smona.app.xiniueval.util.SPUtil;
 import com.smona.app.xiniueval.util.StatusUtils;
 import com.smona.app.xiniueval.util.ToastUtils;
-import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.Utils;
 import com.smona.app.xiniueval.util.ViewUtil;
 
@@ -431,8 +428,6 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         LocalStatusSubEvent local = new LocalStatusSubEvent();
         local.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
         EventProxy.post(local);
-
-        EventProxy.post(new StatisticsStatusSubEvent());
     }
 
     private void processImageDataInSave() {

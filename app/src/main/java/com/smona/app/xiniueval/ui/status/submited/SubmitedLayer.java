@@ -9,6 +9,7 @@ import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.business.param.CarbillParam;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.event.PassStatusEvent;
+import com.smona.app.xiniueval.data.event.SubmitStatusEvent;
 import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.data.model.ResCarBillPage;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
@@ -140,6 +141,11 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refresh(SubmitStatusEvent event) {
+        request1Page();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void update(PassStatusEvent event) {
         List<CarBillBean> deltaList = (List<CarBillBean>) event.getContent();
         CarLog.d(TAG, "update deltaList is null? " + (deltaList == null) + ", mPullRequest: " + mPullRequest + ", mTag: " + mTag);
@@ -152,8 +158,8 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
                     loadmoreFinish(PullToRefreshLayout.SUCCEED);
                 }
             }
-        } else if (deltaList == null && mTag == StatusUtils.MESSAGE_REQUEST_PAGE_LAST) {
-            mPassListView.update(deltaList, mTag);
+        } else if (mTag == StatusUtils.MESSAGE_REQUEST_PAGE_LAST) {
+            mPassListView.update(null, mTag);
             loadmoreFinish(PullToRefreshLayout.SUCCEED);
         } else {
             if (mPullRequest) {

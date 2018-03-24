@@ -4,9 +4,9 @@ import android.text.TextUtils;
 
 import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
+import com.smona.app.xiniueval.data.event.SubmitStatusEvent;
 import com.smona.app.xiniueval.data.event.ToastEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
-import com.smona.app.xiniueval.data.event.background.StatisticsStatusSubEvent;
 import com.smona.app.xiniueval.data.model.ResBaseModel;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.event.EventProxy;
@@ -29,7 +29,6 @@ public class CompleteTask extends ActionTask {
             String error = "上传失败,具体原因是: " + mMessage + " 没上传成功!";
             CarLog.d(TAG, "onSuccess  上传失败,具体原因是: " + error + " 没上传成功, carBill=" + carBill);
             postMessage(error);
-
             UploadTaskExecutor.getInstance().nextTask(0, mCarBillId);
         } else {
             carBill.carBillId = mCarBillId;
@@ -39,17 +38,17 @@ public class CompleteTask extends ActionTask {
                     CarLog.d(TAG, "onSuccess result: " + result + ", carBill: " + carBill);
                     ResBaseModel<String> resBaseModel = JsonParse.parseJson(result, ResBaseModel.class);
                     if (resBaseModel.success) {
-                        carBill.uploadStatus = StatusUtils.BILL_UPLOAD_STATUS_NONE;
-                        if (carBill.status == 0) {
-                            DBDelegator.getInstance().deleteCarbill(carBill);
-                            LocalStatusSubEvent event = new LocalStatusSubEvent();
-                            event.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
-                            EventProxy.post(event);
-                            EventProxy.post(new StatisticsStatusSubEvent());
-                        } else {
-                            carBill.uploadStatus = StatusUtils.BILL_UPLOAD_STATUS_NONE;
-                            DBDelegator.getInstance().updateCarBill(carBill);
-                        }
+                        //不管是本地(无单号还是保存过的或者上传失败的)
+                        //删除单据相关信息
+                        DBDelegator.getInstance().deleteCarbill(carBill);
+                        DBDelegator.getInstance().deleteBatchCarImages(carBill.imageId);
+                        //刷新未提交
+                        LocalStatusSubEvent event = new LocalStatusSubEvent();
+                        event.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
+                        EventProxy.post(event);
+                        //刷新已提交
+                        EventProxy.post(new SubmitStatusEvent());
+                        //给出成功提示
                         postMessage("单号" + mCarBillId + "上传成功!");
                     } else {
                         postMessage("单号" + mCarBillId + "上传失败!具体原因:" + resBaseModel.message);
