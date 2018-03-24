@@ -237,12 +237,16 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
         mReasonContainer = findViewById(R.id.reason);
         mReasonWebView = (WebView) findViewById(R.id.reason_webview);
         if (statusIsReturn()) {
-            ViewUtil.setViewVisible(findViewById(R.id.reason_attach), true);
+            //ViewUtil.setViewVisible(findViewById(R.id.reason_attach), true);
+            //findViewById(R.id.reason_attach).setOnClickListener(this);
             ViewUtil.setViewVisible(mReasonContainer, true);
             ViewUtil.setViewVisible(mReasonWebView, true);
-            findViewById(R.id.reason_attach).setOnClickListener(this);
+
 
             String bodyHTML = mCarBill.applyAllOpinion;
+            CarLog.d(TAG, "source bodyHTML： " + bodyHTML);
+            bodyHTML = filterNameAndReject(bodyHTML);
+            CarLog.d(TAG, "filter bodyHTML： " + bodyHTML);
             mReasonWebView.setWebViewClient(new WebViewClient());
             mReasonWebView.getSettings().setDefaultTextEncodingName("utf-8");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -710,5 +714,33 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
         intent.setClass(this, AttachmentActivity.class);
         intent.putExtra(CacheContants.ATTACH_CARBILLID, mCarBillId);
         startActivity(intent);
+    }
+
+    private static String filterNameAndReject(String content) {
+        String[] splits_1 = content.split("\\[");
+        StringBuffer buffer = new StringBuffer("");
+        int index;
+        int spaceIndex;
+        String split;
+        for (int i = 0; i < splits_1.length - 1; i++) {
+            split = splits_1[i];
+            index = split.indexOf("]");
+            if (index != -1) {
+                if (split.contains("驳回")) {
+                    buffer.append("驳回");
+                    split = split.substring(index, split.length());
+                }
+            }
+            spaceIndex = split.lastIndexOf(" ");
+            if (spaceIndex != -1) {
+                buffer.append(split.substring(0, spaceIndex));
+            } else {
+                buffer.append(split);
+            }
+            buffer.append(" [");
+
+        }
+        buffer.append(splits_1[splits_1.length - 1]);
+        return buffer.toString();
     }
 }

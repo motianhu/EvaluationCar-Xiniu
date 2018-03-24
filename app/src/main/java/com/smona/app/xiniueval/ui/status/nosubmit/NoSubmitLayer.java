@@ -133,10 +133,6 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
         notifyFilter();
     }
 
-    public StatusFilter getFilter() {
-        return mCurFilter;
-    }
-
     private void notifyFilter() {
 
     }

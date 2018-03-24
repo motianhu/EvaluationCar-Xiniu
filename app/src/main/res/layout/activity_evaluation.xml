@@ -40,7 +40,10 @@
                     android:textColor="@color/black_text"
                     android:textSize="12sp" />
             </LinearLayout>
-
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/bg_gray" />
             <Button
                 android:id="@+id/reason_attach"
                 android:layout_width="wrap_content"
@@ -54,8 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/evaluation_class_margin"
-                android:layout_marginEnd="@dimen/evaluation_class_margin"
-                android:layout_marginTop="@dimen/view_space_vertical" />
+                android:layout_marginEnd="@dimen/evaluation_class_margin" />
 
 
             <LinearLayout

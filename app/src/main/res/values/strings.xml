@@ -54,7 +54,7 @@
     <string name="class_original_car_insurancet">原车保险</string>
 
 
-    <string name="create_carbill">创建评估单据</string>
+    <string name="create_carbill">评估任务创建</string>
     <string name="add_picture">添加照片</string>
 
 
@@ -78,8 +78,8 @@
     <string name="load_fail">网络异常</string>
     <string name="pullup_to_load">上拉加载更多</string>
     <string name="release_to_load">释放立即加载</string>
-    <string name="no_data_online">没有数据</string>
-    <string name="no_data_tips">亲,你没有本地评估单,点击去评估</string>
+    <string name="no_data_online">暂无任务</string>
+    <string name="no_data_tips">暂无任务</string>
     <string name="no_network">没有网络,请检查网络</string>
     <string name="loading">加载中</string>
 

@@ -20,14 +20,14 @@ public class UserInfoBean extends BaseBean {
     }
 
     public boolean isXianfeng() {
-        return userSuperCompany == 9 || userCompany == 9;
+        return false;
     }
 
     public boolean isGuanghui() {
-        return userSuperCompany == 8 || userCompany == 8;
+        return false;
     }
 
     public boolean isRichanJinrong() {
-        return userSuperCompany == 803 || userCompany == 803;
+        return false;
     }
 }
