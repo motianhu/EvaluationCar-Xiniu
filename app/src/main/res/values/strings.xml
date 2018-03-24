@@ -153,4 +153,6 @@
     <string name="fragment_mine_belong_company">所属公司:%s</string>
     <string name="fragment_mine_account">账号:%s</string>
     <string name="fragment_mine_version">版本:%s</string>
+
+    <string name="auditing">正在评估,请稍等</string>
 </resources>

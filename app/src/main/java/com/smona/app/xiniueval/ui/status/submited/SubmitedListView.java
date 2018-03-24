@@ -57,6 +57,7 @@ public class SubmitedListView extends PullableListView implements
         mListAdapter = new SubmitedAdapter(context);
         setOnScrollListener(this);
         setAdapter(mListAdapter);
+        setOnItemClickListener(mListAdapter);
         mFootView = ViewUtil.inflater(context, R.layout.refresh_foot_load);
     }
 

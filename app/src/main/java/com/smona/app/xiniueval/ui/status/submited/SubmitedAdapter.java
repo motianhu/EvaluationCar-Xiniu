@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.ui.status.StatusActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
+import com.smona.app.xiniueval.util.ToastUtils;
 import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.ViewUtil;
 import java.util.ArrayList;
@@ -24,7 +26,8 @@ import java.util.List;
  * Created by motianhu on 4/7/17.
  */
 
-public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener {
+public class SubmitedAdapter extends BaseAdapter implements AdapterView.OnItemClickListener
+{
     private static final String TAG = SubmitedAdapter.class.getSimpleName();
 
     private int mScrollState = AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
@@ -68,8 +71,6 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
             convertView = ViewUtil.inflater(mContext,
                     R.layout.status_list_pass_item);
         }
-
-        convertView.setOnClickListener(this);
         convertView.setTag(carbill);
 
         ImageView carImage = (ImageView) convertView.findViewById(R.id.carImage);
@@ -97,15 +98,6 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
         return convertView;
     }
 
-    @Override
-    public void onClick(View v) {
-        Object tag = v.getTag();
-        if (tag instanceof CarBillBean) {
-            CarBillBean info = (CarBillBean) tag;
-            ActivityUtils.jumpStatus(mContext, info, StatusActivity.class);
-        }
-    }
-
     protected void setScrollState(int state) {
         mScrollState = state;
     }
@@ -113,5 +105,15 @@ public class SubmitedAdapter extends BaseAdapter implements View.OnClickListener
     public void clear() {
         mDataList.clear();
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        CarBillBean bean = mDataList.get(position);
+        if(bean.status == 54) {
+            ActivityUtils.jumpStatus(mContext, bean, StatusActivity.class);
+        } else {
+            ToastUtils.show(mContext, R.string.auditing);
+        }
     }
 }

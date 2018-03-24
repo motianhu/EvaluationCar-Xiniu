@@ -7,7 +7,7 @@
         android:layout_width="@dimen/camera_left_w"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:background="@color/camera_split_side"
+        android:background="@color/bg_blue"
         android:paddingBottom="20dp"
         android:paddingTop="20dp">
 
@@ -16,17 +16,21 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
+            android:visibility="gone"
             android:scaleType="center"
             android:src="@drawable/selector_btn_camera_close1" />
 
-        <ImageView
-            android:id="@+id/flash_light"
+        <TextView
+            android:id="@+id/gallery"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:scaleType="center"
-            android:src="@drawable/selector_btn_flash_light" />
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/gallery"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -34,19 +38,18 @@
         android:layout_width="@dimen/camera_right_w"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:background="@color/camera_split_side"
+        android:background="@color/bg_blue"
         android:paddingBottom="10dp"
         android:paddingTop="10dp">
 
-        <TextView
-            android:id="@+id/gallery"
+        <ImageView
+            android:id="@+id/flash_light"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="@string/gallery"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:scaleType="center"
+            android:src="@drawable/selector_btn_flash_light" />
+
 
         <ImageView
             android:id="@+id/img_camera"
@@ -140,6 +143,7 @@
 
             <ImageView
                 android:id="@+id/iv_tips"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/simple" />
@@ -172,6 +176,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="7dip"
                 android:layout_marginTop="7dip"
+                android:visibility="gone"
                 android:src="@drawable/icon_close" />
         </RelativeLayout>
     </RelativeLayout>

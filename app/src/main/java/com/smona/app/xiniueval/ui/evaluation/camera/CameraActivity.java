@@ -264,8 +264,8 @@ public class CameraActivity extends Activity implements SurfaceHolder.Callback, 
         ImageMetaBean imageMeta = DataDelegator.getInstance().requestImageMeta(mImageClass, mCurCarImage.imageSeqNum);
         if (imageMeta != null) {
             CarLog.d(TAG, "refreshNext imageMeta: " + imageMeta);
-            ImageLoaderProxy.loadImageDesc(UrlConstants.getProjectInterface() + imageMeta.imageDesc, mImageDesc);
-            ImageLoaderProxy.loadImageWaterMark(UrlConstants.getProjectInterface() + imageMeta.waterMark, mWaterImage);
+            //ImageLoaderProxy.loadImageDesc(UrlConstants.getProjectInterface() + imageMeta.imageDesc, mImageDesc);
+            //ImageLoaderProxy.loadImageWaterMark(UrlConstants.getProjectInterface() + imageMeta.waterMark, mWaterImage);
         }
     }
 
