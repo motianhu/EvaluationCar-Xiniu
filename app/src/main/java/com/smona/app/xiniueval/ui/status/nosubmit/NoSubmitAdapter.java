@@ -1,16 +1,20 @@
 package com.smona.app.xiniueval.ui.status.nosubmit;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
+import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.framework.upload.UploadTaskExecutor;
 import com.smona.app.xiniueval.ui.evaluation.EvaluationActivity;
@@ -27,7 +31,7 @@ import java.util.List;
  * Created by motianhu on 4/7/17.
  */
 
-public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener, View.OnLongClickListener {
+public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     private static final String TAG = NoSubmitAdapter.class.getSimpleName();
 
     private int mScrollState = AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
@@ -68,9 +72,6 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
             convertView = ViewUtil.inflater(mContext,
                     R.layout.status_list_local_item);
         }
-
-        convertView.setOnClickListener(this);
-        convertView.setOnLongClickListener(this);
         convertView.setTag(carbill);
 
         ImageView carImage = (ImageView) convertView.findViewById(R.id.carImage);
@@ -84,12 +85,12 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
         String upload = mContext.getString(R.string.saving_status);
         boolean isRunning = UploadTaskExecutor.getInstance().isRunningTask(carbill.imageId, carbill.carBillId);
         boolean isWaiting = UploadTaskExecutor.getInstance().isWaittingTask(carbill.imageId, carbill.carBillId);
-        
+
         int resId = R.drawable.unfinish;
-        if(isRunning) {
+        if (isRunning) {
             upload = mContext.getString(R.string.uploading_status);
             resId = R.drawable.uploading;
-        } else if(isWaiting) {
+        } else if (isWaiting) {
             upload = mContext.getString(R.string.waiting_status);
         }
         uploadStatus.setText(mContext.getString(R.string.status_process) + " " + upload);
@@ -97,29 +98,10 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
 
-        ImageView image = (ImageView)convertView.findViewById(R.id.status_list_item_arrow);
+        ImageView image = (ImageView) convertView.findViewById(R.id.status_list_item_arrow);
         image.setImageResource(resId);
 
         return convertView;
-    }
-
-    @Override
-    public void onClick(View v) {
-        Object tag = v.getTag();
-        if (tag instanceof CarBillBean) {
-            CarBillBean info = (CarBillBean) tag;
-            if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
-                    !TextUtils.isEmpty(info.carBillId) &&
-                    UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {
-                ToastUtils.show(mContext, R.string.uploading_no_action);
-            }else if(info.status == 23) {
-                //驳回
-                ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
-            } else {
-                //保存重新编辑
-                ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_SAVE, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
-            }
-        }
     }
 
     protected void setScrollState(int state) {
@@ -132,8 +114,52 @@ public class NoSubmitAdapter extends BaseAdapter implements View.OnClickListener
     }
 
     @Override
-    public boolean onLongClick(View v) {
-        CarLog.d(TAG, "TAG " + v);
-        return false;
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        CarBillBean info = mDataList.get(position);
+        if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
+                !TextUtils.isEmpty(info.carBillId) &&
+                UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {
+            ToastUtils.show(mContext, R.string.uploading_no_action);
+        } else if (info.status == 23) {
+            //驳回
+            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+        } else {
+            //保存重新编辑
+            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_SAVE, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+        }
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        CarBillBean info = mDataList.get(position);
+        CarLog.d(TAG, "onItemLongClick " + info);
+        processLongClick(info);
+        return true;
+    }
+
+    private void processLongClick(final CarBillBean info) {
+        if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
+                !TextUtils.isEmpty(info.carBillId) &&
+                UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {
+        } else if (info.status == 23) {
+        } else {
+            new AlertDialog.Builder(mContext).setTitle("提示").setMessage("确定删除此单据？")
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            DataDelegator.getInstance().deleteLocalCarBill(info);
+                            mDataList.remove(info);
+                            notifyDataSetChanged();
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
     }
 }

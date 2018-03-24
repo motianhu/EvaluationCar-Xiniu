@@ -92,4 +92,8 @@ public class DataDelegator {
     public void queryPageElementDetail(int pageId, ResponseCallback<String> callback) {
         HttpDelegator.getInstance().queryPageElementDetail(pageId, callback);
     }
+
+    public void deleteLocalCarBill(CarBillBean bean) {
+        DBDelegator.getInstance().deleteCarbill(bean);
+    }
 }

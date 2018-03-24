@@ -59,6 +59,8 @@ public class NoSubmitListView extends PullableListView implements
         mListAdapter = new NoSubmitAdapter(context);
         setOnScrollListener(this);
         setAdapter(mListAdapter);
+        setOnItemClickListener(mListAdapter);
+        setOnItemLongClickListener(mListAdapter);
         mFootView = ViewUtil.inflater(context, R.layout.refresh_foot_load);
     }
 

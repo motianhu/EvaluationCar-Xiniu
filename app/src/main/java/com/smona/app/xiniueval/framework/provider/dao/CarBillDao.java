@@ -7,6 +7,7 @@ import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.RemoteException;
+import android.text.TextUtils;
 
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.framework.provider.DBConstants;
@@ -38,10 +39,21 @@ public class CarBillDao extends BaseDao<CarBillBean> {
 
     @Override
     public void deleteItem(CarBillBean carBill) {
-        String where = CarBillTable.CARBILLID + "=?";
-        String[] whereArgs = new String[]{
-                carBill.carBillId
-        };
+        String where ;
+        String[] whereArgs;
+        //本地单据并且没有单号
+        if(TextUtils.isEmpty(carBill.carBillId)) {
+            where = CarBillTable.IMAGEID + "=?";
+            whereArgs = new String[]{
+                    carBill.imageId + ""
+            };
+            //有单号
+        } else {
+            where= CarBillTable.CARBILLID + "=?";
+            whereArgs = new String[]{
+                    carBill.carBillId
+            };
+        }
         mContentResolver.delete(mTable.mContentUriNoNotify, where, whereArgs);
     }
 
