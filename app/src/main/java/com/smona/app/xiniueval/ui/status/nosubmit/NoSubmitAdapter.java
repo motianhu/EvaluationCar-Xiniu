@@ -3,6 +3,7 @@ package com.smona.app.xiniueval.ui.status.nosubmit;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import com.smona.app.xiniueval.util.ActivityUtils;
 import com.smona.app.xiniueval.util.CarLog;
 import com.smona.app.xiniueval.util.StatusUtils;
 import com.smona.app.xiniueval.util.ToastUtils;
+import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.ViewUtil;
 
 import java.util.ArrayList;
@@ -74,9 +76,6 @@ public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemCl
         }
         convertView.setTag(carbill);
 
-        ImageView carImage = (ImageView) convertView.findViewById(R.id.carImage);
-        ImageLoaderProxy.loadCornerImage(carbill.imageThumbPath, carImage);
-
         TextView textNum = (TextView) convertView.findViewById(R.id.carNum);
         String carTitle = TextUtils.isEmpty(carbill.carBillId) ? mContext.getString(R.string.no_carbillid) : carbill.carBillId;
         textNum.setText(mContext.getString(R.string.list_item_number) + " " + carTitle);
@@ -85,15 +84,24 @@ public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemCl
         String upload = mContext.getString(R.string.saving_status);
         boolean isRunning = UploadTaskExecutor.getInstance().isRunningTask(carbill.imageId, carbill.carBillId);
         boolean isWaiting = UploadTaskExecutor.getInstance().isWaittingTask(carbill.imageId, carbill.carBillId);
+        boolean isInject = isInject(carbill);
+
+        ImageView carImage = (ImageView) convertView.findViewById(R.id.carImage);
+        String imagepath = (isInject ? UrlConstants.getProjectInterface():"") + carbill.imageThumbPath;
+        ImageLoaderProxy.loadCornerImage(imagepath, carImage);
 
         int resId = R.drawable.unfinish;
-        if (isRunning) {
+        if (isInject) {
+            resId = R.drawable.inject;
+            upload = mContext.getString(R.string.inject_status);
+        } else if (isRunning) {
             upload = mContext.getString(R.string.uploading_status);
             resId = R.drawable.uploading;
         } else if (isWaiting) {
             upload = mContext.getString(R.string.waiting_status);
         }
-        uploadStatus.setText(mContext.getString(R.string.status_process) + " " + upload);
+        String content = mContext.getString(R.string.status_process)+"<font color=\"#FE6026\">" + upload + "</font>";
+        uploadStatus.setText(Html.fromHtml(content));
 
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
@@ -113,16 +121,20 @@ public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemCl
         notifyDataSetChanged();
     }
 
+    private boolean isInject(CarBillBean carbill) {
+        return (carbill.status == 23 || carbill.status == 33 || carbill.status == 43 || carbill.status == 53);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         CarBillBean info = mDataList.get(position);
-        if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
+        if (isInject(info)) {
+            //驳回
+            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+        } else if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
                 !TextUtils.isEmpty(info.carBillId) &&
                 UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {
             ToastUtils.show(mContext, R.string.uploading_no_action);
-        } else if (info.status == 23) {
-            //驳回
-            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
         } else {
             //保存重新编辑
             ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_SAVE, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);

@@ -91,7 +91,7 @@
     <string name="status_mark">备&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;注:</string>
     <string name="status_apply_all_opinion">全部意见:</string>
 
-    <string name="evaluation_submit_tips">正在后台上传,稍后请到审核中查看！</string>
+    <string name="evaluation_submit_tips">正在后台上传,稍后请到已提交中刷新查看！</string>
 
 
     <string name="search_title">搜&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;索</string>
@@ -140,6 +140,7 @@
     <string name="uploading_status">正在上传</string>
     <string name="waiting_status">排队中</string>
     <string name="saving_status">已保存</string>
+    <string name="inject_status">驳回</string>
 
 
     <string name="waring_title">警告</string>

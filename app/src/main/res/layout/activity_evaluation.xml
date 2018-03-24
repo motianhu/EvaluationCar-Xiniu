@@ -38,8 +38,7 @@
                     android:layout_marginStart="@dimen/evaluation_title_image_margin_left"
                     android:text="@string/reason_webview"
                     android:textColor="@color/black_text"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp" />
             </LinearLayout>
 
             <Button
@@ -54,8 +53,8 @@
                 android:id="@+id/reason_webview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginStart="@dimen/evaluation_class_margin"
+                android:layout_marginEnd="@dimen/evaluation_class_margin"
                 android:layout_marginTop="@dimen/view_space_vertical" />
 
 

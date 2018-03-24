@@ -13,6 +13,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
+import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
+import com.smona.app.xiniueval.framework.event.EventProxy;
 import com.smona.app.xiniueval.ui.status.nosubmit.NoSubmitLayer;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
 
@@ -36,6 +38,7 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
         mLayer = (NoSubmitLayer)root.findViewById(R.id.local_root);
         mTvFilter = (TextView) root.findViewById(R.id.filter);
         mTvFilter.setOnClickListener(this);
+        root.findViewById(R.id.local_refresh).setOnClickListener(this);
     }
 
     @Override
@@ -43,6 +46,9 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
         switch (v.getId()) {
             case R.id.filter:
                 showFilter();
+                break;
+            case R.id.local_refresh:
+                refreshLocal();
                 break;
         }
     }
@@ -87,5 +93,11 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
         window.setOutsideTouchable(true);
         window.setTouchable(true);
         window.showAsDropDown(mTvFilter, 0, 0);
+    }
+
+    private void refreshLocal() {
+        LocalStatusSubEvent local = new LocalStatusSubEvent();
+        local.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
+        EventProxy.post(local);
     }
 }

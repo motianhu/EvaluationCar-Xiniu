@@ -1,17 +1,15 @@
 package com.smona.app.xiniueval.ui.home.fragment;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
+import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
+import com.smona.app.xiniueval.framework.event.EventProxy;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
 import com.smona.app.xiniueval.ui.status.submited.SubmitedLayer;
 
@@ -36,12 +34,7 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
         mLayer.request1Page();
         mTvFilter = (TextView) root.findViewById(R.id.filter);
         mTvFilter.setOnClickListener(this);
-        hideSoftInput(getContext(), root.findViewById(R.id.search));
-    }
-
-    public void hideSoftInput(Context context, View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        root.findViewById(R.id.submit_refresh).setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +42,9 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
         switch (v.getId()) {
             case R.id.filter:
                 showFilter();
+                break;
+            case R.id.submit_refresh:
+                refreshSubmited();
                 break;
         }
     }
@@ -93,5 +89,9 @@ public class SubmitedFragment extends ContentFragment implements View.OnClickLis
         window.setOutsideTouchable(true);
         window.setTouchable(true);
         window.showAsDropDown(mTvFilter, 0, 0);
+    }
+
+    private void refreshSubmited() {
+        mLayer.request1Page();
     }
 }
