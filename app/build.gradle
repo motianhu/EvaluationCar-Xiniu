@@ -52,4 +52,7 @@ dependencies {
     compile 'org.xutils:xutils:3.3.36'
     //报错上报
     compile 'com.tencent.bugly:crashreport:2.6.6.1'
+
+    //在线调试db
+    debugCompile 'com.amitshekhar.android:debug-db:1.0.0'
 }

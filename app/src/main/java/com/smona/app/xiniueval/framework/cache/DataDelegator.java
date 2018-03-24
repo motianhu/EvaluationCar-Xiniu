@@ -96,4 +96,8 @@ public class DataDelegator {
     public void deleteLocalCarBill(CarBillBean bean) {
         DBDelegator.getInstance().deleteCarbill(bean);
     }
+
+    public void deleteLocalCarImage(CarBillBean bean) {
+        DBDelegator.getInstance().deleteBatchCarImages(bean.imageId);
+    }
 }

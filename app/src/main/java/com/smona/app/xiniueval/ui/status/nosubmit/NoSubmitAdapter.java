@@ -154,6 +154,7 @@ public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemCl
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             DataDelegator.getInstance().deleteLocalCarBill(info);
+                            DataDelegator.getInstance().deleteLocalCarImage(info);
                             mDataList.remove(info);
                             notifyDataSetChanged();
                             dialog.dismiss();

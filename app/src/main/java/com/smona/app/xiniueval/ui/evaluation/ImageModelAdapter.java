@@ -163,9 +163,20 @@ public class ImageModelAdapter extends BaseAdapter {
         return null;
     }
 
+    //返回false表示此图片已经拍了或者是选拍图片／添加；为true表示此图片没拍且是必拍。
     private boolean isEmpty(CarImageBean bean) {
+        //是否拍照；true=没拍，false拍过
         boolean isEmpty =  TextUtils.isEmpty(bean.imageLocalUrl) && TextUtils.isEmpty(bean.imagePath);
+
+        //登记证添加是可选；其余必选
+        boolean isResttration = ImageModelDelegator.getInstance().getImageClassForType(ImageModelDelegator.IMAGE_Registration).equals(bean.imageClass)
+                && (bean.imageSeqNum ==0 || bean.imageSeqNum == 1);
         //行驶证全部可选
+        //nothing todo
+
+        //车辆铭牌
+        boolean isVehicleNameplate = ImageModelDelegator.getInstance().getImageClassForType(ImageModelDelegator.IMAGE_VehicleNameplate).equals(bean.imageClass)
+                && (bean.imageSeqNum ==0);
 
         //车身外观的前后挡风玻璃+添加 是可选；其余必选
         boolean isCarBody = ImageModelDelegator.getInstance().getImageClassForType(ImageModelDelegator.IMAGE_CarBody).equals(bean.imageClass)
@@ -182,8 +193,7 @@ public class ImageModelAdapter extends BaseAdapter {
         //车辆内饰的中央控制面板+添加 是可选；其余必选
         boolean isVehicleInterior = ImageModelDelegator.getInstance().getImageClassForType(ImageModelDelegator.IMAGE_VehicleInterior).equals(bean.imageClass)
                 && (bean.imageSeqNum ==0 || bean.imageSeqNum == 2 || bean.imageSeqNum == 3);
-
-        return isEmpty && (isCarBody || isCarFrame || isVehicleInterior);
+        return isEmpty && (isResttration || isVehicleNameplate || isCarBody || isCarFrame || isVehicleInterior);
     }
 
     private final class ViewHolder {

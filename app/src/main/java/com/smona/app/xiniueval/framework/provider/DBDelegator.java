@@ -171,6 +171,12 @@ public class DBDelegator {
         dao.deleteItem(carBill);
     }
 
+    public void deleteBatchCarImages(int imageId) {
+        BaseDao<CarBillBean> dao = DaoFactory.buildDaoEntry(mAppContext, DaoFactory.TYPE_IMAGE);
+        String where = CarImageTable.IMAGEID + " = " + imageId;
+        dao.deleteBatch(where);
+    }
+
     //Image Meta
     public boolean insertImageMeta(ImageMetaBean bean) {
         BaseDao<ImageMetaBean> dao = DaoFactory.buildDaoEntry(mAppContext, DaoFactory.TYPE_IMAGEMETA);
