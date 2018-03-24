@@ -4,6 +4,7 @@ import android.text.TextUtils;
 
 import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
+import com.smona.app.xiniueval.data.event.LocalStatusRefreshEvent;
 import com.smona.app.xiniueval.data.event.SubmitStatusEvent;
 import com.smona.app.xiniueval.data.event.ToastEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
@@ -43,8 +44,7 @@ public class CompleteTask extends ActionTask {
                         DBDelegator.getInstance().deleteCarbill(carBill);
                         DBDelegator.getInstance().deleteBatchCarImages(carBill.imageId);
                         //刷新未提交
-                        LocalStatusSubEvent event = new LocalStatusSubEvent();
-                        event.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
+                        LocalStatusRefreshEvent event = new LocalStatusRefreshEvent();
                         EventProxy.post(event);
                         //刷新已提交
                         EventProxy.post(new SubmitStatusEvent());

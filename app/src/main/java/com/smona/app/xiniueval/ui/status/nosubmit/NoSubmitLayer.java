@@ -9,6 +9,7 @@ import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.business.param.CarbillParam;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.event.LocalStatusEvent;
+import com.smona.app.xiniueval.data.event.LocalStatusRefreshEvent;
 import com.smona.app.xiniueval.data.event.PassStatusEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
 import com.smona.app.xiniueval.data.item.UserItem;
@@ -174,6 +175,11 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
             mCurPage = 1;
         }
         reloadNormal(true);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void refreshLocal(LocalStatusRefreshEvent event) {
+        request1Page();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
