@@ -13,6 +13,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
+import com.smona.app.xiniueval.data.event.LocalStatusRefreshEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
 import com.smona.app.xiniueval.framework.event.EventProxy;
 import com.smona.app.xiniueval.ui.status.nosubmit.NoSubmitLayer;
@@ -96,8 +97,7 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
     }
 
     private void refreshLocal() {
-        LocalStatusSubEvent local = new LocalStatusSubEvent();
-        local.setTag(LocalStatusSubEvent.TAG_ADD_CARBILL);
-        EventProxy.post(local);
+        LocalStatusRefreshEvent event = new LocalStatusRefreshEvent();
+        EventProxy.post(event);
     }
 }
