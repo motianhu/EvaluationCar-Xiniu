@@ -148,9 +148,12 @@ public class ImageModelAdapter extends BaseAdapter {
         }
         if (!TextUtils.isEmpty(picUrl)) {
             ImageLoaderProxy.loadCornerImage(picUrl, image);
+        } else if(bean.displayName.contains("添加照片")){
+            ImageLoaderProxy.loadCornerImage(null, image);
         } else {
-            image.setImageBitmap(null);
+            image.setImageDrawable(null);
         }
+
         return !TextUtils.isEmpty(picUrl);
     }
 
