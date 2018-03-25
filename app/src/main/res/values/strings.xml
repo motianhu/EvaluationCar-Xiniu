@@ -155,4 +155,7 @@
     <string name="fragment_mine_version">版本:%s</string>
 
     <string name="auditing">正在评估,请稍等</string>
+
+    <string name="finish_status">已完成</string>
+    <string name="auditing_status">评估中</string>
 </resources>

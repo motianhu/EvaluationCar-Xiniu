@@ -1,6 +1,7 @@
 package com.smona.app.xiniueval.ui.status.submited;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,19 +82,27 @@ public class SubmitedAdapter extends BaseAdapter implements AdapterView.OnItemCl
         textNum.setText(mContext.getString(R.string.list_item_number) + " " + carTitle);
 
         TextView textPrice = (TextView) convertView.findViewById(R.id.carPrice);
-        boolean notVisible = mUserItem.userBean.isRichanJinrong();
-        textPrice.setText(mContext.getString(R.string.list_item_price) + " " + carbill.evaluatePrice);
-        ViewUtil.setViewVisible(textPrice, !notVisible);
+        boolean isPass = carbill.status == 54 || carbill.status == 80;
+        String price = carbill.evaluatePrice + "";
+        if(!isPass) {
+            price = "未定价";
+        }
+        textPrice.setText(mContext.getString(R.string.list_item_price) + " " + price);
 
         TextView textTime = (TextView) convertView.findViewById(R.id.carTime);
         textTime.setText(mContext.getString(R.string.list_item_time) + " " + carbill.createTime);
 
         int resId = R.drawable.auditing;
-        if(carbill.status == 54) {
+        int textId = R.string.auditing_status;
+        if(isPass) {
             resId = R.drawable.finish;
+            textId = R.string.finish_status;
         }
-        ImageView image = (ImageView)convertView.findViewById(R.id.status_list_item_arrow);
-        image.setImageResource(resId);
+        TextView statusTv = (TextView)convertView.findViewById(R.id.status_list_item_arrow);
+        Drawable drawable = mContext.getResources().getDrawable(resId);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        statusTv.setCompoundDrawables(null, drawable, null,null);
+        statusTv.setText(textId);
 
         return convertView;
     }
