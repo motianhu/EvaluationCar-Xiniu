@@ -1,6 +1,7 @@
 package com.smona.app.xiniueval.business;
 
 import android.app.Application;
+import android.os.Build;
 
 import com.smona.app.xiniueval.business.param.CarbillParam;
 import com.smona.app.xiniueval.business.param.UserParam;
@@ -47,6 +48,8 @@ public class HttpDelegator implements IProxy {
     private ReqParams createParams(int type) {
         String url = UrlConstants.getInterface(type);
         ReqParams params = new ReqParams(url);
+        params.addParameter("brand", Build.BRAND);
+        params.addParameter("model", Build.MODEL);
         return params;
     }
 
