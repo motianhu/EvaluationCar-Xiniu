@@ -250,11 +250,12 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
             bodyHTML = filterNameAndReject(bodyHTML);
             CarLog.d(TAG, "filter bodyHTML： " + bodyHTML);
             mReasonWebView.setWebViewClient(new WebViewClient());
-            mReasonWebView.getSettings().setDefaultTextEncodingName("utf-8");
+            WebSettings settings = mReasonWebView.getSettings();
+            settings.setDefaultTextEncodingName("utf-8");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                mReasonWebView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
+                settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
             } else {
-                mReasonWebView.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
+                settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
             }
             mReasonWebView.loadData(Utils.getHtmlData(bodyHTML), "text/html; charset=utf-8", "utf-8");
         } else {

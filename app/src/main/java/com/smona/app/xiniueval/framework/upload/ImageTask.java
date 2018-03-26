@@ -31,7 +31,7 @@ public class ImageTask extends ActionTask {
                         DBDelegator.getInstance().updateCarImage(carImageBean);
                         nextTask(mCarBillId, mMessage);
                     } else {
-                        nextTask(mCarBillId, carImageBean.imageClass + "-" + carImageBean.imageSeqNum + ";");
+                        nextTask(mCarBillId, carImageBean.imageClass + "-" + carImageBean.imageSeqNum + " " + resModel.message + ";");
                     }
                 }
 

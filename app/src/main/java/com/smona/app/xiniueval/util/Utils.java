@@ -157,6 +157,7 @@ public class Utils {
         String head = "<head>" +
                 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> " +
                 "<style>img{max-width: 100%; width:auto; height:auto;}</style>" +
+                "<style>*{font-size:12px;} *{color:#8D7A71;}</style>" +
                 "</head>";
         return "<html>" + head + "<body>" + bodyHTML + "</body></html>";
     }

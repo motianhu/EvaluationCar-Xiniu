@@ -57,6 +57,6 @@ public class EvaluationApp extends Application {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void actionMainEvent(ToastEvent event) {
-        ToastUtils.show(this, event.message);
+        ToastUtils.longShow(this, event.message);
     }
 }
