@@ -3,6 +3,7 @@ package com.smona.app.xiniueval.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.bean.CarImageBean;
@@ -30,7 +31,7 @@ public class ActivityUtils {
     public static void jumpEvaluation(Context context, int billStatus, String carBillId, int imageId, boolean isResidual, Class clazz) {
         Intent intent = new Intent();
         SPUtil.put(context, CacheContants.BILL_STATUS, billStatus);
-        SPUtil.put(context, CacheContants.CARBILLID, carBillId);
+        SPUtil.put(context, CacheContants.CARBILLID, TextUtils.isEmpty(carBillId) ? "" : carBillId);
         SPUtil.put(context, CacheContants.IMAGEID, imageId);
         SPUtil.put(context, CacheContants.ISResidualEVALUATION, isResidual);
         intent.setClass(context, clazz);

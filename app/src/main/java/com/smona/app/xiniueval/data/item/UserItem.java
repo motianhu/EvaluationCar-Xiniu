@@ -23,8 +23,8 @@ public class UserItem {
             String userName = Base64Utils.encrypt(id);
             String password = Base64Utils.encrypt(pwd);
             CarLog.d(TAG, "saveSelf userName=" + userName + ", password=" + password);
-            SPUtil.put(context, CacheContants.LOGIN_USERNAME, userName);
-            SPUtil.put(context, CacheContants.LOGIN_PASSWORD, password);
+            SPUtil.put(context, CacheContants.LOGIN_USERNAME, TextUtils.isEmpty(userName) ? "" : userName);
+            SPUtil.put(context, CacheContants.LOGIN_PASSWORD, TextUtils.isEmpty(password) ? "" : password);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,8 +54,8 @@ public class UserItem {
         SPUtil.put(context, CacheContants.LOGIN_USERID, bean.userId);
         SPUtil.put(context, CacheContants.LOGIN_USERCOMPANY, bean.userCompany);
         SPUtil.put(context, CacheContants.LOGIN_USERSUPERCOMPONAY, bean.userSuperCompany);
-        SPUtil.put(context, CacheContants.LOGIN_USERCHINESENAME, bean.userChineseName);
-        SPUtil.put(context, CacheContants.LOGIN_COMPANYNAME, bean.companyName);
+        SPUtil.put(context, CacheContants.LOGIN_USERCHINESENAME, TextUtils.isEmpty(bean.userChineseName)?"":bean.userChineseName);
+        SPUtil.put(context, CacheContants.LOGIN_COMPANYNAME, TextUtils.isEmpty(bean.companyName)?"":bean.companyName);
     }
 
     public void readUserProp(Context context) {

@@ -33,7 +33,12 @@ public abstract class HeaderActivity extends UserActivity {
         HeaderListener headerListener = new HeaderListener();
         findViewById(R.id.left).setOnClickListener(headerListener);
         mTitle = (TextView) findViewById(R.id.center);
-        updateTitle(getHeaderTitle());
+        int resId = getHeaderTitle();
+        if(resId != -1) {
+            updateTitle(resId);
+        } else {
+            updateTitle(getHeaderTitleForStr());
+        }
         ViewUtil.setViewVisible(findViewById(R.id.right), showDelete());
         findViewById(R.id.right).setOnClickListener(headerListener);
     }
@@ -41,6 +46,15 @@ public abstract class HeaderActivity extends UserActivity {
     protected void updateTitle(int resId) {
         mTitle.setText(resId);
     }
+
+    protected void updateTitle(String title) {
+        mTitle.setText(title);
+    }
+
+    protected String getHeaderTitleForStr() {
+        return null;
+    }
+
 
     protected void onDelete() {
     }

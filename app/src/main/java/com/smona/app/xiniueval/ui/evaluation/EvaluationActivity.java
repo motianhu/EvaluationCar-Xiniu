@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -41,6 +42,7 @@ import com.smona.app.xiniueval.util.ViewUtil;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -124,8 +126,8 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
         initDatas();
+        super.onCreate(savedInstanceState);
         initViews();
         initImageList();
         //updateImageViews();
@@ -332,7 +334,14 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
 
         //保存及提交
         findViewById(R.id.btn_save).setOnClickListener(this);
-        findViewById(R.id.btn_submit).setOnClickListener(this);
+        Button submitBtn = (Button) findViewById(R.id.btn_submit);
+        submitBtn.setOnClickListener(this);
+        int resId = R.string.evaluation_resubmit;
+        CarLog.d(TAG, "dddd:" +mCarBillId + ":dddd");
+        if(TextUtils.isEmpty(mCarBillId)) {
+            resId = R.string.evaluation_submit;
+        }
+        submitBtn.setText(resId);
 
         if (mCarBill == null) {
             return;
@@ -669,8 +678,15 @@ public class EvaluationActivity extends HeaderActivity implements View.OnClickLi
 
     @Override
     protected int getHeaderTitle() {
-        return R.string.create_carbill;
+        return TextUtils.isEmpty(mCarBillId) ? R.string.create_carbill:-1;
     }
+
+    @Override
+    protected String getHeaderTitleForStr() {
+        int resId = statusIsSave() ? R.string.unsubmit_carbill : R.string.inject_carbill;
+        return  String.format(getString(resId), mCarBillId);
+    }
+
 
     @Override
     protected void onDestroy() {

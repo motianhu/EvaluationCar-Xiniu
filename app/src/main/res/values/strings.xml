@@ -55,6 +55,8 @@
 
 
     <string name="create_carbill">评估任务创建</string>
+    <string name="unsubmit_carbill">未提交-%s</string>
+    <string name="inject_carbill">已驳回-%s</string>
     <string name="add_picture">添加照片</string>
 
 
@@ -151,11 +153,17 @@
 
     <!--我的-->
     <string name="fragment_mine_belong_company">所属公司:%s</string>
-    <string name="fragment_mine_account">账号:%s</string>
-    <string name="fragment_mine_version">版本:%s</string>
+    <string name="fragment_mine_account">账&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号:%s</string>
+    <string name="fragment_mine_version">版&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;本:%s</string>
+    <string name="fragment_mine_tel">手&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;机:</string>
+    <string name="fragment_mine_vx">微&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;信:</string>
+    <string name="fragment_mine_qq">Q&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Q:</string>
 
     <string name="auditing">正在评估,请稍等</string>
 
     <string name="finish_status">已完成</string>
     <string name="auditing_status">评估中</string>
+
+    <string name="evaluation_submit">立即提交</string>
+    <string name="evaluation_resubmit">重新提交</string>
 </resources>

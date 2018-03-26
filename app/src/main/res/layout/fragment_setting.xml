@@ -28,8 +28,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:paddingStart="80dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="80dp">
 
             <TextView
                 android:id="@+id/belong_company"
@@ -58,6 +58,34 @@
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
+
+            <TextView
+                android:id="@+id/my_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/fragment_mine_tel"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/my_vx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/fragment_mine_vx"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/my_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/fragment_mine_qq"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
         </LinearLayout>
 
     </RelativeLayout>
@@ -81,23 +109,23 @@
             <TextView
                 android:id="@+id/setting_about"
                 android:layout_width="0dp"
-                android:paddingTop="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/text_border"
                 android:drawableTop="@drawable/setting_about"
                 android:gravity="center"
-                android:background="@drawable/text_border"
+                android:paddingTop="20dp"
                 android:text="@string/setting_mine_about" />
 
             <TextView
                 android:id="@+id/setting_juping"
                 android:layout_width="0dp"
-                android:paddingTop="20dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/text_border"
                 android:drawableTop="@drawable/setting_jupin"
                 android:gravity="center"
-                android:background="@drawable/text_border"
+                android:paddingTop="20dp"
                 android:text="@string/setting_evalution_rules" />
 
             <TextView
@@ -105,10 +133,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
                 android:background="@drawable/text_border"
                 android:drawableTop="@drawable/setting_account"
                 android:gravity="center"
+                android:paddingTop="20dp"
                 android:text="@string/setting_mine_account" />
 
         </LinearLayout>
@@ -124,10 +152,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
                 android:background="@drawable/text_border"
                 android:drawableTop="@drawable/setting_paizhao"
                 android:gravity="center"
+                android:paddingTop="20dp"
                 android:text="@string/setting_mine_paizhao" />
 
             <TextView
@@ -135,10 +163,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:paddingTop="20dp"
                 android:background="@drawable/text_border"
                 android:drawableTop="@drawable/setting_logout"
                 android:gravity="center"
+                android:paddingTop="20dp"
                 android:text="@string/setting_mine_logout" />
         </LinearLayout>
 

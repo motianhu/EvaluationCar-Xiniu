@@ -332,7 +332,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="@drawable/submit_bg"
-            android:text="立即提交"
+            android:text="@string/evaluation_submit"
             android:textColor="@color/white"
             android:textSize="17sp" />
     </LinearLayout>

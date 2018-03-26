@@ -16,8 +16,8 @@ public class AccountManager {
             String userName = Base64Utils.encrypt(id);
             String password = Base64Utils.encrypt(pwd);
             CarLog.d(TAG, "saveLastAccount userName=" + userName + ", password=" + password);
-            SPUtil.put(context, CacheContants.LOGIN_LAST_USERNAME, userName);
-            SPUtil.put(context, CacheContants.LOGIN_LAST_PASSWORD, password);
+            SPUtil.put(context, CacheContants.LOGIN_LAST_USERNAME, TextUtils.isEmpty(userName) ? "" : userName);
+            SPUtil.put(context, CacheContants.LOGIN_LAST_PASSWORD, TextUtils.isEmpty(password) ? "" : password);
 
         } catch (Exception e) {
             e.printStackTrace();

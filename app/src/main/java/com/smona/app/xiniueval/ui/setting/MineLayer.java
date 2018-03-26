@@ -63,7 +63,7 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
         if(DeviceStorageManager.getInstance().isTestEvn()) {
             versionName ="testevn " + versionName;
         }
-        String versionFormat = getResources().getString(R.string.fragment_mine_account);
+        String versionFormat = getResources().getString(R.string.fragment_mine_version);
         versionFormat = String.format(versionFormat, versionName);
         version.setText(versionFormat);
 
