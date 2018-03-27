@@ -1,21 +1,14 @@
 package com.smona.app.xiniueval.ui.home.fragment;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.smona.app.xiniueval.R;
-import com.smona.app.xiniueval.data.event.LocalStatusRefreshEvent;
-import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
-import com.smona.app.xiniueval.framework.event.EventProxy;
+import com.smona.app.xiniueval.framework.event.MessageManager;
 import com.smona.app.xiniueval.ui.status.nosubmit.NoSubmitLayer;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
 
@@ -97,7 +90,7 @@ public class NoSubmitFragment extends ContentFragment implements View.OnClickLis
     }
 
     private void refreshLocal() {
-        LocalStatusRefreshEvent event = new LocalStatusRefreshEvent();
-        EventProxy.post(event);
+        //刷新未提交
+        MessageManager.refreshNoSubmitStatus();
     }
 }

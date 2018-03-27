@@ -14,6 +14,7 @@ import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.data.model.ResCarBillPage;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.event.EventProxy;
+import com.smona.app.xiniueval.framework.event.MessageManager;
 import com.smona.app.xiniueval.framework.json.JsonParse;
 import com.smona.app.xiniueval.framework.provider.DBDelegator;
 import com.smona.app.xiniueval.ui.common.refresh.NetworkTipUtil;
@@ -56,7 +57,7 @@ public class SubmitedLayer extends PullToRefreshLayout implements RequestFace , 
     }
 
     private void notifyFilter() {
-        EventProxy.post(new SubmitStatusEvent());
+        MessageManager.refreshSubmited();
     }
 
     private CarbillParam mRequestParams = new CarbillParam();

@@ -10,7 +10,6 @@ import com.smona.app.xiniueval.business.param.CarbillParam;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.event.LocalStatusEvent;
 import com.smona.app.xiniueval.data.event.LocalStatusRefreshEvent;
-import com.smona.app.xiniueval.data.event.PassStatusEvent;
 import com.smona.app.xiniueval.data.event.background.LocalStatusSubEvent;
 import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.data.model.ResCarBillPage;
@@ -186,6 +185,7 @@ public class NoSubmitLayer extends PullToRefreshLayout implements RequestFace, R
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void refreshLocal(LocalStatusRefreshEvent event) {
+        CarLog.d(TAG, "refreshLocal");
         request1Page();
     }
 

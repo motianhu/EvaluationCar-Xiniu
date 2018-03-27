@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import com.smona.app.xiniueval.business.HttpDelegator;
 import com.smona.app.xiniueval.business.ResponseCallback;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
+import com.smona.app.xiniueval.framework.event.MessageManager;
 import com.smona.app.xiniueval.framework.provider.DBDelegator;
 import com.smona.app.xiniueval.util.CarLog;
 
@@ -34,6 +35,8 @@ public class StartupTask extends ActionTask {
                     CarLog.d(TAG, "onError ex: " + error);
                     //没单号就跳过
                     UploadTaskExecutor.getInstance().nextTask(mImageId, null);
+                    //刷新未提交
+                    MessageManager.refreshNoSubmitStatus();
                 }
             });
         } else {
