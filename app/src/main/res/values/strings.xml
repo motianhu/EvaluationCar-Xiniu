@@ -9,6 +9,7 @@
     <string name="register">注册</string>
     <string name="logining">正在登录</string>
     <string name="welcome_use">欢迎使用\n犀牛二手车评估软件</string>
+    <string name="welcome_introduce">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;深圳市誉信通评估有限公司线上评估服务应用于金融公司贷前风控,通过贷款业务员拍摄照片上传至评估中心,评估师进行车辆评估给出合理的交易参考价于金融公司作放贷金额核算.誉信通累计评估量超过50万单,并提供相关线下辅助服务.通过此业务积累全国大量经销商关系资源.誉信通凭借着拥有超过12年实战经验为远程评估模式的倡导者!</string>
 
     <!--首页-->
     <string name="home_fragment_nosubmit">未提交</string>

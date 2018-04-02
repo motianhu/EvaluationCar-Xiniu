@@ -30,10 +30,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center"
+                android:gravity="start"
+                android:padding="2dp"
+                android:textScaleX="1"
                 android:textColor="@color/black_text"
                 android:textSize="18sp"
-                android:text="@string/welcome_use" />
+                android:text="@string/welcome_introduce" />
         </LinearLayout>
     </RelativeLayout>
 

@@ -5,7 +5,7 @@ package com.smona.app.xiniueval.util;
  */
 
 public class FolderContants {
-    public static final String ROOT = "Zhixin";
+    public static final String ROOT = "Xiniu";
     public static final String THUMBNAIL = "thumbnail";
     public static final String MD5CACHE = "cache";
     public static final String TEMP = "temp";
