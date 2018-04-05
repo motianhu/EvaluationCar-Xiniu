@@ -15,6 +15,7 @@ import com.smona.app.xiniueval.R;
 import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
+import com.smona.app.xiniueval.ui.common.activity.CarbillReportActivity;
 import com.smona.app.xiniueval.ui.status.StatusActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
 import com.smona.app.xiniueval.util.ToastUtils;
@@ -120,7 +121,7 @@ public class SubmitedAdapter extends BaseAdapter implements AdapterView.OnItemCl
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         CarBillBean bean = mDataList.get(position);
         if(bean.status == 54) {
-            ActivityUtils.jumpStatus(mContext, bean, StatusActivity.class);
+            ActivityUtils.jumpStatus(mContext, bean, CarbillReportActivity.class);
         } else {
             ToastUtils.show(mContext, R.string.auditing);
         }

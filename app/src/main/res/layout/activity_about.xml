@@ -25,16 +25,22 @@
                 android:layout_height="132dp"
                 android:src="@drawable/logo" />
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logo_word" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="start"
-                android:padding="2dp"
-                android:textScaleX="1"
-                android:textColor="@color/black_text"
-                android:textSize="18sp"
+                android:lineSpacingMultiplier="1.2"
+                android:padding="20dp"
+                android:textScaleX="1.1"
+                android:textColor="@color/bg_black"
                 android:text="@string/welcome_introduce" />
         </LinearLayout>
     </RelativeLayout>

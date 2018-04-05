@@ -130,7 +130,7 @@ public class NoSubmitAdapter extends BaseAdapter implements AdapterView.OnItemCl
         CarBillBean info = mDataList.get(position);
         if (isInject(info)) {
             //驳回
-            ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
+           ActivityUtils.jumpEvaluation(mContext, StatusUtils.BILL_STATUS_RETURN, info.carBillId, info.imageId, info.leaseTerm != 0, EvaluationActivity.class);
         } else if (info.uploadStatus == StatusUtils.BILL_UPLOAD_STATUS_UPLOADING &&
                 !TextUtils.isEmpty(info.carBillId) &&
                 UploadTaskExecutor.getInstance().isWaittingTask(info.imageId, info.carBillId)) {

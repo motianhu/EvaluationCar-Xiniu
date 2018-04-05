@@ -14,7 +14,7 @@ import java.io.File;
 
 public class DeviceStorageManager {
     private static final String TAG = DeviceStorageManager.class.getSimpleName();
-    private static final String TEST_FILE = "zhixintest0123456789";
+    private static final String TEST_FILE = "xiniutest0123456789";
     private volatile static DeviceStorageManager sInstance;
     private boolean mTestEvn = false;
     private Context mAppContext;

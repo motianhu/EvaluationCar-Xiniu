@@ -167,4 +167,15 @@
 
     <string name="evaluation_submit">立即提交</string>
     <string name="evaluation_resubmit">重新提交</string>
+
+    <string name="carbill_report">评估报告</string>
+    <string name="carbill_carbillid">单&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;号:&#160;&#160;</string>
+    <string name="carbill_pinpai">品&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;牌:&#160;&#160;</string>
+    <string name="carbill_chexi">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;系:&#160;&#160;</string>
+    <string name="carbill_chexing">车&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;型:&#160;&#160;</string>
+    <string name="carbill_gongli">使用公里数:&#160;&#160;</string>
+    <string name="carbill_riqi">登&#160;记&#160;&#160;日&#160;期:&#160;&#160;</string>
+    <string name="carbill_cankaojia">新车参考价:&#160;&#160;</string>
+    <string name="carbill_pinggujia">犀牛评估价格:&#160;&#160;</string>
+    <string name="carbill_pingguriqi">评估日期:&#160;&#160;</string>
 </resources>
