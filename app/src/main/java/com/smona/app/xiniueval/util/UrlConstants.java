@@ -54,7 +54,7 @@ public class UrlConstants {
 
 
     private static final String DOMAIN = "http://120.79.46.155";
-    private static final String DOMAIN_TEST = "http://120.79.46.155";
+    private static final String DOMAIN_TEST = "http://112.74.65.110";
     private static final String PORT = "8080";
     private static final String PROJECT = "carWeb";
     private static Map<Integer, String> INTEFACES = new HashMap<>();

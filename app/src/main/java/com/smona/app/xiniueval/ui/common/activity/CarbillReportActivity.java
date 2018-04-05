@@ -25,6 +25,7 @@ public class CarbillReportActivity extends HeaderActivity {
 
     private void initViews() {
         CarBillBean bean = (CarBillBean) getIntent().getSerializableExtra(CacheContants.CARBILLBEAN);
+        //HttpDelegator.getInstance().queryCarBillForId("sh008001", "NS201605090015", mGetCarBillCallback);
         HttpDelegator.getInstance().queryCarBillForId(mUserItem.mId, bean.carBillId, mGetCarBillCallback);
     }
 
