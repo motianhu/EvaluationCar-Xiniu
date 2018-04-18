@@ -99,7 +99,7 @@ public class UrlConstants {
         INTEFACES.put(QUERY_CARBILL, "/external/app/getAppDetailCarBill.html");
 
         INTEFACES.put(GET_AUTO_LOGOS, "/external/source/autologos/");
-        INTEFACES.put(GET_TAKE_PHOTOS, "/external/app/getAppPageElement.html");
+        INTEFACES.put(GET_TAKE_PHOTOS, "/external/source/photorules/");
         INTEFACES.put(REGISTRE, "/view/common/register.jsp");
 
         INTEFACES.put(KEFU, "/view/external/chat/chatlist.php");

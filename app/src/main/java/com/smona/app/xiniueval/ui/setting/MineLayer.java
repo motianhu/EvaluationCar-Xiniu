@@ -94,7 +94,7 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
                 ActivityUtils.jumpReportWebActivity(getContext(), CacheContants.TYPE_TAKEPHOTO, "3");
                 break;
             case R.id.setting_paizhao:
-                ActivityUtils.jumpWebActivity(getContext(), CacheContants.TYPE_RULES, 3);
+                ActivityUtils.jumpTakePhotoRules(getContext());
                 break;
         }
     }

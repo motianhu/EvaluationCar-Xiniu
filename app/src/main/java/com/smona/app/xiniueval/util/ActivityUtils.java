@@ -9,6 +9,7 @@ import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.bean.CarImageBean;
 import com.smona.app.xiniueval.service.UploadService;
 import com.smona.app.xiniueval.ui.WebActivity;
+import com.smona.app.xiniueval.ui.common.activity.PhotoRulesActivity;
 import com.smona.app.xiniueval.ui.common.activity.ReportWebActivity;
 
 /**
@@ -77,6 +78,12 @@ public class ActivityUtils {
         intent.putExtra(CacheContants.DIRECT_WEB_TYPE, type);
         intent.putExtra(CacheContants.WEB_ACTIVITY_TYPE, id);
         intent.setClass(context, ReportWebActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void jumpTakePhotoRules(Context context) {
+        Intent intent = new Intent();
+        intent.setClass(context, PhotoRulesActivity.class);
         context.startActivity(intent);
     }
 
