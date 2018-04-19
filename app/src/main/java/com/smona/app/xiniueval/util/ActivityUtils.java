@@ -10,7 +10,7 @@ import com.smona.app.xiniueval.data.bean.CarImageBean;
 import com.smona.app.xiniueval.service.UploadService;
 import com.smona.app.xiniueval.ui.WebActivity;
 import com.smona.app.xiniueval.ui.common.activity.PhotoRulesActivity;
-import com.smona.app.xiniueval.ui.common.activity.ReportWebActivity;
+import com.smona.app.xiniueval.ui.common.activity.RefuseRulesActivity;
 
 /**
  * Created by motianhu on 2/27/17.
@@ -73,11 +73,9 @@ public class ActivityUtils {
         context.startService(intent);
     }
 
-    public static void jumpReportWebActivity(Context context,int type, String id) {
+    public static void jumpRefuseRules(Context context) {
         Intent intent = new Intent();
-        intent.putExtra(CacheContants.DIRECT_WEB_TYPE, type);
-        intent.putExtra(CacheContants.WEB_ACTIVITY_TYPE, id);
-        intent.setClass(context, ReportWebActivity.class);
+        intent.setClass(context, RefuseRulesActivity.class);
         context.startActivity(intent);
     }
 

@@ -15,10 +15,12 @@
         android:orientation="vertical">
 
         <WebView
-            android:id="@+id/content_web"
+            android:id="@+id/content_rules"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp" />
+            android:layout_marginStart="@dimen/evaluation_class_margin"
+            android:layout_marginEnd="@dimen/evaluation_class_margin"
+            android:layout_marginTop="@dimen/evaluation_class_margin" />
 
     </RelativeLayout>
 

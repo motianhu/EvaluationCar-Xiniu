@@ -15,7 +15,6 @@ import com.smona.app.xiniueval.framework.storage.DeviceStorageManager;
 import com.smona.app.xiniueval.ui.LoginActivity;
 import com.smona.app.xiniueval.ui.common.activity.BaseActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
-import com.smona.app.xiniueval.util.CacheContants;
 import com.smona.app.xiniueval.util.CarLog;
 import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.Utils;
@@ -91,7 +90,7 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
                 showDialog();
                 break;
             case R.id.setting_juping:
-                ActivityUtils.jumpReportWebActivity(getContext(), CacheContants.TYPE_TAKEPHOTO, "3");
+                ActivityUtils.jumpRefuseRules(getContext());
                 break;
             case R.id.setting_paizhao:
                 ActivityUtils.jumpTakePhotoRules(getContext());

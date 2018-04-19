@@ -50,6 +50,7 @@ public class HttpDelegator implements IProxy {
         ReqParams params = new ReqParams(url);
         params.addParameter("brand", Build.BRAND);
         params.addParameter("model", Build.MODEL);
+        params.addParameter("clientName", "android");
         return params;
     }
 
@@ -57,13 +58,11 @@ public class HttpDelegator implements IProxy {
         ReqParams params = createParams(UrlConstants.CHECK_USER);
         params.addParameter(UserParam.USERNAME, userParam.userName);
         params.addParameter(UserParam.PASSWORD, userParam.password);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
     public void createCarBillId(ResponseCallback callback) {
         ReqParams params = createParams(UrlConstants.CREATE_CARBILLID);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
@@ -73,14 +72,12 @@ public class HttpDelegator implements IProxy {
         params.addParameter(CarbillParam.STATUS, param.status);
         params.addParameter(CarbillParam.CURPAGE, param.curPage);
         params.addParameter(CarbillParam.PAGESIZE, param.pageSize);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
     public void uploadImage(String createUser, CarImageBean bean, ResponseCallback callback) {
         ReqParams params = createParams(UrlConstants.UPLOAD_IMAGE);
         params.addParameter("createUser", createUser);
-        params.addParameter("clientName", "android");
         params.addParameter("carBillId", bean.carBillId);
         params.addParameter("imageSeqNum", bean.imageSeqNum);
         params.addParameter("imageClass", bean.imageClass);
@@ -92,7 +89,6 @@ public class HttpDelegator implements IProxy {
         ReqParams params = createParams(UrlConstants.SUBMIT_CARBILL);
         params.addParameter("userName", userName);
         params.addParameter("carBillId", carBill.carBillId);
-        params.addParameter("clientName", "android");
         params.addParameter("preSalePrice", carBill.preSalePrice);
         params.addParameter("mark", carBill.mark);
         params.addParameter("leaseTerm", carBill.leaseTerm);
@@ -103,7 +99,6 @@ public class HttpDelegator implements IProxy {
         ReqParams params = createParams(UrlConstants.QUERY_CARBILL);
         params.addParameter("userName", userName);
         params.addParameter("carBillId", carBillId);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
@@ -111,7 +106,6 @@ public class HttpDelegator implements IProxy {
         ReqParams params = createParams(UrlConstants.QUERY_CARBILL_IMAGE);
         params.addParameter("userName", userName);
         params.addParameter("carBillId", carBillId);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
@@ -123,7 +117,6 @@ public class HttpDelegator implements IProxy {
     public void queryCarbillCount(String userName, ResponseCallback callback) {
         ReqParams params = createParams(UrlConstants.QUERY_CARBILL_COUNT);
         params.addParameter("userName", userName);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
@@ -132,7 +125,6 @@ public class HttpDelegator implements IProxy {
         params.addParameter("userName", userName);
         params.addParameter("carBillId", carBillId);
         params.addParameter("status", "23,33,43,53");
-        params.addParameter("clientName", "android");
         params.addParameter("curPage", "1");
         params.addParameter("pageSize", "50");
         x.http().get(params, callback);
@@ -140,19 +132,22 @@ public class HttpDelegator implements IProxy {
 
     public void requestUpgradeInfo(ResponseCallback<String> callback) {
         ReqParams params = createParams(UrlConstants.QUERY_APP_UPGRADE);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
     public void queryPageElementDetail(int pageId, ResponseCallback<String> callback) {
         ReqParams params = createParams(UrlConstants.QUERY_PAGEELEMENT_DETAIL);
         params.addParameter("id", pageId);
-        params.addParameter("clientName", "android");
         x.http().get(params, callback);
     }
 
     public String getAutoLogos(String name) {
         String url = UrlConstants.getInterface(UrlConstants.GET_AUTO_LOGOS);
         return url + name;
+    }
+
+    public void getRefuseRules(ResponseCallback callback) {
+        ReqParams params = createParams(UrlConstants.QUERY_CARBILL_IMAGE);
+        x.http().get(params, callback);
     }
 }
