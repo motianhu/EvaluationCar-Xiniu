@@ -16,11 +16,11 @@ import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.data.item.UserItem;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.ui.common.activity.CarbillReportActivity;
-import com.smona.app.xiniueval.ui.status.StatusActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
 import com.smona.app.xiniueval.util.ToastUtils;
 import com.smona.app.xiniueval.util.UrlConstants;
 import com.smona.app.xiniueval.util.ViewUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 

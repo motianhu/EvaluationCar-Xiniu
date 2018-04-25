@@ -10,7 +10,6 @@ import com.smona.app.xiniueval.framework.provider.dao.DaoFactory;
 import com.smona.app.xiniueval.framework.provider.table.CarBillTable;
 import com.smona.app.xiniueval.framework.provider.table.CarImageTable;
 import com.smona.app.xiniueval.framework.provider.table.ImageMetaTable;
-import com.smona.app.xiniueval.util.CarLog;
 import com.smona.app.xiniueval.util.StatusUtils;
 
 import java.util.List;

@@ -12,8 +12,6 @@ import com.smona.app.xiniueval.framework.event.MessageManager;
 import com.smona.app.xiniueval.ui.status.nosubmit.NoSubmitLayer;
 import com.smona.app.xiniueval.ui.status.nosubmit.StatusFilter;
 
-import org.w3c.dom.Text;
-
 /**
  * Created by Moth on 2015/8/28 0028.
  */

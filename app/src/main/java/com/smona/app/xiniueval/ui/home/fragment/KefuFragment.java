@@ -1,14 +1,6 @@
 package com.smona.app.xiniueval.ui.home.fragment;
 
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-
 import com.smona.app.xiniueval.R;
-import com.smona.app.xiniueval.business.HttpDelegator;
-import com.smona.app.xiniueval.data.item.UserItem;
-import com.smona.app.xiniueval.util.CarLog;
-import com.smona.app.xiniueval.util.UrlConstants;
 
 
 /**

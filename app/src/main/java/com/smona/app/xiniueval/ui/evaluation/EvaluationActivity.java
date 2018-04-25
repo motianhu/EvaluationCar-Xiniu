@@ -42,7 +42,6 @@ import com.smona.app.xiniueval.util.ViewUtil;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

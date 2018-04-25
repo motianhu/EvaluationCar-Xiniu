@@ -18,7 +18,6 @@ import com.smona.app.xiniueval.data.bean.CarBillBean;
 import com.smona.app.xiniueval.framework.cache.DataDelegator;
 import com.smona.app.xiniueval.framework.imageloader.ImageLoaderProxy;
 import com.smona.app.xiniueval.framework.upload.UploadTaskExecutor;
-import com.smona.app.xiniueval.ui.common.activity.CarbillReportActivity;
 import com.smona.app.xiniueval.ui.evaluation.EvaluationActivity;
 import com.smona.app.xiniueval.util.ActivityUtils;
 import com.smona.app.xiniueval.util.CarLog;
