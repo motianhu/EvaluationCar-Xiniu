@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical"
-            android:paddingStart="80dp">
+            android:paddingStart="90dp">
 
             <TextView
                 android:id="@+id/belong_company"
@@ -38,7 +38,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/fragment_mine_belong_company"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/mine_name"
@@ -47,7 +47,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/fragment_mine_account"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/version"
@@ -56,7 +56,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/fragment_mine_version"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
 
             <TextView
@@ -75,7 +75,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/fragment_mine_vx"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/my_qq"
@@ -84,7 +84,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/fragment_mine_qq"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 
