@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:descendantFocusability="beforeDescendants"
+    android:background="@color/bg_gray"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -24,8 +25,11 @@
         android:layout_height="1dp"
         android:background="@color/div_white" />
 
-    <WebView
-        android:id="@+id/kefu_webview"
+    <TextView
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:background="@color/white"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:text="@string/kefu_description"/>
 </LinearLayout>
