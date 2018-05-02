@@ -15,8 +15,8 @@ android {
         applicationId "com.smona.app.xiniueval"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 20180319
-        versionName "2.1.0"
+        versionCode 20180502
+        versionName "2.2.1.b"
     }
     buildTypes {
         release {

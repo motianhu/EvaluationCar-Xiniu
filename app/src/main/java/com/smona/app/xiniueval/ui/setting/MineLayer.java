@@ -83,7 +83,7 @@ public class MineLayer extends LinearLayout implements View.OnClickListener {
                 ActivityUtils.jumpOnlyActivity(getContext(), SettingActivity.class);
                 break;
             case R.id.setting_account:
-                ActivityUtils.jumpOnlyActivity(getContext(), MineActivity.class);
+                //ActivityUtils.jumpOnlyActivity(getContext(), MineActivity.class);
                 break;
             case R.id.setting_logout:
                 //弹出对话框，退出
